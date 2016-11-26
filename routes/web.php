@@ -10,11 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+Route::group(
+[
+	'prefix' 		=> LaravelLocalization::setLocale(),
+	// Zet gekozen taal voor de url: vb. /nl/home
+	'middleware' 	=> [ 'localeSessionRedirect', 'localizationRedirect'] 
+	// Redirect naar /nl/home wanneer naar /home gesurft wordt
+], 
+function()
+{
+		
+	Route::get('users', function ()    {
+    	
+	});
+
+    Route::get('/', function () {
+    	return view('welcome');
+	});
+
+	Route::get('/home', 'HomeController@index');
+});

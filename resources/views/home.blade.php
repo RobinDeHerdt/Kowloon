@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    {{ trans('messages.welcome') }}
                 </div>
             </div>
         </div>

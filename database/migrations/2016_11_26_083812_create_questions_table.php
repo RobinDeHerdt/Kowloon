@@ -17,6 +17,10 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('body');
+            $table->integer('product_id')->unsigned();
+
+            $table->foreign('product_id')->references('id')->on('products');
+            
             $table->timestamps();
         });
     }

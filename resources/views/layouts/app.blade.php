@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -36,6 +36,23 @@
             <img src="/img/hamster.png" alt="small animals">
         </div>
     </div>
+
+    @if (Auth::guest())
+       
+    @else
+    <div class="admin-nav">
+        <a href="/admin">Adminpanel</a>
+        <a href="{{ url('/logout') }}"
+            onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+            Logout
+        </a>
+        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+    </div>
+    @endif
+
     <div class="main-container">
         @yield('content')
     </div>

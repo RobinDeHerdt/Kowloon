@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
+Auth::routes();
 
 Route::group(
 [
@@ -22,14 +22,12 @@ Route::group(
 ], 
 function()
 {
-		
-	Route::get('users', function ()    {
-    	
-	});
+	// Vertaalde routes
+	Route::get(LaravelLocalization::transRoute('routes.about'), 'AboutController@index');
 
-    Route::get('/', function () {
-    	return view('welcome');
-	});
-
+	// Niet vertaalde routes
 	Route::get('/home', 'HomeController@index');
+	Route::get('/', function() {
+		return redirect('/home');
+	});
 });

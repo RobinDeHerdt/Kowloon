@@ -1,65 +1,85 @@
 body {
-	background-color: #454545;
-	color: white;
- }
+  background-color: #454545;
+  color: #cecece;
+  font-style: Arial;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 175%; }
 
 .side-container {
-	width: 5%;
-	float:left;
-	height:100vh;
-	background-color: #323232;
-}
-
-.side-container img {
-	background-color: #323232;
-	margin-top: 20px;
-	margin-left: 30%;
-	width: 40%;
-}
+  width: 5%;
+  float: left;
+  height: 100vh;
+  background-color: #323232; }
+  .side-container img {
+    background-color: #323232;
+    margin-top: 20px;
+    margin-left: 30%;
+    width: 40%; }
 
 .category-items {
-	margin-top: 70px;
-}
+  margin-top: 70px; }
+  .category-items img {
+    margin-top: 22.5px; }
 
 .carousel-image {
-	width: 95%;
-}
+  width: 95%; }
 
 .logo-image {
-	position: absolute;
-	width: 22.5%;
-	top: 10%;
-	left: 41%;
-}
+  position: absolute;
+  width: 22.5%;
+  top: 10%;
+  left: 41%; }
 
 .login-form {
-	background-color: #f7eade;
-	margin-top: 30%;
-	padding: 25px;
-	color: black;
-}
-
-.login-form button {
-	background-color: #e27500;
-	border-color: #e27500;
-	width: 72.5%;
-}
-
-.login-form button:hover {
-	background-color: #e27500;
-	border-color: #e27500;
-}
+  background-color: #f7eade;
+  margin-top: 30%;
+  padding: 25px;
+  color: black; }
+  .login-form .login-form button {
+    background-color: #e27500;
+    border-color: #e27500;
+    width: 72.5%; }
+    .login-form .login-form button:hover {
+      background-color: #e27500;
+      border-color: #e27500; }
 
 .admin-nav {
-	font-size: 1.2em;
-	position: absolute;
-	padding: 20px;
-	right: 3%;
-	top: 3%;
-	background-color: white;
-	box-shadow: 2px 2px 10px black;
-}
+  font-size: 1.2em;
+  position: absolute;
+  padding: 20px;
+  right: 3%;
+  top: 3%;
+  background-color: white;
+  box-shadow: 2px 2px 10px black; }
+  .admin-nav a:nth-child(1) {
+    margin-right: 20px; }
 
-.admin-nav a:nth-child(1) {
-	margin-right: 20px;
-}
+.content {
+  margin-left: 5%;
+  width: 95%; }
+
+.intro-content {
+  width: 65%;
+  margin-left: 17.5%; }
+
+.categories-content {
+  margin-top: 50px;
+  width: 80%;
+  margin-left: 10%; }
+
+.category {
+  display: inline-block;
+  border-right: 1px solid;
+  width: 16%; }
+  .category img {
+    width: 25%;
+    margin-left: 37.5%; }
+  .category:nth-child(6) {
+    border-right: none; }
+
+#introtext {
+  text-align: center;
+  margin-top: 75px; }
+
+/*# sourceMappingURL=app.css.map */

@@ -32,8 +32,11 @@
             <img src="/img/dog.png" alt="dogs">
             <img src="/img/cat.png" alt="cats">
             <img src="/img/fish.png" alt="fish">
-            <img src="/img/bird.png" alt="birds">
+            <img src="/img/bird.png" alt="birds" class="bird">
             <img src="/img/hamster.png" alt="small animals">
+        </div>
+        <div class="footer-logo">
+            <img src="/img/k_logo.png" alt="logo" class="footer-logo">
         </div>
     </div>
 

@@ -1,1 +1,2 @@
-sass --watch resources/assets/sass:public/css
+sass --watch --poll  resources/assets/sass/app.scss:public/css/app.css --trace
+

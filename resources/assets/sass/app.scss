@@ -1,5 +1,10 @@
-// Variables
 @import "variables";
+@import "fonts";
+
+html {
+	min-height: 100%;
+	position: relative;
+}
 
 body {
 	background-color: #454545;
@@ -8,32 +13,45 @@ body {
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 175%;
+	height: 100%;
+	width: 100%;
  }
 
 .side-container {
 	width: 5%;
 	float:left;
-	height:100vh;
 	background-color: #323232;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow:hidden;
 
-	img {
-		background-color: #323232;
-		margin-top: 20px;
-		margin-left: 30%;
-		width: 40%;
+	.category-items {
+		margin-top: 70px;
 	}
-}
 
-.category-items {
-	margin-top: 70px;
+	.category-items, .menu-items {
+		img {
+			margin-top: 20px;
+			margin-left: 30%;
+			width: 40%;
+		}
+	}
 
-	img {
-		margin-top: 22.5px;
+	.footer-logo {
+		position: relative;
+		top: 190px;
+
+		img {
+			margin-left: 30%;
+			width: 40%;
+		}
 	}
 }
 
 .carousel-image {
 	width: 95%;
+	margin-left: 5%;
 }
 
 .logo-image {
@@ -61,7 +79,6 @@ body {
 	}
 }
 
-
 .admin-nav {
 	font-size: 1.2em;
 	position: absolute;
@@ -79,35 +96,54 @@ body {
 .content {
 	margin-left: 5%;
 	width: 95%;
-}
 
-.intro-content {
-	width: 65%;
-	margin-left: 17.5%;
-}
-
-.categories-content {
-	margin-top: 50px;
-	width: 80%;
-	margin-left: 10%;
-}
-
-.category {
-	display: inline-block;
-	border-right: 1px solid ;
-	width: 16%;
-
-	img {
-		width: 25%;
-		margin-left: 37.5%;
+	.intro-content {
+		width: 65%;
+		margin-left: 17.5%;
+		margin-top: 75px;
+		text-align: center;
 	}
 
-	&:nth-child(6) {
-		border-right: none;
+	.categories-content {
+		margin-top: 50px;
+		margin-left: 10%;
+		width: 80%;
+		
+		.category {
+			display: inline-block;
+			border-right: 1px solid ;
+			width: 16.30%;
+			height: 75px;
+			text-align: center;
+			
+			img {
+				height: 60%;
+				width: auto;
+			}
+
+			&:nth-child(6) {
+				border-right: none;
+			}
+
+			span {
+				text-transform: uppercase;
+				text-align:center;
+				display:block;
+				font-family: choplin-light !important;
+				font-size: 1.1em;
+				margin-top: 15px;
+			}
+		}
+	}
+
+	.main-content {
+		margin-top: 50px;
+		width: 80%;
+		margin-left: 10%;
 	}
 }
 
-#introtext {
-	text-align: center;
-	margin-top: 75px;
+h1 {
+	font-family: choplin !important;
+	color: #ffffff;
 }

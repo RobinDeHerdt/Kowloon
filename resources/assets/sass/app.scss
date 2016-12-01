@@ -127,6 +127,13 @@ body {
 		margin-top: 50px;
 		margin-left: 10%;
 		width: 80%;
+		text-align: justify;
+
+		&:after {
+	  			content: '';
+	  			width: 80%;
+	  			display: inline-block;
+			}
 		
 		.category {
 			display: inline-block;
@@ -156,37 +163,117 @@ body {
 	}
 
 	.main-content {
-		margin-top: 50px;
 		width: 80%;
+		margin-top: 50px;
 		margin-left: 10%;
-		text-align: justify;
-		
-		/* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */
-		&:after {
-  			content: '';
-  			width: 100%;
-  			display: inline-block;
+
+		h1 {
+			text-transform: uppercase;
 		}
+		
+		.hot-items-container {
+			width: 100%;
+			height: 100%;
+			text-align: justify;
 
-		.hot-item {
-			width: 24.5%;
-			display: inline-block;
-			background-color: #565656;
-			padding: 5px;
+			.hot-item {
+				width: 24.5%;
+				display: inline-block;
+				background-color: #565656;
+				padding: 5px;
+			}
+	
+			/* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */
+			&:after {
+	  			content: '';
+	  			width: 100%;
+	  			display: inline-block;
+			}
 
-			img {
+			.hot-item img {
 				max-width:100%;
 				max-height:100%;
 			}
 				
-			span:nth-child(2) {
+			.hot-item span:nth-child(2) {
 				padding: 5px 5px 0 5px;
 				float:left;
 			}
 
-			span:nth-child(3) {
+			.hot-item span:nth-child(3) {
 				padding: 5px 5px 0 5px;
 				float:right;
+			}
+		}
+
+		#visit-link {
+			a {
+				color:white;
+				float:right;
+			}
+
+			a:link {
+				color: white;
+				text-decoration: underline;
+			}
+		}
+		
+		.subscribe-container {
+			margin: 75px 0 75px 0;
+			height: 225px;
+			background-color: #5f5f5f;
+			
+			.discover-box {
+				display: inline-block;
+				font-family: choplin !important;
+				color: #ffffff;
+				text-align: center;
+				height: 100%;
+				width: 65%;			
+				background-image: url("/img/patroon.jpg");
+				padding-top: 15px;
+			}
+
+			.discover-box h1 {
+				margin-left: 15%;
+				width: 70%;
+				font-size: 48px;
+				text-transform: none;
+			}
+
+			.input-box {
+				padding: 20px 0 0 25px;
+				display: inline-block;
+				height: 100%;
+				width: 35%;
+				float: right;
+			}
+				
+			.input-box h3 {
+				font-size: 22px;
+				color: #ffffff;
+			}
+
+			.input-box span {
+				color: #cecece;
+			}
+
+			.input-box form {
+				margin-top: 35px;
+			}
+
+			.input-box input[type="text"] {
+				color: #2b2b2b;
+				padding: 10px;
+				border: 2px solid #9a9a9a;
+				width: 75%;
+			}
+
+			.input-box input[type="submit"] {
+				border: none;
+				margin-left: -5px;
+				padding: 12px;
+				background-color: #323232;
 			}
 		}
 	}

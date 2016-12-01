@@ -96,7 +96,12 @@ body {
   .content .categories-content {
     margin-top: 50px;
     margin-left: 10%;
-    width: 80%; }
+    width: 80%;
+    text-align: justify; }
+    .content .categories-content:after {
+      content: '';
+      width: 80%;
+      display: inline-block; }
     .content .categories-content .category {
       display: inline-block;
       border-right: 1px solid;
@@ -116,29 +121,81 @@ body {
         font-size: 1.1em;
         margin-top: 15px; }
   .content .main-content {
-    margin-top: 50px;
     width: 80%;
-    margin-left: 10%;
-    text-align: justify;
-    /* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */ }
-    .content .main-content:after {
-      content: '';
+    margin-top: 50px;
+    margin-left: 10%; }
+    .content .main-content h1 {
+      text-transform: uppercase; }
+    .content .main-content .hot-items-container {
       width: 100%;
-      display: inline-block; }
-    .content .main-content .hot-item {
-      width: 24.5%;
-      display: inline-block;
-      background-color: #565656;
-      padding: 5px; }
-      .content .main-content .hot-item img {
+      height: 100%;
+      text-align: justify;
+      /* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */ }
+      .content .main-content .hot-items-container .hot-item {
+        width: 24.5%;
+        display: inline-block;
+        background-color: #565656;
+        padding: 5px; }
+      .content .main-content .hot-items-container:after {
+        content: '';
+        width: 100%;
+        display: inline-block; }
+      .content .main-content .hot-items-container .hot-item img {
         max-width: 100%;
         max-height: 100%; }
-      .content .main-content .hot-item span:nth-child(2) {
+      .content .main-content .hot-items-container .hot-item span:nth-child(2) {
         padding: 5px 5px 0 5px;
         float: left; }
-      .content .main-content .hot-item span:nth-child(3) {
+      .content .main-content .hot-items-container .hot-item span:nth-child(3) {
         padding: 5px 5px 0 5px;
         float: right; }
+    .content .main-content #visit-link a {
+      color: white;
+      float: right; }
+    .content .main-content #visit-link a:link {
+      color: white;
+      text-decoration: underline; }
+    .content .main-content .subscribe-container {
+      margin: 75px 0 75px 0;
+      height: 225px;
+      background-color: #5f5f5f; }
+      .content .main-content .subscribe-container .discover-box {
+        display: inline-block;
+        font-family: choplin !important;
+        color: #ffffff;
+        text-align: center;
+        height: 100%;
+        width: 65%;
+        background-image: url("/img/patroon.jpg");
+        padding-top: 15px; }
+      .content .main-content .subscribe-container .discover-box h1 {
+        margin-left: 15%;
+        width: 70%;
+        font-size: 48px;
+        text-transform: none; }
+      .content .main-content .subscribe-container .input-box {
+        padding: 20px 0 0 25px;
+        display: inline-block;
+        height: 100%;
+        width: 35%;
+        float: right; }
+      .content .main-content .subscribe-container .input-box h3 {
+        font-size: 22px;
+        color: #ffffff; }
+      .content .main-content .subscribe-container .input-box span {
+        color: #cecece; }
+      .content .main-content .subscribe-container .input-box form {
+        margin-top: 35px; }
+      .content .main-content .subscribe-container .input-box input[type="text"] {
+        color: #2b2b2b;
+        padding: 10px;
+        border: 2px solid #9a9a9a;
+        width: 75%; }
+      .content .main-content .subscribe-container .input-box input[type="submit"] {
+        border: none;
+        margin-left: -5px;
+        padding: 12px;
+        background-color: #323232; }
 
 h1 {
   font-family: choplin !important;

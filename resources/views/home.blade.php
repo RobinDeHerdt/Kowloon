@@ -35,26 +35,44 @@
 				</div>
 			</div>
 			<div class="main-content">
-				<h1>Hot items</h1>
-				<div class="hot-item">
-					<img src="/img/cooling mat.png" alt="hot-item-1">
-					<span>Cooling mat</span>
-					<span>€ 15,49</span>
+				<h1>Hot items.</h1>
+				<div class="hot-items-container">
+					<div class="hot-item">
+						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<span>Cooling mat</span>
+						<span>€ 15,49</span>
+					</div>
+					<div class="hot-item">
+						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<span>Cooling mat</span>
+						<span>€ 15,49</span>
+					</div>
+					<div class="hot-item">
+						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<span>Cooling mat</span>
+						<span>€ 15,49</span>
+					</div>
+					<div class="hot-item">
+						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<span>Cooling mat</span>
+						<span>€ 15,49</span>
+					</div>
 				</div>
-				<div class="hot-item">
-					<img src="/img/cooling mat.png" alt="hot-item-1">
-					<span>Cooling mat</span>
-					<span>€ 15,49</span>
-				</div>
-				<div class="hot-item">
-					<img src="/img/cooling mat.png" alt="hot-item-1">
-					<span>Cooling mat</span>
-					<span>€ 15,49</span>
-				</div>
-				<div class="hot-item">
-					<img src="/img/cooling mat.png" alt="hot-item-1">
-					<span>Cooling mat</span>
-					<span>€ 15,49</span>
+				<span id="visit-link"><a href="#">Visit the store</a></span>
+				<div class="subscribe-container">
+					<div class="discover-box">
+						<h1>discover amazing Kowloon deals!</h1>
+						<h3>Only in our newsletter</h3>
+					</div>
+					<div class="input-box">
+						<h3>Subscribe to our newsletter</h2>
+						<span>Lorem ipsum dolor sit amet.</span>
+						{!! Form::open(['url' => '/subscribe']) !!}
+							{{ Form::token() }}
+							{{ Form::text('email', 'name@domain.com') }}
+							{{ Form::submit('OK') }}
+						{!! Form::close() !!}
+					</div>
 				</div>
 			</div>
 		</div>

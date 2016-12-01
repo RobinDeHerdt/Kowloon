@@ -67,9 +67,9 @@
 					<div class="input-box">
 						<h3>Subscribe to our newsletter</h2>
 						<span>Lorem ipsum dolor sit amet.</span>
-						{!! Form::open(['url' => '/subscribe']) !!}
+						{!! Form::open(['url' => '/' . Lang::locale() . '/subscribe']) !!}
 							{{ Form::token() }}
-							{{ Form::text('email', 'name@domain.com') }}
+							{{ Form::text('email', '', ['placeholder' => 'name@domain.com']) }}
 							{{ Form::submit('OK') }}
 						{!! Form::close() !!}
 					</div>

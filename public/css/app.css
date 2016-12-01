@@ -118,7 +118,27 @@ body {
   .content .main-content {
     margin-top: 50px;
     width: 80%;
-    margin-left: 10%; }
+    margin-left: 10%;
+    text-align: justify;
+    /* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */ }
+    .content .main-content:after {
+      content: '';
+      width: 100%;
+      display: inline-block; }
+    .content .main-content .hot-item {
+      width: 24.5%;
+      display: inline-block;
+      background-color: #565656;
+      padding: 5px; }
+      .content .main-content .hot-item img {
+        max-width: 100%;
+        max-height: 100%; }
+      .content .main-content .hot-item span:nth-child(2) {
+        padding: 5px 5px 0 5px;
+        float: left; }
+      .content .main-content .hot-item span:nth-child(3) {
+        padding: 5px 5px 0 5px;
+        float: right; }
 
 h1 {
   font-family: choplin !important;

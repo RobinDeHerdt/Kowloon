@@ -36,6 +36,26 @@
 			</div>
 			<div class="main-content">
 				<h1>Hot items</h1>
+				<div class="hot-item">
+					<img src="/img/cooling mat.png" alt="hot-item-1">
+					<span>Cooling mat</span>
+					<span>€ 15,49</span>
+				</div>
+				<div class="hot-item">
+					<img src="/img/cooling mat.png" alt="hot-item-1">
+					<span>Cooling mat</span>
+					<span>€ 15,49</span>
+				</div>
+				<div class="hot-item">
+					<img src="/img/cooling mat.png" alt="hot-item-1">
+					<span>Cooling mat</span>
+					<span>€ 15,49</span>
+				</div>
+				<div class="hot-item">
+					<img src="/img/cooling mat.png" alt="hot-item-1">
+					<span>Cooling mat</span>
+					<span>€ 15,49</span>
+				</div>
 			</div>
 		</div>
 @endsection

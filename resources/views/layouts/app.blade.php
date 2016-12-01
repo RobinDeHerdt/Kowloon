@@ -24,16 +24,21 @@
 <body>
     <div class="side-container">
         <div class="menu-items">   
-            <img src="/img/menu-icon.png" alt="menu">
+            <div class="hamburger">
+                <img src="/img/menu-icon.png" alt="menu">
+            </div>
             <img src="/img/search-icon.png" alt="search">
             <img src="/img/faq-icon.png" alt="faq">
         </div>
+        <div class="divider">
+            
+        </div>
         <div class="category-items">
-            <img src="/img/dog.png" alt="dogs">
-            <img src="/img/cat.png" alt="cats">
-            <img src="/img/fish.png" alt="fish">
-            <img src="/img/bird.png" alt="birds" class="bird">
-            <img src="/img/hamster.png" alt="small animals">
+            <img src="/img/dog_white.png" alt="dogs">
+            <img src="/img/cat_white.png" alt="cats">
+            <img src="/img/fish_white.png" alt="fish">
+            <img src="/img/bird_white.png" alt="birds" class="bird">
+            <img src="/img/hamster_white.png" alt="small animals">
         </div>
         <div class="footer-logo">
             <img src="/img/k_logo.png" alt="logo" class="footer-logo">

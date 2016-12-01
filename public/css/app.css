@@ -26,15 +26,27 @@ body {
   top: 0;
   bottom: 0;
   overflow: hidden; }
+  .side-container .menu-items {
+    margin-bottom: 40%; }
+    .side-container .menu-items .hamburger {
+      background-color: #252525;
+      margin-bottom: 25%; }
+  .side-container .divider {
+    margin-left: 15%;
+    width: 70%;
+    border-bottom: solid 2px #454545; }
   .side-container .category-items {
-    margin-top: 70px; }
+    margin-bottom: 60%;
+    margin-top: 60%; }
   .side-container .category-items img, .side-container .menu-items img {
-    margin-top: 20px;
-    margin-left: 30%;
-    width: 40%; }
+    margin-top: 12.5%;
+    margin-bottom: 12.5%;
+    margin-left: 25%;
+    width: 50%; }
   .side-container .footer-logo {
-    position: relative;
-    top: 190px; }
+    position: absolute;
+    bottom: 10px;
+    width: 100%; }
     .side-container .footer-logo img {
       margin-left: 30%;
       width: 40%; }

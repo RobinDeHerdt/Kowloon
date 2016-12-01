@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Subscriber;
+use App\Mail\Subscribed;
+use Mail;
 
 class SubscriberController extends Controller
 {
@@ -15,5 +17,9 @@ class SubscriberController extends Controller
         $subscriber->language 	= $lang;
 
         $subscriber->save();
+
+        Mail::to($subscriber->email)->send(new Subscribed($lang));
+
+        return back();
     }
 }

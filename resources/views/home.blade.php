@@ -2,8 +2,22 @@
 
 @section('content')
         <img src="/img/logo.png" alt="logo" class="logo-image">
-        <!-- Carousel -->
-        <img src="/img/dog-1.png" alt="dog picture" class="carousel-image">
+
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		  	<ol class="carousel-indicators">
+			  	@foreach ($carouselimages as $key => $image)
+			    	<li data-target="#myCarousel" data-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"></li>
+			    @endforeach
+		 	</ol>
+
+		  	<div class="carousel-inner" role="listbox">
+			  	@foreach ($carouselimages as $key => $image)
+			    	<div class="item {{ $key == 0 ? 'active' : '' }}">
+			      		<img src="/img/{{ $image->image_url }}">
+			    	</div>
+				@endforeach
+		  	</div>
+		</div>
 		<div class="content">
 			<div class="intro-content">
 	            <p>{{ trans('messages.welcome') }}</p>
@@ -11,7 +25,7 @@
 	        <div class="categories-content">
 		        @foreach ($categories as $category)
 		        	<div class="category">
-		        		<img src="/img/{{$category->image_url}}" alt="{{$category->name}}">
+		        		<img src="/img/{{ $category->image_url }}" alt="{{ $category->name }}">
 		        		<span>{{$category->name}}</span>
 		        	</div>
 		        @endforeach

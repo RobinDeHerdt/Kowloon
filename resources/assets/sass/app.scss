@@ -68,9 +68,12 @@ body {
 	}
 }
 
-.carousel-image {
-	width: 95%;
+.carousel {
 	margin-left: 5%;
+	
+	.carousel-inner .item img {
+		min-width: 100%;
+	}
 }
 
 .logo-image {
@@ -78,6 +81,7 @@ body {
 	width: 22.5%;
 	top: 10%;
 	left: 41%;
+	z-index: 1;
 }
 
 .login-form {

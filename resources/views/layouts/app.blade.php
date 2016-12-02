@@ -25,20 +25,20 @@
     <div class="side-container">
         <div class="menu-items">   
             <div class="hamburger">
-                <img src="/img/menu-icon.png" alt="menu">
+                <a href="#"><img src="/img/menu-icon.png" alt="menu"></a>
             </div>
-            <img src="/img/search-icon.png" alt="search">
-            <img src="/img/faq-icon.png" alt="faq">
+            <a href="#"><img src="/img/search-icon.png" alt="search"></a>
+            <a href="#"><img src="/img/faq-icon.png" alt="faq"></a>
         </div>
         <div class="divider">
             
         </div>
         <div class="category-items">
-            <img src="/img/dog_white.png" alt="dogs">
-            <img src="/img/cat_white.png" alt="cats">
-            <img src="/img/fish_white.png" alt="fish">
-            <img src="/img/bird_white.png" alt="birds" class="bird">
-            <img src="/img/hamster_white.png" alt="small animals">
+            <a href="#"><img src="/img/dog_white.png" alt="dogs"></a>
+            <a href="#"><img src="/img/cat_white.png" alt="cats"></a>
+            <a href="#"><img src="/img/fish_white.png" alt="fish"></a>
+            <a href="#"><img src="/img/bird_white.png" alt="birds"></a>
+            <a href="#"><img src="/img/hamster_white.png" alt="small animals" ></a>
         </div>
         <div class="footer-logo">
             <img src="/img/k_logo.png" alt="logo" class="footer-logo">

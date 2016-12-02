@@ -51,15 +51,17 @@ body {
       margin-left: 30%;
       width: 40%; }
 
-.carousel-image {
-  width: 95%;
+.carousel {
   margin-left: 5%; }
+  .carousel .carousel-inner .item img {
+    min-width: 100%; }
 
 .logo-image {
   position: absolute;
   width: 22.5%;
   top: 10%;
-  left: 41%; }
+  left: 41%;
+  z-index: 1; }
 
 .login-form {
   background-color: #f7eade;

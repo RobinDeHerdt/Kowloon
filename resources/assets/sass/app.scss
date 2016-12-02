@@ -127,8 +127,7 @@ body {
 		margin-top: 50px;
 		margin-left: 10%;
 		width: 80%;
-		text-align: justify;
-
+		
 		&:after {
 	  			content: '';
 	  			width: 80%;
@@ -137,17 +136,19 @@ body {
 		
 		.category {
 			display: inline-block;
+			text-align: center;
+			margin-top: 10px;
 			border-right: 1px solid ;
 			width: 16.30%;
 			height: 75px;
-			text-align: center;
+			
 			
 			img {
 				height: 60%;
 				width: auto;
 			}
 
-			&:nth-child(6) {
+			&:nth-child(6n) {
 				border-right: none;
 			}
 

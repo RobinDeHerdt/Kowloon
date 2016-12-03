@@ -73,7 +73,7 @@
                 var selectedCategory    = splitUrl[5];
                 var menu_items          = document.getElementsByClassName('menu-img');
 
-                menu_items[selectedCategory - 1].className += ' active-item';
+                menu_items[selectedCategory.charAt(0) - 1].className += ' active-item';
             }
             
         </script>

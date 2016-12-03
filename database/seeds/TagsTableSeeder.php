@@ -12,7 +12,7 @@ class TagsTableSeeder extends Seeder
     public function run()
     {
         DB::table('tags')->insert([
-            'name' => 'Splash ' + "'n" + ' fun',
+            'name' => "Splash 'n fun",
         ]);
 
         DB::table('tags')->insert([

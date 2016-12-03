@@ -134,6 +134,26 @@ body {
     margin-left: 10%; }
     .content .main-content h1 {
       text-transform: uppercase; }
+    .content .main-content .dropdown .btn {
+      border-radius: 0px;
+      background-color: #616161;
+      border-color: #616161;
+      color: #cecece; }
+    .content .main-content .dropdown .caret {
+      margin-left: 7.5px; }
+    .content .main-content .dropdown .dropdown-menu {
+      margin-left: -1px;
+      border-radius: 0px; }
+    .content .main-content .products-container {
+      margin-top: 75px;
+      width: 100%;
+      height: 100%;
+      text-align: justify; }
+      .content .main-content .products-container .product-item {
+        width: 24.5%;
+        display: inline-block;
+        background-color: #565656;
+        padding: 5px; }
     .content .main-content .hot-items-container {
       width: 100%;
       height: 100%;
@@ -157,12 +177,15 @@ body {
       .content .main-content .hot-items-container .hot-item span:nth-child(3) {
         padding: 5px 5px 0 5px;
         float: right; }
-    .content .main-content #visit-link a {
-      color: white;
-      float: right; }
-    .content .main-content #visit-link a:link {
-      color: white;
-      text-decoration: underline; }
+    .content .main-content .text-right {
+      float: right;
+      color: white; }
+      .content .main-content .text-right a {
+        color: white;
+        float: right; }
+      .content .main-content .text-right a:link {
+        color: white;
+        text-decoration: underline; }
     .content .main-content .subscribe-container {
       margin: 75px 0 75px 0;
       height: 225px;
@@ -204,6 +227,31 @@ body {
         margin-left: -5px;
         padding: 12px;
         background-color: #323232; }
+
+.filter {
+  margin-left: 5%; }
+  .filter .collection-item {
+    padding: 0 10px;
+    display: inline-block; }
+    .filter .collection-item label {
+      position: relative;
+      top: -2px;
+      left: 5px; }
+  .filter .price .euro {
+    color: #2b2b2b;
+    /* http://stackoverflow.com/questions/2913236/html-text-input-field-with-currency-symbol */
+    border: 1px inset #9a9a9a;
+    padding: 10px;
+    background-color: #ffffff; }
+    .filter .price .euro input[type="text"] {
+      text-align: center;
+      padding: 5px;
+      width: 150px;
+      color: #2b2b2b;
+      border: 0; }
+
+.dropdown-left {
+  float: left; }
 
 h1 {
   font-family: choplin !important;

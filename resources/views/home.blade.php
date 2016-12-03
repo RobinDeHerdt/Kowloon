@@ -40,7 +40,7 @@
 						<span>€ 15,49</span>
 					</div>
 				</div>
-				<span id="visit-link"><a href="#">Visit the store</a></span>
+				<span class="text-right"><a href="#">Visit the store</a></span>
 				<div class="subscribe-container">
 					<div class="discover-box">
 						<h1>discover amazing Kowloon deals!</h1>

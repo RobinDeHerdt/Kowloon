@@ -12,19 +12,19 @@ class ProductimagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('productimages')->insert([
-            'image_url' => '/img/Voorkant_cooling mat_01.02.png',
+            'image_url' => 'cooling_mat.png',
             'description' => 'Dog cooling mat image 1',
             'product_id' => 1,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => '/img/Voorkant_cooling mat_01.02.png',
+            'image_url' => 'cooling_mat.png',
             'description' => 'Dog cooling mat image 2',
             'product_id' => 1,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => '/img/Voorkant_cooling mat_01.02.png',
+            'image_url' => 'cooling_mat.png',
             'description' => 'Dog cooling mat image 3',
             'product_id' => 1,
         ]);

@@ -20,22 +20,22 @@
 				<h1>Hot items.</h1>
 				<div class="hot-items-container">
 					<div class="hot-item">
-						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<img src="/img/cooling_mat.png" alt="hot-item-1">
 						<span>Cooling mat</span>
 						<span>€ 15,49</span>
 					</div>
 					<div class="hot-item">
-						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<img src="/img/cooling_mat.png" alt="hot-item-1">
 						<span>Cooling mat</span>
 						<span>€ 15,49</span>
 					</div>
 					<div class="hot-item">
-						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<img src="/img/cooling_mat.png" alt="hot-item-1">
 						<span>Cooling mat</span>
 						<span>€ 15,49</span>
 					</div>
 					<div class="hot-item">
-						<img src="/img/cooling mat.png" alt="hot-item-1">
+						<img src="/img/cooling_mat.png" alt="hot-item-1">
 						<span>Cooling mat</span>
 						<span>€ 15,49</span>
 					</div>

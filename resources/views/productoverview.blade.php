@@ -21,7 +21,7 @@
 					<div class="price">
 						<p>Price range </p>
 						<span class="euro">€ <input type="text"></span>
-						<span> - </span>
+						<span class="price-divider"> - </span>
 						<span class="euro">€ <input type="text"></span>
 					</div>
 				</div>
@@ -41,13 +41,19 @@
 				  </ul>
 				</div>
 
-				<span class="text-right">{{ str_singular($category->name) }} items: {{ count($products) }} of {{ count($products) }}</span>
+				<div class="text-right"><span class="text-thin">{{ str_singular($category->name) }} items: </span><span>{{ count($products) }} of {{ count($products) }}</span></div>
 
 				<div class="products-container">
 					<div class="product-item">
 						@foreach ($products as $product)
-							{{ $product->name }}
-							{{ $product->price }}
+							@if ($product->productimages->count() > 1)
+							<div class="imagecount">
+								<span>{{ $product->productimages->count() }}</span>
+							</div>
+							@endif
+							<img src="/img/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->description}}">
+							<span>{{ $product->name }}</span>
+							<span>€ {{ $product->price }}</span>
 						@endforeach
 					</div>
 				</div>

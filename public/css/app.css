@@ -18,6 +18,9 @@ body {
   height: 100%;
   width: 100%; }
 
+.text-thin {
+  font-weight: 500; }
+
 .side-container {
   width: 5%;
   float: left;
@@ -145,15 +148,37 @@ body {
       margin-left: -1px;
       border-radius: 0px; }
     .content .main-content .products-container {
-      margin-top: 75px;
+      margin: 75px 0;
       width: 100%;
       height: 100%;
       text-align: justify; }
+      .content .main-content .products-container span {
+        padding: 5px; }
+        .content .main-content .products-container span:nth-child(3) {
+          float: left; }
+        .content .main-content .products-container span:nth-child(4) {
+          float: right; }
       .content .main-content .products-container .product-item {
         width: 24.5%;
         display: inline-block;
         background-color: #565656;
         padding: 5px; }
+      .content .main-content .products-container .imagecount {
+        margin-top: 5px;
+        margin-left: 5px;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ffffff; }
+      .content .main-content .products-container .imagecount span {
+        position: relative;
+        top: 3px;
+        left: 6px;
+        color: #565656; }
+      .content .main-content .products-container .product-item img {
+        max-width: 100%;
+        min-width: 100%; }
     .content .main-content .hot-items-container {
       width: 100%;
       height: 100%;
@@ -237,21 +262,30 @@ body {
       position: relative;
       top: -2px;
       left: 5px; }
-  .filter .price .euro {
-    color: #2b2b2b;
-    /* http://stackoverflow.com/questions/2913236/html-text-input-field-with-currency-symbol */
-    border: 1px inset #9a9a9a;
-    padding: 10px;
-    background-color: #ffffff; }
-    .filter .price .euro input[type="text"] {
-      text-align: center;
-      padding: 5px;
-      width: 150px;
+  .filter .price {
+    margin: 10px 0 25px 0; }
+    .filter .price .euro {
       color: #2b2b2b;
-      border: 0; }
+      /* http://stackoverflow.com/questions/2913236/html-text-input-field-with-currency-symbol */
+      border: 1px inset #9a9a9a;
+      padding: 10px;
+      background-color: #ffffff; }
+      .filter .price .euro input[type="text"] {
+        font-weight: 600;
+        outline: none;
+        text-align: center;
+        padding: 5px;
+        width: 150px;
+        color: #2b2b2b;
+        border: 0; }
+    .filter .price .price-divider {
+      padding: 0 20px; }
 
 .dropdown-left {
   float: left; }
+
+hr {
+  border-color: #616161; }
 
 h1 {
   font-family: choplin !important;

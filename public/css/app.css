@@ -38,6 +38,12 @@ body {
   .side-container .category-items {
     margin-bottom: 60%;
     margin-top: 60%; }
+    .side-container .category-items .active-item {
+      filter: none; }
+    .side-container .category-items a img {
+      filter: brightness(0) invert(1); }
+    .side-container .category-items a:hover img {
+      filter: none; }
   .side-container .category-items img, .side-container .menu-items img {
     margin-top: 12.5%;
     margin-bottom: 12.5%;
@@ -59,7 +65,7 @@ body {
 .logo-image {
   position: absolute;
   width: 22.5%;
-  top: 10%;
+  top: 75px;
   left: 41%;
   z-index: 1; }
 

@@ -19,6 +19,7 @@ function()
 	Route::get('/', function() {
 		return redirect('/home');
 	});
+	Route::get('category/{id}', 'ProductController@index');
 });
 
 // Geef de geselecteerde taal mee

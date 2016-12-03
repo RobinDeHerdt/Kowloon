@@ -34,11 +34,11 @@
             
         </div>
         <div class="category-items">
-            <a href="#"><img src="/img/dog_white.png" alt="dogs"></a>
-            <a href="#"><img src="/img/cat_white.png" alt="cats"></a>
-            <a href="#"><img src="/img/fish_white.png" alt="fish"></a>
-            <a href="#"><img src="/img/bird_white.png" alt="birds"></a>
-            <a href="#"><img src="/img/hamster_white.png" alt="small animals" ></a>
+            <a href="/category/1"><img src="/img/dog.png" alt="dogs"  class="menu-img"></a>
+            <a href="/category/2"><img src="/img/cat.png" alt="cats" class="menu-img"></a>
+            <a href="/category/3"><img src="/img/fish.png" alt="fish" class="menu-img"></a>
+            <a href="/category/4"><img src="/img/bird.png" alt="birds" class="menu-img"></a>
+            <a href="/category/5"><img src="/img/hamster.png" alt="small animals" class="menu-img"></a>
         </div>
         <div class="footer-logo">
             <img src="/img/k_logo.png" alt="logo" class="footer-logo">
@@ -65,5 +65,17 @@
         @yield('content')
     </div>
     <script src="/js/app.js"></script>
+    <script type="text/javascript">
+            var splitUrl         = window.location.href.split('/');
+
+            if(splitUrl[4] == 'category')
+            {
+                var selectedCategory    = splitUrl[5];
+                var menu_items          = document.getElementsByClassName('menu-img');
+
+                menu_items[selectedCategory - 1].className += ' active-item';
+            }
+            
+        </script>
 </body>
 </html>

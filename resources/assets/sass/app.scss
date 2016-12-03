@@ -44,6 +44,18 @@ body {
 	.category-items {
 		margin-bottom: 60%;
 		margin-top: 60%;
+
+		.active-item {
+			filter: none;
+		}
+
+		a img {
+			filter: brightness(0) invert(1);
+		}
+
+		a:hover img{
+			filter: none;
+		}
 	}
 
 	.category-items, .menu-items {
@@ -79,7 +91,7 @@ body {
 .logo-image {
 	position: absolute;
 	width: 22.5%;
-	top: 10%;
+	top: 75px;
 	left: 41%;
 	z-index: 1;
 }

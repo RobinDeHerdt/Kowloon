@@ -20,6 +20,10 @@ function()
 		return redirect('/home');
 	});
 	Route::get('category/{id}', 'ProductController@index');
+	
+	Route::get('mail', function () {
+    	return view('emails.nl.subscribed');
+	});
 });
 
 // Geef de geselecteerde taal mee

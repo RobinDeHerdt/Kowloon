@@ -41,21 +41,32 @@
 				  </ul>
 				</div>
 
-				<div class="text-right"><span class="text-thin">{{ str_singular($category->name) }} items: </span><span>{{ count($products) }} of {{ count($products) }}</span></div>
+				<div class="text-right">
+					<span class="text-thin">{{ str_singular($category->name) }} items: </span>
+					<span>{{ count($products) }} of {{ count($products) }}</span>
+				</div>
 
 				<div class="products-container">
-					<div class="product-item">
-						@foreach ($products as $product)
+				@if ($products->count())
+					@foreach ($products as $product)
+						<div class="product-item">
 							@if ($product->productimages->count() > 1)
-							<div class="imagecount">
-								<span>{{ $product->productimages->count() }}</span>
-							</div>
+								<div class="imagecount">
+									<span>{{ $product->productimages->count() }}</span>
+								</div>
 							@endif
-							<img src="/img/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->description}}">
-							<span>{{ $product->name }}</span>
-							<span>€ {{ $product->price }}</span>
-						@endforeach
-					</div>
+							<div class="image-container">
+								<img src="/img/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->description}}">
+							</div>
+							<div class="description">
+								<span>{{ $product->name }}</span>
+								<span>€ {{ $product->price }}</span>
+							</div>
+						</div>
+					@endforeach
+				@else
+					<h1>No products in this catagory yet.</h1>
+				@endif
 				</div>
 			</div>
 		</div>

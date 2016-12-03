@@ -1,0 +1,62 @@
+.side-container {
+	width: 5%;
+	float:left;
+	background-color: #323232;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow:hidden;
+
+	.menu-items {
+		margin-bottom: 40%;
+
+		.hamburger {
+			background-color: #252525;
+			margin-bottom: 25%;
+		}
+	}
+
+	.divider {
+		margin-left: 15%;
+		width: 70%;
+		border-bottom: solid 2px #454545;
+	}
+
+	.category-items {
+		margin-bottom: 60%;
+		margin-top: 60%;
+
+		.active-item {
+			filter: none;
+		}
+
+		a img {
+			filter: brightness(0) invert(1);
+		}
+
+		a:hover img{
+			filter: none;
+		}
+	}
+
+	.category-items, .menu-items {
+		img {
+			margin-top: 12.5%;
+			margin-bottom: 12.5%;
+
+			margin-left: 25%;
+			width: 50%;
+		}
+	}
+
+	.footer-logo {
+		position: absolute;
+		bottom: 10px;
+		width: 100%;
+
+		img {
+			margin-left: 30%;
+			width: 40%;
+		}
+	}
+}

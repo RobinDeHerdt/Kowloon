@@ -1,0 +1,44 @@
+.filter {
+	margin-left: 5%;
+
+	.collection-item {
+			padding: 0 10px;
+			display: inline-block;
+
+			input {
+				
+			}
+
+			label {
+				position: relative;
+				top: -2px;
+				left: 5px;
+			}
+	}
+
+	.price {
+		margin: 10px 0 25px 0;
+
+		.euro {
+			color: #2b2b2b;
+			/* http://stackoverflow.com/questions/2913236/html-text-input-field-with-currency-symbol */
+			border: 1px inset #9a9a9a;
+			padding: 10px;
+			background-color: #ffffff;
+
+			input[type="text"] {
+				font-weight: 600;
+				outline: none;
+				text-align: center;
+				padding: 5px;
+				width: 150px;
+				color: #2b2b2b;
+				border: 0;
+			}			
+		}
+
+		.price-divider {
+			padding: 0 20px;
+		}		
+	}
+}

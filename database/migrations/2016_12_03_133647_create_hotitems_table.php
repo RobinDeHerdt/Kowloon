@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarouselimagesTable extends Migration
+class CreateHotitemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCarouselimagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('carouselimages', function (Blueprint $table) {
+        Schema::create('hotitems', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image_url');
+            
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateCarouselimagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carouselimages');
+        Schema::dropIfExists('hotitems');
     }
 }

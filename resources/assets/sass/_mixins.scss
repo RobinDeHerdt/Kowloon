@@ -1,0 +1,42 @@
+@mixin circle-imagecount($top, $left) {
+	margin-top: 5px;
+	margin-left: 5px;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #ffffff;
+
+	span {
+		position: relative;
+		top: $top;
+		left: $left;
+		color: #565656;
+	}
+}
+
+@mixin fit-image {
+	.image-container {
+		height: 180px;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		overflow: hidden;
+	}
+}
+@mixin item-description {
+		.description span:nth-child(1) {
+			padding: 5px 5px 0 5px;
+			float:left;
+			margin: 0;
+		}
+
+		.description span:nth-child(2) {
+			padding: 5px 5px 0 5px;
+			float:right;
+			margin: 0;
+		}
+}

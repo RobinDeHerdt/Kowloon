@@ -28,5 +28,29 @@ class ProductimagesTableSeeder extends Seeder
             'description' => 'Dog cooling mat image 3',
             'product_id' => 1,
         ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'dog-villa.jpg',
+            'description' => 'Picture of dogvilla.',
+            'product_id' => 2,
+        ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'cat-pole.jpg',
+            'description' => 'Picture of cat pole.',
+            'product_id' => 3,
+        ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'cat-pole.jpg',
+            'description' => 'Picture of cat pole.',
+            'product_id' => 3,
+        ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'cat-pole.jpg',
+            'description' => 'Picture of cat pole.',
+            'product_id' => 4,
+        ]);
     }
 }

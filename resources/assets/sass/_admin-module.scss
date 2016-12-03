@@ -1,0 +1,32 @@
+.login-form {
+	background-color: #f7eade;
+	margin-top: 30%;
+	padding: 25px;
+	color: black;
+
+	.login-form button {
+		background-color: #e27500;
+		border-color: #e27500;
+		width: 72.5%;
+
+		&:hover {
+			background-color: #e27500;
+			border-color: #e27500;
+		}
+	}
+}
+
+.admin-nav {
+	font-size: 1.2em;
+	position: absolute;
+	padding: 20px;
+	right: 3%;
+	top: 3%;
+	background-color: white;
+	box-shadow: 2px 2px 10px black;
+	z-index: 1;
+
+	a:nth-child(1) {
+		margin-right: 20px;
+	}
+}

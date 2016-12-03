@@ -1,0 +1,154 @@
+.content {
+	margin-left: 5%;
+	width: 95%;
+
+	.intro-content {
+		width: 65%;
+		margin-left: 17.5%;
+		margin-top: 75px;
+		text-align: center;
+	}
+
+	.categories-content {
+		margin-top: 50px;
+		margin-left: 10%;
+		width: 80%;
+		
+		&:after {
+	  			content: '';
+	  			width: 80%;
+	  			display: inline-block;
+			}
+		
+		.category {
+			display: inline-block;
+			text-align: center;
+			margin-top: 10px;
+			border-right: 1px solid ;
+			width: 16.30%;
+			height: 75px;
+			
+			
+			img {
+				height: 60%;
+				width: auto;
+			}
+
+			&:nth-child(6n) {
+				border-right: none;
+			}
+
+			span {
+				text-transform: uppercase;
+				text-align:center;
+				display:block;
+				font-family: choplin-light !important;
+				font-size: 1.1em;
+				margin-top: 15px;
+			}
+		}
+	}
+
+	.main-content {
+		width: 80%;
+		margin-top: 50px;
+		margin-left: 10%;
+
+		h1 {
+			text-transform: uppercase;
+		}
+
+		.dropdown {
+
+			.btn {
+				border-radius: 0px;
+				background-color: #616161;
+				border-color: #616161;
+				color: #cecece;
+			}
+
+			.caret {
+				margin-left: 7.5px;
+			}
+
+			.dropdown-menu {
+				margin-left: -1px;
+				border-radius: 0px;
+			}
+		}
+
+		.text-right {
+			float:right;
+			color:white;
+
+			a {
+				color:white;
+				float:right;
+			}
+
+			a:link {
+				color: white;
+				text-decoration: underline;
+			}
+		}
+		
+		.subscribe-container {
+			margin: 75px 0 75px 0;
+			height: 225px;
+			background-color: #5f5f5f;
+			
+			.discover-box {
+				display: inline-block;
+				font-family: choplin !important;
+				color: #ffffff;
+				text-align: center;
+				height: 100%;
+				width: 65%;			
+				background-image: url("/img/patroon.jpg");
+				padding-top: 15px;
+			}
+
+			.discover-box h1 {
+				margin-left: 15%;
+				width: 70%;
+				font-size: 48px;
+				text-transform: none;
+			}
+
+			.input-box {
+				padding: 20px 0 0 25px;
+				display: inline-block;
+				height: 100%;
+				width: 35%;
+				float: right;
+			}
+				
+			.input-box h3 {
+				font-size: 22px;
+				color: #ffffff;
+			}
+
+			.input-box span {
+				color: #cecece;
+			}
+
+			.input-box form {
+				margin-top: 35px;
+			}
+
+			.input-box input[type="text"] {
+				color: #2b2b2b;
+				padding: 10px;
+				border: 2px solid #9a9a9a;
+				width: 75%;
+			}
+
+			.input-box input[type="submit"] {
+				border: none;
+				margin-left: -5px;
+				padding: 12px;
+				background-color: #323232;
+			}
+		}
+	}
+}

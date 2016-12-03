@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionsTableSeeder::class);
         $this->call(ProductTagTableSeeder::class);
         $this->call(CarouselimagesTableSeeder::class);
+        $this->call(HotitemsTableSeeder::class);
     }
 }

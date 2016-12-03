@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    public function hotitems()
+    {
+        return $this->hasMany('App\Hotitem');
+    }
 }

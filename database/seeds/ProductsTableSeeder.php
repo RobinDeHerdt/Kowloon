@@ -18,5 +18,29 @@ class ProductsTableSeeder extends Seeder
             'technical_description' => 'Technical description of a dog cooling mat.',
             'category_id' => 1,
         ]);
+
+        DB::table('products')->insert([
+            'name' => 'Dog villa',
+            'price' => 999.99,
+            'description' => 'Very large dog villa.',
+            'technical_description' => 'Very large dog villa for very large dog.',
+            'category_id' => 1,
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Cat pole',
+            'price' => 999.99,
+            'description' => 'Average sized cat pole.',
+            'technical_description' => 'Very average sized cat pole.',
+            'category_id' => 2,
+        ]);
+        
+        DB::table('products')->insert([
+            'name' => 'Cat pole',
+            'price' => 999.99,
+            'description' => 'Average sized cat pole.',
+            'technical_description' => 'Very average sized cat pole.',
+            'category_id' => 2,
+        ]);
     }
 }

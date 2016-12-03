@@ -19,26 +19,22 @@
 			<div class="main-content">
 				<h1>Hot items.</h1>
 				<div class="hot-items-container">
-					<div class="hot-item">
-						<img src="/img/cooling_mat.png" alt="hot-item-1">
-						<span>Cooling mat</span>
-						<span>€ 15,49</span>
-					</div>
-					<div class="hot-item">
-						<img src="/img/cooling_mat.png" alt="hot-item-1">
-						<span>Cooling mat</span>
-						<span>€ 15,49</span>
-					</div>
-					<div class="hot-item">
-						<img src="/img/cooling_mat.png" alt="hot-item-1">
-						<span>Cooling mat</span>
-						<span>€ 15,49</span>
-					</div>
-					<div class="hot-item">
-						<img src="/img/cooling_mat.png" alt="hot-item-1">
-						<span>Cooling mat</span>
-						<span>€ 15,49</span>
-					</div>
+					@foreach ($hotitems as $hotitem)
+						<div class="hot-item">
+							@if ($hotitem->product->productimages->count() > 1)
+								<div class="imagecount">
+									<span>{{ $hotitem->product->productimages->count() }}</span>
+								</div>
+							@endif
+							<div class="image-container">
+								<img src="/img/{{ $hotitem->product->productimages->first()->image_url}}" alt="hot-item-1">
+							</div>
+							<div class="description">
+							<span>{{ $hotitem->product->name }}</span>
+							<span>€ {{ $hotitem->product->price }}</span>
+							</div>
+						</div>
+					@endforeach
 				</div>
 				<span class="text-right"><a href="#">Visit the store</a></span>
 				<div class="subscribe-container">

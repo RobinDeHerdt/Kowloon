@@ -1,4 +1,4 @@
-<img src="/img/logo.png" alt="logo" class="logo-image">
+<img src="/img/logo.png" alt="Kowloon logo" class="logo-image">
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   	<ol class="carousel-indicators">

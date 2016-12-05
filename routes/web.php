@@ -19,7 +19,8 @@ function()
 	Route::get('/', function() {
 		return redirect('/home');
 	});
-	Route::get('category/{id}', 'ProductController@index');
+	Route::get('category/{id}', 'CategoryController@index');
+	Route::get('category/{category_id}/product/{product_id}', 'ProductController@index');
 	
 	Route::get('mail', function () {
     	return view('emails.nl.subscribed');

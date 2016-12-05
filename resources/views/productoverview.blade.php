@@ -49,6 +49,7 @@
 				<div class="products-container">
 				@if ($products->count())
 					@foreach ($products as $product)
+					<a href="/category/{{ $category->id }}/product/{{ $product->id }}">
 						<div class="product-item">
 							@if ($product->productimages->count() > 1)
 								<div class="imagecount">
@@ -63,6 +64,7 @@
 								<span>€ {{ $product->price }}</span>
 							</div>
 						</div>
+					</a>
 					@endforeach
 				@else
 					<h1>No products in this catagory yet.</h1>

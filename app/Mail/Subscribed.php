@@ -32,14 +32,17 @@ class Subscribed extends Mailable
         {
             case 'nl':
                 return $this->from('robindh95@gmail.com')
+                            ->subject('Nieuwsbrief')
                             ->view('emails.nl.subscribed');
                 break;
             case 'fr':
                 return $this->from('robindh95@gmail.com')
+                            ->subject('Bulletin')
                             ->view('emails.fr.subscribed');
                 break;
             default:
                 return $this->from('robindh95@gmail.com')
+                            ->subject('Nieuwsbrief')
                             ->view('emails.nl.subscribed');
         }
         

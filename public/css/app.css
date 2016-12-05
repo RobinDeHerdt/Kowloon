@@ -287,6 +287,9 @@
     .filter .price .price-divider {
       padding: 0 20px; }
 
+.top-margin {
+  margin-top: 225px !important; }
+
 html {
   min-height: 100%;
   position: relative; }
@@ -311,9 +314,10 @@ body {
 
 .logo-image {
   position: absolute;
-  width: 22.5%;
+  width: 20%;
   top: 75px;
-  left: 41%;
+  left: 42.5%;
+  text-align: center;
   z-index: 1; }
 
 .dropdown-left {

@@ -10,18 +10,12 @@ use App\Tag;
 
 class ProductController extends Controller
 {
-    public function index($id)
+    public function index($product_id)
     {
-    	$products 		= Product::where('category_id', $id)->get();
-    	$category 		= Category::find($id);
-    	$carouselimages = Carouselimage::all();
-    	$tags			= Tag::all();
+    	$product 		= Product::find($product_id);
 
-    	return view('productoverview', [
-    		'category' 			=> $category,
-    		'products' 			=> $products,
-    		'carouselimages'	=> $carouselimages,
-    		'tags'				=> $tags
+    	return view('productdetail', [
+    		'product' 			=> $product
     	]);
     }
 }

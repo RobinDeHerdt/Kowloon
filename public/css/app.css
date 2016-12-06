@@ -298,7 +298,7 @@
   background-color: #565656;
   margin-right: 2%; }
   .productdetail-left .main-image-container {
-    max-height: 75%;
+    height: 400px;
     width: 100%; }
     .productdetail-left .main-image-container img {
       width: 100%;

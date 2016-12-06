@@ -8,7 +8,7 @@
 		background-color: #565656;
 		padding: 5px;
 		
-		@include fit-image();
+		@include fit-image(180px);
 		@include item-description();
 
 		.imagecount {

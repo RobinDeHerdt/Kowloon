@@ -67,7 +67,7 @@
 					</a>
 					@endforeach
 				@else
-					<h1>No products in this catagory yet.</h1>
+					<h1>No products in this category yet.</h1>
 				@endif
 				</div>
 			</div>

@@ -15,9 +15,9 @@
 	}
 }
 
-@mixin fit-image {
+@mixin fit-image($height) {
 	.image-container {
-		height: 180px;
+		height: $height;
 	}
 
 	img {

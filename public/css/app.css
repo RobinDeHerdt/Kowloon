@@ -290,6 +290,63 @@
 .top-margin {
   margin-top: 225px !important; }
 
+.productdetail-left {
+  border: 0.5px solid #717171;
+  width: 49%;
+  float: left;
+  padding: 5px;
+  background-color: #565656;
+  margin-right: 2%; }
+  .productdetail-left .main-image-container {
+    max-height: 75%;
+    width: 100%; }
+    .productdetail-left .main-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden; }
+  .productdetail-left .details-images-container {
+    text-align: justify;
+    height: 150px;
+    /* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */ }
+    .productdetail-left .details-images-container .details-image {
+      width: 32.5%;
+      display: inline-block;
+      background-color: #565656;
+      padding-top: 10px; }
+      .productdetail-left .details-images-container .details-image .image-container {
+        height: 120px; }
+      .productdetail-left .details-images-container .details-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden; }
+    .productdetail-left .details-images-container span {
+      text-align: left;
+      font-size: 13px; }
+    .productdetail-left .details-images-container:after {
+      position: relative;
+      bottom: 0;
+      content: '';
+      width: 100%;
+      display: inline-block; }
+
+.productdetail-right {
+  width: 49%;
+  float: right;
+  padding: 5px; }
+
+.product-specifications {
+  float: left;
+  margin-top: 25px;
+  padding: 15px;
+  width: 100%;
+  border: 0.5px solid #717171; }
+  .product-specifications h3 {
+    margin: 0; }
+  .product-specifications .specification span {
+    margin: 0 20px; }
+
 html {
   min-height: 100%;
   position: relative; }

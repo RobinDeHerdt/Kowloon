@@ -1,0 +1,37 @@
+// http://stackoverflow.com/questions/25195526/how-to-create-a-pricetag-shape-in-css-and-html
+.tag{
+    white-space:nowrap;
+    position:relative;
+    margin:0 5px 0 10px;
+    displaY:inline-block;
+    height:25px;
+    padding: 0 25px 0 15px;
+    background:#323232;
+    border: 0 solid #323232;
+    border-top-width:1px;
+    border-bottom-width:1px;
+    color:#fff;
+    line-height:23px;
+}
+.tag:after{
+    position:absolute;
+    right:0;
+    margin:1px 7px;
+    font-weight:bold;
+    font-size:19px;
+}
+.tag:before{
+    position:absolute;
+    content:"";
+    color:white;
+    text-shadow: 0 0 1px #333;
+    font-size:11px;
+    line-height:0px;
+    text-indent:12px;
+    left:-15px;
+    width: 1px;
+    height:0px;
+    border-right:15px solid #323232;
+    border-top:  12px solid transparent;
+    border-bottom:  12px solid transparent;
+}

@@ -14,7 +14,7 @@
 						@foreach ($tags as $tag)
 							<div class="collection-item">
 								<input type="checkbox">
-								<label for="">{{ $tag->name }} </label>
+								<label>{{ $tag->name }} </label>
 							</div>
 						@endforeach	
 					</div>
@@ -49,22 +49,22 @@
 				<div class="products-container">
 				@if ($products->count())
 					@foreach ($products as $product)
-					<a href="/category/{{ $category->id }}/product/{{ $product->id }}">
 						<div class="product-item">
 							@if ($product->productimages->count() > 1)
 								<div class="imagecount">
 									<span>{{ $product->productimages->count() }}</span>
 								</div>
 							@endif
-							<div class="image-container">
+							<a href="/category/{{ $category->id }}/product/{{ $product->id }}">
+							<div class="image-container overlay {{ str_singular(strtolower($product->category->name)) }}">
 								<img src="/img/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->description}}">
 							</div>
+							</a>
 							<div class="description">
 								<span>{{ $product->name }}</span>
 								<span>€ {{ $product->price }}</span>
 							</div>
 						</div>
-					</a>
 					@endforeach
 				@else
 					<h1>No products in this category yet.</h1>

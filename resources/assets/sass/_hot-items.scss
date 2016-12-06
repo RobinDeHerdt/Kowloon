@@ -14,6 +14,8 @@
 		.imagecount {
 			@include circle-imagecount(3px, 10.5px);
 		}
+
+		@include colorOnHover(false);
 	}
 
 	/* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */

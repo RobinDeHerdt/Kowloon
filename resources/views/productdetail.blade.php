@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="/img/logo.png" alt="Kowloon logo" class="logo-image">
+<a href="/home"><img src="/img/logo.png" alt="Kowloon logo" class="logo-image"></a>
 <div class="content">
 	<div class="main-content top-margin">
 		<div class="productdetail-left">
@@ -20,10 +20,18 @@
 			</div>
 		</div>
 		<div class="productdetail-right">
+			<div class="tags-container">
+				<img src="/img/k_logo.png" class="small_logo">
+				<div class="tag">
+						{{ $product->category->name }}
+				</div>
+			</div>
 			<h1>{{ $product->name }}</h1>
 			<h2>€ {{ $product->price}}</h2>
 			<h2>Colors</h2>
-
+			<div class="color"></div>
+			<div class="color"></div>
+			<div class="color">	</div>
 			<h2>Description</h2>
 			<p>{{ $product->description}}</p>
 		</div>
@@ -42,9 +50,11 @@
 		<div class="related-products">
 			<h1>Related products</h1>
 			@foreach ($relatedProducts as $product)
-			<div class="related-product">
-				<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
-				<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
+			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
+			<div class="related-product ">
+				<div class="overlay {{ str_singular(strtolower($product->category->name)) }}">
+					<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
+				</div>
 				</a>
 			</div>
 			@endforeach

@@ -6,7 +6,7 @@
 	height: 30px;
 	border-radius: 50%;
 	background-color: #ffffff;
-
+	z-index: 10;
 	span {
 		position: relative;
 		top: $top;
@@ -28,15 +28,65 @@
 	}
 }
 @mixin item-description {
-		.description span:nth-child(1) {
-			padding: 5px 5px 0 5px;
-			float:left;
-			margin: 0;
-		}
+	.description span:nth-child(1) {
+		padding: 5px 5px 0 5px;
+		float:left;
+		margin: 0;
+	}
 
-		.description span:nth-child(2) {
-			padding: 5px 5px 0 5px;
-			float:right;
-			margin: 0;
-		}
+	.description span:nth-child(2) {
+		padding: 5px 5px 0 5px;
+		float:right;
+		margin: 0;
+	}
+}
+
+@mixin colorOnHover($isFullHeightAndWidth) {
+	// https://css-tricks.com/forums/topic/css-background-image-color-overlay/
+	.overlay {
+	  	position: relative;
+	  	@if ($isFullHeightAndWidth)
+	  	{
+	  		width: 100%;
+	  		height: 100%;
+	  	}
+	}
+
+	.overlay:after {
+		position: absolute;
+		padding-top: 75px;
+		text-align:center;
+		font-size: 18px;
+		color: white;
+		content:"View details";
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		opacity:0;
+	}
+
+	.overlay:hover:after  {
+			opacity: .9;
+	}
+
+	.dog:after {
+		background-color: $dog-color;
+	}
+
+	.cat:after {
+		background-color: $cat-color;
+	}
+
+	.fish:after {
+		background-color: $fish-color;
+	}
+
+	.bird:after {
+		background-color: $bird-color;
+	}
+
+	.hamster:after {
+		background-color: $hamster-color;
+	}
 }

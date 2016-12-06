@@ -24,6 +24,7 @@
 
 		@include fit-image(180px);
 		@include item-description();
+		@include colorOnHover(false);
 	}
 	
 	.imagecount {

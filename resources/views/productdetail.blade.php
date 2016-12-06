@@ -39,37 +39,35 @@
 				<span>{{  $product->technical_description}}</span>
 			</div>
 		</div>
+		<div class="related-products">
+			<h1>Related products</h1>
+			@foreach ($relatedProducts as $product)
+			<div class="related-product">
+				<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
+				<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
+				</a>
+			</div>
+			@endforeach
+		</div>
+		<span class="text-right"><a href="/category/{{ $product->category_id}}">View more</a></span>
+		<div class="faq-container">
+			<h1>Frequently Asked Questions</h1>
+			@if($questions->count())
+				@foreach ($questions as $question)
+					<div class="question">
+						<h3>{{ $question->title }}</h3>
+						<p>{{ $question->body }}</p>
+					</div>
+				@endforeach
+			@else
+				<h1>No questions for this product yet.</h1>
+			@endif
+			<br>
+		</div>
+		<span class="text-right"><a href="/faq">More questions?</a></span>
+		
+		@include('includes.subscribe')
 	</div>
 </div>
-<script>
-	(function() {
-		var imageContainers = getImageContainers();
-		changeStyles(0, imageContainers);
-	})();
-
-	function getImageContainers() {
-		return document.getElementsByClassName('image-container');
-	}
-
-	function selectImage(selectedElement) {
-  		var imageContainers = getImageContainers();
-  		document.getElementById('selected-image').src = selectedElement.src;
-  		changeStyles(selectedElement.id, imageContainers);
-	}
-
-	function changeStyles(id, imageContainers) {
-		for (var i = imageContainers.length - 1; i >= 0; i--) {
-			if(i != id)
-			{
-				imageContainers[i].style.opacity = 0.5;
-				imageContainers[i].style.border = 'none';
-			}
-			else 
-			{
-				imageContainers[i].style.border = '2px solid white';
-				imageContainers[i].style.opacity = 1;
-			}
-		}
-	}
-</script>
+<script src="/js/displayselectedimage.js"></script>
 @endsection

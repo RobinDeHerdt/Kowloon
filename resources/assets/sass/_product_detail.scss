@@ -42,8 +42,6 @@
 
 		/* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */
 		&:after {
-			position: relative;
-			bottom: 0;
 			content: '';
 			width: 100%;
 			display: inline-block;
@@ -73,4 +71,50 @@
 			margin: 0 20px;
 		}	
 	}
+}
+
+.related-products {
+	float: left;
+	width: 100%;
+	margin-top: 75px;
+	text-align: justify;
+
+	.related-product {
+		display: inline-block;
+		width: 24.5%;
+		height: 180px;
+		background-color: #565656;
+		border: 0.5px solid #717171;
+		padding: 5px;
+
+		@include fit-image(160px);
+	}
+
+		&:after {
+			content: '';
+			width: 100%;
+			display: inline-block;
+		}
+}
+
+.faq-container {
+	float: left;
+	width: 100%;
+
+	.question {
+		h3 {
+			margin: 0;
+		}
+
+		p {
+			margin: 10px 0 5px 25px;
+			font-weight: 500;
+			font-size: 16px;
+		}
+
+		background-color: #717171;
+		padding: 20px;
+		margin-top:15px;
+	}
+	
 }

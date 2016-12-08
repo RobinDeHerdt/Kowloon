@@ -17,7 +17,7 @@
     .side-container .menu-items .upper-menu-item {
       width: 100%; }
     .side-container .menu-items .active-menu {
-      background-color: white; }
+      background-color: #f6f6f6; }
     .side-container .menu-items .hamburger {
       background-color: #252525;
       margin-bottom: 25%; }
@@ -47,7 +47,7 @@
       margin-left: 30%;
       width: 40%; }
 
-.open {
+.sidemenu-open {
   width: 15%;
   left: 5%;
   float: left;
@@ -529,6 +529,14 @@
   border-right: 15px solid #323232;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent; }
+
+.secondary-bg-color {
+  background-color: #f6f6f6 !important;
+  position: absolute;
+  top: 0;
+  bottom: 0; }
+  .secondary-bg-color h1 {
+    color: orange; }
 
 html {
   min-height: 100%;

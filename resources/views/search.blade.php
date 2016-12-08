@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="content">
-	<div class="intro-content">
+<div class="content secondary-bg-color">
+	<div class="main-content">
 		<h1>Search</h1>
 	</div>
 </div>

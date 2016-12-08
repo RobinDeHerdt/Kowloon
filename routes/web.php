@@ -19,6 +19,10 @@ function()
 	Route::get('/', function() {
 		return redirect('/home');
 	});
+	Route::get('faq', 'QuestionController@index');
+	Route::get('search', 'SearchController@index');
+	Route::get('about', 'ContactController@index');
+	
 	Route::get('category/{id}', 'CategoryController@index');
 	Route::get('category/{category_id}/product/{product_id}', 'ProductController@index');
 	

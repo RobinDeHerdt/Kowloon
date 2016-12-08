@@ -9,6 +9,14 @@
 
 	.menu-items {
 		margin-bottom: 40%;
+		
+		.upper-menu-item {
+			width: 100%;
+		}
+
+		.active-menu {
+			background-color: white;
+		}
 
 		.hamburger {
 			background-color: #252525;
@@ -59,4 +67,16 @@
 			width: 40%;
 		}
 	}
+}
+
+.open {
+	width: 15%;
+	left: 5%;
+	float:left;
+	background-color: #323232;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow:hidden;
+	z-index: 11;
 }

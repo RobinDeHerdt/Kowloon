@@ -23,8 +23,14 @@
 			<div class="tags-container">
 				<img src="/img/k_logo.png" class="small_logo">
 				<div class="tag">
+					<div class="tag-category-color {{ str_singular(strtolower($product->category->name)) }}"></div>
 						{{ $product->category->name }}
 				</div>
+				@foreach($product->tags as $tag)
+				<div class="tag">
+					{{ $tag->name }}
+				</div>
+				@endforeach
 			</div>
 			<h1>{{ $product->name }}</h1>
 			<h2>€ {{ $product->price}}</h2>

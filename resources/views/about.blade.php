@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="content secondary-bg-color">
-	<div class="main-content top-margin">
+<div class="carousel slide">
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="/img/carousel-4.png" alt="">
+		</div>
+	</div>
+</div>
+<div class="content">
+	<div class="main-content">
 		<h1>About</h1>
 	</div>
 </div>

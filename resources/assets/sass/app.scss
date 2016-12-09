@@ -1,91 +1,24 @@
 // Config
-
 @import "config/variables";
+@import "config/setup";
 @import "config/fonts";
+
+// Helpers
+@import "helpers/helpers";
+
+// Mixins
 @import "mixins/mixins";
 
+
 // Modules
-
-@import "subscribe";
-@import "products";
-@import "sidebar";
-@import "filters";
-@import "search";
-@import "admin";
-@import "home";
-@import "grid";
-@import "tag";
-@import "faq";
-
-html {
-	min-height: 100%;
-	position: relative;
-}
-
-body {
-	background-color: #454545;
-	color: #cecece;
-	font-family: Arial;
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 175%;
-	height: 100%;
-	width: 100%;
-}
-
-.text-thin {
- 	font-weight: 500;
-}
-
-.carousel {
-	margin-left: 5%;
-	
-	.carousel-inner .item img {
-		min-width: 100%;
-	}
-}
-
-.logo-image {
-	position: absolute;
-	width: 20%;
-	top: 75px;
-	left: 42.5%;
-	text-align: center;
-	z-index: 1;
-}
-
-.small_logo {
-	width: 25px;
-}
-
-.top-margin {
-	margin-top: 225px !important;
-}
-
-.text-right {
-			float:right;
-			color:white;
-
-			a {
-				color:white;
-				float:right;
-			}
-
-			a:link {
-				color: white;
-				text-decoration: underline;
-			}
-		}
-
-hr {
-	border-color: #616161;
-}
-
-.title {
-	text-transform: uppercase;
-}
-
-h1 {
-	font-family: choplin !important;
-	color: #ffffff;
-}
+@import "modules/subscribe";
+@import "modules/products";
+@import "modules/sidebar";
+@import "modules/filters";
+@import "modules/search";
+@import "modules/header";
+@import "modules/admin";
+@import "modules/home";
+@import "modules/grid";
+@import "modules/tag";
+@import "modules/faq";

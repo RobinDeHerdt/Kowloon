@@ -1,0 +1,34 @@
+.text-thin {
+ 	font-weight: 500;
+}
+.top-margin {
+	margin-top: 225px !important;
+}
+
+.text-right {
+			float:right;
+			color:white;
+
+			a {
+				color:white;
+				float:right;
+			}
+
+			a:link {
+				color: white;
+				text-decoration: underline;
+			}
+		}
+
+hr {
+	border-color: #616161;
+}
+
+.title {
+	text-transform: uppercase;
+}
+
+h1 {
+	font-family: choplin !important;
+	color: #ffffff;
+}

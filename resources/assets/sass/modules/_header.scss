@@ -1,0 +1,20 @@
+.carousel {
+	margin-left: 5%;
+	
+	.carousel-inner .item img {
+		min-width: 100%;
+	}
+}
+
+.logo-image {
+	position: absolute;
+	width: 20%;
+	top: 75px;
+	left: 42.5%;
+	text-align: center;
+	z-index: 1;
+}
+
+.small_logo {
+	width: 25px;
+}

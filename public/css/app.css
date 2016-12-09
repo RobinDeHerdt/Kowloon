@@ -1,9 +1,49 @@
+html {
+  min-height: 100%;
+  position: relative; }
+
+body {
+  background-color: #454545;
+  color: #cecece;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 175%;
+  height: 100%;
+  width: 100%; }
+
 @font-face {
   font-family: choplin;
   src: url(/fonts/Choplin-Medium.otf); }
 @font-face {
   font-family: choplin-light;
   src: url(/fonts/Choplin-ExtraLight.otf); }
+.text-thin {
+  font-weight: 500; }
+
+.top-margin {
+  margin-top: 225px !important; }
+
+.text-right {
+  float: right;
+  color: white; }
+  .text-right a {
+    color: white;
+    float: right; }
+  .text-right a:link {
+    color: white;
+    text-decoration: underline; }
+
+hr {
+  border-color: #616161; }
+
+.title {
+  text-transform: uppercase; }
+
+h1 {
+  font-family: choplin !important;
+  color: #ffffff; }
+
 .subscribe-container {
   float: left;
   width: 100%;
@@ -303,6 +343,22 @@
   .secondary-bg-color h1 {
     color: orange; }
 
+.carousel {
+  margin-left: 5%; }
+  .carousel .carousel-inner .item img {
+    min-width: 100%; }
+
+.logo-image {
+  position: absolute;
+  width: 20%;
+  top: 75px;
+  left: 42.5%;
+  text-align: center;
+  z-index: 1; }
+
+.small_logo {
+  width: 25px; }
+
 .login-form {
   background-color: #f7eade;
   margin-top: 30%;
@@ -435,61 +491,5 @@
       margin: 10px 0 5px 25px;
       font-weight: 500;
       font-size: 16px; }
-
-html {
-  min-height: 100%;
-  position: relative; }
-
-body {
-  background-color: #454545;
-  color: #cecece;
-  font-family: Arial;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 175%;
-  height: 100%;
-  width: 100%; }
-
-.text-thin {
-  font-weight: 500; }
-
-.carousel {
-  margin-left: 5%; }
-  .carousel .carousel-inner .item img {
-    min-width: 100%; }
-
-.logo-image {
-  position: absolute;
-  width: 20%;
-  top: 75px;
-  left: 42.5%;
-  text-align: center;
-  z-index: 1; }
-
-.small_logo {
-  width: 25px; }
-
-.top-margin {
-  margin-top: 225px !important; }
-
-.text-right {
-  float: right;
-  color: white; }
-  .text-right a {
-    color: white;
-    float: right; }
-  .text-right a:link {
-    color: white;
-    text-decoration: underline; }
-
-hr {
-  border-color: #616161; }
-
-.title {
-  text-transform: uppercase; }
-
-h1 {
-  font-family: choplin !important;
-  color: #ffffff; }
 
 /*# sourceMappingURL=app.css.map */

@@ -17,10 +17,10 @@
         @endforeach
 	</div>
 	<div class="main-content">
-		<h1>Hot items.</h1>
-		<div class="hot-items-container">
+		<h1 class="title">Hot items.</h1>
+		<div class="products-container justify">
 			@foreach ($hotitems as $hotitem)
-				<div class="hot-item">
+				<div class="product-item">
 					@if ($hotitem->product->productimages->count() > 1)
 						<div class="imagecount">
 							<span>{{ $hotitem->product->productimages->count() }}</span>

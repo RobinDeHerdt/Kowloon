@@ -1,15 +1,21 @@
-@import "variables";
-@import "fonts";
-@import "mixins";
-@import "sidebar";
-@import "main-content";
-@import "hot-items";
+// Config
+
+@import "config/variables";
+@import "config/fonts";
+@import "mixins/mixins";
+
+// Modules
+
+@import "subscribe";
 @import "products";
-@import "admin-module";
-@import "filter-box";
-@import "product_detail";
-@import "tag";
+@import "sidebar";
+@import "filters";
 @import "search";
+@import "admin";
+@import "home";
+@import "grid";
+@import "tag";
+@import "faq";
 
 html {
 	min-height: 100%;
@@ -52,12 +58,31 @@ body {
 	width: 25px;
 }
 
-.dropdown-left {
-	float: left;
+.top-margin {
+	margin-top: 225px !important;
 }
+
+.text-right {
+			float:right;
+			color:white;
+
+			a {
+				color:white;
+				float:right;
+			}
+
+			a:link {
+				color: white;
+				text-decoration: underline;
+			}
+		}
 
 hr {
 	border-color: #616161;
+}
+
+.title {
+	text-transform: uppercase;
 }
 
 h1 {

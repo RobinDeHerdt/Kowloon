@@ -1,0 +1,21 @@
+.faq-container {
+	float: left;
+	width: 100%;
+	color: white;
+
+	.question {
+		background-color: #717171;
+		padding: 20px;
+		margin-top:15px;
+
+		h3 {
+			margin: 0;
+		}
+
+		p {
+			margin: 10px 0 5px 25px;
+			font-weight: 500;
+			font-size: 16px;
+		}
+	}
+}

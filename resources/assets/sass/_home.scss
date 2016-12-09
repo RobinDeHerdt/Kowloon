@@ -1,0 +1,39 @@
+.intro-content {
+	width: 65%;
+	margin-left: 17.5%;
+	margin-top: 75px;
+	text-align: center;
+}
+
+.categories-content {
+	margin-top: 50px;
+	margin-left: 10%;
+	width: 80%;
+	
+	.category {
+		display: inline-block;
+		text-align: center;
+		margin-top: 10px;
+		border-right: 1px solid ;
+		width: 16.30%;
+		height: 75px;
+		
+		img {
+			height: 60%;
+			width: auto;
+		}
+
+		&:nth-child(6n) {
+			border-right: none;
+		}
+
+		span {
+			text-transform: uppercase;
+			text-align:center;
+			display:block;
+			font-family: choplin-light !important;
+			font-size: 1vw;
+			margin-top: 15px;
+		}
+	}
+}

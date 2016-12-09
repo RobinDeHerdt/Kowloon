@@ -1,9 +1,8 @@
 .products-container {
-	margin: 75px 0;
 	width: 100%;
 	height: 100%;
-	text-align: justify;
-		
+	text-align: left;
+
 	span {
 		padding: 5px;
 
@@ -17,6 +16,7 @@
 	}
 
 	.product-item {
+		border: 0.5px solid #717171;
 		width: 24.5%;
 		display: inline-block;
 		background-color: #565656;
@@ -34,5 +34,127 @@
 	.product-item img {
 		max-width: 100%;
 		min-width: 100%;
+	}
+}
+
+.justify {
+	text-align: justify;
+
+	&:after {
+			content: '';
+			width: 100%;
+			display: inline-block;
+	}
+}
+
+.productdetail-left {
+	border: 0.5px solid #717171;
+	width: 49%;
+	float: left;
+	padding: 5px;
+	background-color: #565656;
+	margin-right: 2%;
+
+	.main-image-container {
+		height: 300px;
+		width: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			overflow: hidden;
+		}
+	}
+
+	.details-images-container {
+		text-align: justify;
+		height: 150px;
+
+		.details-image {
+			width: 32.5%;
+			display: inline-block;
+			background-color: #565656;
+			padding-top: 10px;
+			
+			@include fit-image(120px);
+		}
+
+		span {
+			text-align: left;
+			font-size: 13px;
+		}
+
+		/* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */
+		&:after {
+			content: '';
+			width: 100%;
+			display: inline-block;
+		}
+	}
+}
+
+.productdetail-right {
+	color: white;
+	width: 49%;
+	float: right;
+	padding: 5px;
+
+	.color {
+		margin-right: 5px;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: #2d4aac;
+		border: 1px solid white;
+	}
+	.tags-container {
+		display: inline-block;
+	}
+}
+
+.product-specifications {
+	margin-top: 25px;
+	padding: 15px;
+	width: 100%;
+	border: 0.5px solid #717171;
+	height: 200px;
+	margin-top: 500px;
+
+	h3 {
+		margin: 0;
+	}
+
+	.specification {
+		span {
+			margin: 0 20px;
+		}	
+	}
+}
+
+// Voorlopig
+.product-container-margin {
+	margin: 25px 0 75px 0;
+}
+
+.dropdown {
+	.btn {
+		border-radius: 0px;
+		background-color: #616161;
+		border-color: #616161;
+		color: #cecece;
+	}
+
+	.caret {
+		margin-left: 7.5px;
+	}
+
+	.dropdown-menu {
+		margin-left: -1px;
+		border-radius: 0px;
+	}
+	.dropdown-left {
+		float: left;
 	}
 }

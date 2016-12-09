@@ -10,7 +10,7 @@
 </div>
 <div class="content">
 	<div class="main-content">
-		<h1>About</h1>
+		<h1 class="title">About</h1>
 	</div>
 </div>
 @endsection

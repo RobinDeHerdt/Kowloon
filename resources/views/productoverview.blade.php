@@ -5,7 +5,7 @@
 
 		<div class="content">
 			<div class="main-content">
-			<h1>{{ str_singular($category->name) }} articles.</h1>
+			<h1 class="title">{{ str_singular($category->name) }} articles.</h1>
 				<span>Filter</span>
 				<span class="caret"></span>
 				<div class="filter">
@@ -46,7 +46,7 @@
 					<span>{{ count($products) }} of {{ count($products) }}</span>
 				</div>
 
-				<div class="products-container">
+				<div class="products-container product-container-margin">
 				@if ($products->count())
 					@foreach ($products as $product)
 						<div class="product-item">

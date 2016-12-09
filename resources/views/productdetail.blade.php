@@ -32,7 +32,7 @@
 				</div>
 				@endforeach
 			</div>
-			<h1>{{ $product->name }}</h1>
+			<h1 class="title">{{ $product->name }}</h1>
 			<h2>€ {{ $product->price}}</h2>
 			<h2>Colors</h2>
 			<div class="color"></div>
@@ -53,11 +53,11 @@
 				<span>{{  $product->technical_description}}</span>
 			</div>
 		</div>
-		<div class="related-products">
-			<h1>Related products</h1>
+		<div class="products-container">
+			<h1 class="title">Related products</h1>
 			@foreach ($relatedProducts as $product)
 			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
-			<div class="related-product ">
+			<div class="product-item">
 				<div class="overlay {{ str_singular(strtolower($product->category->name)) }}">
 					<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
 				</div>
@@ -67,7 +67,7 @@
 		</div>
 		<span class="text-right"><a href="/category/{{ $product->category_id}}">View more</a></span>
 		<div class="faq-container">
-			<h1>Frequently Asked Questions</h1>
+			<h1 class="title">Frequently Asked Questions</h1>
 			@if($questions->count())
 				@foreach ($questions as $question)
 					<div class="question">

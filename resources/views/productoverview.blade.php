@@ -27,23 +27,24 @@
 				</div>
 
 				<hr>
-
-				<div class="dropdown dropdown-left">
-				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    Sort by relevance
-				    <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a href="#">Price: low to high</a></li>
-				    <li><a href="#">Price: high to low</a></li>
-				    <li><a href="#">Latest</a></li>
-				    <li><a href="#">Oldest</a></li>
-				  </ul>
-				</div>
-
+				
 				<div class="text-right">
 					<span class="text-thin">{{ str_singular($category->name) }} items: </span>
 					<span>{{ count($products) }} of {{ count($products) }}</span>
+				</div>
+
+				<div class="dropdown dropdown-left">
+				  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    	Sort by relevance
+				    	<span class="caret"></span>
+				  	</button>
+
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">Price: low to high</a></li>
+					    <li><a href="#">Price: high to low</a></li>
+					    <li><a href="#">Latest</a></li>
+					    <li><a href="#">Oldest</a></li>
+				  	</ul>
 				</div>
 
 				<div class="products-container product-container-margin">

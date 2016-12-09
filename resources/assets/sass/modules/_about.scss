@@ -1,0 +1,33 @@
+.about-left-content {
+	width: 60%;
+	float: left;
+}
+
+.about-right-content {
+	width: 25%;
+	float: right;
+	padding: 0 40px 20px 40px;
+	border-left: 1px solid $primary-border-color;
+	border-bottom: 1px solid $primary-border-color;
+}
+
+.contact-form {
+	margin-top: 250px;
+	width: 75%;
+
+	.contact-button {
+		color: white;
+		background-color: $button-color;
+		padding: 5px 100px;
+		border: none;
+	}
+	
+	input, textarea {
+		border-radius: 0;
+	}
+
+	input[type="text"] {
+		width: 37.5%;
+	}
+}
+

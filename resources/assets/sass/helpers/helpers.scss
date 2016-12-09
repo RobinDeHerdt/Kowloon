@@ -6,26 +6,28 @@
 }
 
 .text-right {
-			float:right;
-			color:white;
+	float:right;
+	color:white;
 
-			a {
-				color:white;
-				float:right;
-			}
+	a {
+		color:white;
+		float:right;
+	}
 
-			a:link {
-				color: white;
-				text-decoration: underline;
-			}
-		}
+	a:link {
+		color: white;
+		text-decoration: underline;
+	}
+}
 
 hr {
-	border-color: #616161;
+	border-color: $primary-border-color;
 }
 
 .title {
 	text-transform: uppercase;
+	font-family: choplin !important;
+	color: #ffffff;
 }
 
 h1 {

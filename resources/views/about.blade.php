@@ -20,6 +20,7 @@
 		<h1 class="title">About us</h1>
 		<div class="about-left-content">
 			<h3 class="title">Kowloon</h3>
+			{{ trans('messages.welcome') }}
 			<p>Pet Concept, active since 1998, is developing, importing and exporting products for pets worldwide.</p> 
 			<p>Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae sequi nesciunt.</p>
 		</div>
@@ -31,7 +32,6 @@
 				<li>2200 Herentals</li>
 			</ul>
 		</div>
-
 		<div class="contact-form">
 			<h3 class="title">Leave us a message</h3>
 			{!! Form::open(['url' => '/contact']) !!}
@@ -40,10 +40,16 @@
 					{{ Form::label('email', 'E-mail') }}
 					{{ Form::text('email', '', ['placeholder' => 'name@domain.com','class' => 'form-control']) }}
 				</div>
+				@if ($errors->first('email'))
+					{{ $errors->first('email') }}
+				@endif
 				<div class="form-group">
 					{{ Form::label('message', 'Your message') }}
 					{{ Form::textarea('message', '', ['placeholder' => 'Write your message here','class' => 'form-control']) }}
 				</div>
+				@if ($errors->first('message'))
+					{{ $errors->first('message') }}
+				@endif
 				<div class="form-group">
 					{{ Form::submit('Send', ['class' => 'contact-button']) }}
 				</div>

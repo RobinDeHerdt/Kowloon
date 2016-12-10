@@ -2,6 +2,9 @@
 
 Auth::routes();
 
+Route::get('/', 'LanguageController@index');
+Route::get('language/{lang}', 'LanguageController@store');
+
 Route::group(
 [
 	'prefix' 		=> LaravelLocalization::setLocale(),
@@ -12,24 +15,20 @@ Route::group(
 function()
 {
 	// Vertaalde routes
-	Route::get(LaravelLocalization::transRoute('routes.about'), 'AboutController@index');
+	// Route::get(LaravelLocalization::transRoute('routes.about'), 'AboutController@index');
 
 	// Niet vertaalde routes
 	Route::get('home', 'HomeController@index');
-	Route::get('/', function() {
-		return redirect('/home');
-	});
+	// Route::get('/', function() {
+	// 	return redirect('/home');
+	// });
 	Route::get('faq', 'QuestionController@index');
 	Route::get('search', 'SearchController@index');
 	Route::get('about', 'ContactController@index');
 	
 	Route::get('category/{id}', 'CategoryController@index');
 	Route::get('category/{category_id}/product/{product_id}', 'ProductController@index');
-	
-	Route::get('mail', function () {
-    	return view('emails.nl.subscribed');
-	});
 });
 
-// Geef de geselecteerde taal mee
+Route::post('/contact', 'ContactController@store');
 Route::post('/{lang}/subscribe', 'SubscriberController@store');

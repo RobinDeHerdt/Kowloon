@@ -1,0 +1,39 @@
+.language-container {
+	margin-left: 25%;
+	margin-top: 50px;
+	width: 50%;
+	height: 180px;
+
+	.language {
+		width: 47.5%;
+		height: 100%;
+		padding-top: 75px;
+		text-align: center;
+		display: inline-block;
+		background-color: $cookies-bg-color;
+
+		&:nth-child(1) {
+			float: left;
+		}
+
+		&:nth-child(2) {
+			float: right;
+		}
+
+		a { 
+			text-decoration:none;
+		}
+	}
+	
+	span {
+		font-size: 36px;
+		font-family: choplin;
+		color: $cookies-text-color;
+	}
+}
+
+.language-logo {
+	width: 20%;
+	margin-left: 40%;
+	margin-top: 15%;
+}

@@ -518,4 +518,32 @@ h1 {
       font-weight: 500;
       font-size: 16px; }
 
+.language-container {
+  margin-left: 25%;
+  margin-top: 50px;
+  width: 50%;
+  height: 180px; }
+  .language-container .language {
+    width: 47.5%;
+    height: 100%;
+    padding-top: 75px;
+    text-align: center;
+    display: inline-block;
+    background-color: #e6cfb9; }
+    .language-container .language:nth-child(1) {
+      float: left; }
+    .language-container .language:nth-child(2) {
+      float: right; }
+    .language-container .language a {
+      text-decoration: none; }
+  .language-container span {
+    font-size: 36px;
+    font-family: choplin;
+    color: #e27500; }
+
+.language-logo {
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 15%; }
+
 /*# sourceMappingURL=app.css.map */

@@ -3,6 +3,7 @@
 Auth::routes();
 
 Route::get('/', 'LanguageController@index');
+Route::get('setcookie', 'CookieController@store');
 Route::get('language/{lang}', 'LanguageController@store');
 
 Route::group(

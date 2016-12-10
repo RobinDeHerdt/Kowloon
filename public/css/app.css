@@ -546,4 +546,58 @@ h1 {
   margin-left: 40%;
   margin-top: 15%; }
 
+.cookie-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(69, 69, 69, 0.8); }
+
+.cookie-module {
+  position: absolute;
+  width: 25%;
+  height: 325px;
+  left: 37.5%;
+  background-color: #e6cfb9;
+  top: 400px; }
+  .cookie-module .close-cookie-window {
+    position: relative;
+    top: -20px;
+    left: 110%;
+    color: #e27500; }
+    .cookie-module .close-cookie-window:hover {
+      cursor: pointer; }
+  .cookie-module .cookie-module-content {
+    width: 60%;
+    top: -25%;
+    left: 20%;
+    position: relative; }
+    .cookie-module .cookie-module-content p {
+      margin: 10px 0;
+      width: 100%;
+      color: black;
+      font-weight: 500; }
+    .cookie-module .cookie-module-content span {
+      width: 100%;
+      font-size: 34px;
+      font-weight: 500;
+      color: #e27500;
+      text-transform: none;
+      margin: 0; }
+    .cookie-module .cookie-module-content button {
+      width: 100%;
+      font-size: 18px;
+      background-color: #e27500;
+      color: white;
+      border: none;
+      text-align: center;
+      padding: 10px 0; }
+  .cookie-module img {
+    position: relative;
+    top: -20px;
+    left: -50px; }
+
+.cookie-close {
+  display: none; }
+
 /*# sourceMappingURL=app.css.map */

@@ -22,6 +22,21 @@
     </script>
 </head>
 <body>
+    @if (Cookie::get('cookiePopup') === null)
+    <div class="cookie-overlay">
+        <div class="cookie-module">
+            <img src="/img/cookie.png" alt="dog bone">
+            <div class="cookie-module-content">
+                <div class="close-cookie-window" onclick="closeCookieWindow()">
+                    <span id="close-cookie-window">X</span>
+                </div>
+                <span class="title">Cookies</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <button type="submit" onclick="closeCookieWindow()">Ok, verder surfen</button>
+            </div>
+        </div>
+    </div>
+    @endif
     <div class="side-container">
         <div class="menu-items">   
             <div class="hamburger">
@@ -75,5 +90,6 @@
     </div>
     <script src="/js/app.js"></script>
     <script src="/js/sidebar.js"></script>
+    <script src="/js/cookiewindow.js"></script>
     </body>
 </html>

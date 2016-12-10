@@ -161,6 +161,8 @@ h1 {
       top: 3px;
       left: 6px;
       color: #565656; }
+  .products-container .product-image-container {
+    height: 180px; }
   .products-container .product-item img {
     max-width: 100%;
     min-width: 100%; }
@@ -337,13 +339,74 @@ h1 {
     .filter .price .price-divider {
       padding: 0 20px; }
 
-.secondary-bg-color {
+.secondary-bg {
   background-color: #f6f6f6 !important;
   position: absolute;
   top: 0;
-  bottom: 0; }
-  .secondary-bg-color h1 {
+  bottom: 0;
+  color: #2b2b2b; }
+  .secondary-bg h1 {
     color: orange; }
+  .secondary-bg .filter {
+    height: 200px; }
+    .secondary-bg .filter .price-divider, .secondary-bg .filter .euro {
+      float: right; }
+    .secondary-bg .filter .price-divider {
+      padding: 10px 20px; }
+    .secondary-bg .filter input[type="text"] {
+      padding: 0 !important; }
+    .secondary-bg .filter .left {
+      float: left;
+      width: 45%; }
+    .secondary-bg .filter .right {
+      position: justified;
+      float: right;
+      width: 45%; }
+    .secondary-bg .filter .right p {
+      float: right;
+      width: 415px; }
+
+.search-field {
+  width: 100%;
+  padding: 20px 0;
+  border: none;
+  border-bottom: 2px solid #2b2b2b;
+  background-color: #f6f6f6;
+  outline: 0 none;
+  font-size: 34px;
+  color: #2b2b2b;
+  background-image: url(/img/search-icon-black.png);
+  background-repeat: no-repeat;
+  text-indent: 80px; }
+  .search-field::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #e27500; }
+  .search-field:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #e27500;
+    opacity: 1; }
+  .search-field::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #e27500;
+    opacity: 1; }
+  .search-field:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #e27500; }
+
+.search-field.dark::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #2b2b2b; }
+.search-field.dark:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #2b2b2b;
+  opacity: 1; }
+.search-field.dark::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #2b2b2b;
+  opacity: 1; }
+.search-field.dark:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #2b2b2b; }
 
 .carousel {
   margin-left: 5%; }

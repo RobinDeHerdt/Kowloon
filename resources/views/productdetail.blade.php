@@ -53,12 +53,12 @@
 				<span>{{  $product->technical_description}}</span>
 			</div>
 		</div>
+		<h1 class="title">Related products</h1>
 		<div class="products-container">
-			<h1 class="title">Related products</h1>
 			@foreach ($relatedProducts as $product)
 			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
 			<div class="product-item">
-				<div class="overlay {{ str_singular(strtolower($product->category->name)) }}">
+				<div class="product-image-container overlay {{ str_singular(strtolower($product->category->name)) }}">
 					<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
 				</div>
 				</a>

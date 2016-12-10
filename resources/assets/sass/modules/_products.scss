@@ -30,6 +30,10 @@
 	.imagecount {
 		@include circle-imagecount(3px, 6px);
 	}
+	
+	.product-image-container {
+		height: 180px;
+	}
 
 	.product-item img {
 		max-width: 100%;

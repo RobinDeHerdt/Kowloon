@@ -1,9 +1,91 @@
-.secondary-bg-color {
+.secondary-bg {
 	background-color: #f6f6f6 !important;
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	color: $secondary-text-color;
+
 	h1 {
 		color: orange;
+	}
+
+	.filter {
+		height: 200px;
+
+		.price-divider, .euro {
+			float: right;
+		}
+
+		.price-divider {
+			padding: 10px 20px;
+		}
+
+		input[type="text"] {
+			padding: 0 !important;
+		}
+
+		.left {
+			float: left;
+			width: 45%;
+		}
+
+		.right {
+			position: justified;
+			float: right;
+			width: 45%;
+		}
+
+		.right p {
+			float: right;
+			width: 415px;
+		}
+	}
+}
+
+.search-field {
+	width: 100%;
+	padding: 20px 0;
+	border: none;
+	border-bottom: 2px solid $secondary-text-color;
+	background-color: $secondary-color;
+	outline: 0 none;
+	font-size: 34px;
+	color: $secondary-text-color;
+	background-image: url(/img/search-icon-black.png);
+    background-repeat: no-repeat;
+    text-indent: 80px;
+
+	// http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css
+	&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	    color:  $cookies-text-color;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:  $cookies-text-color;
+	   opacity:  1;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:  $cookies-text-color;
+	   opacity:  1;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:  $cookies-text-color;
+	}
+}
+
+.search-field.dark {
+	// http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css
+	&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	    color:  $secondary-text-color;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:  $secondary-text-color;
+	   opacity:  1;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:  $secondary-text-color;
+	   opacity:  1;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:  $secondary-text-color;
 	}
 }

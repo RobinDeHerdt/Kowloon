@@ -15,9 +15,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Current Database: `kowloon`
+--
 
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `kowloon` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `robindeher63001`;
+USE `kowloon`;
 
 --
 -- Table structure for table `carouselimages`
@@ -69,6 +73,59 @@ INSERT INTO `categories` VALUES (1,'Dogs','dog.png'),(2,'Cats','cat.png'),(3,'Fi
 UNLOCK TABLES;
 
 --
+-- Table structure for table `hotitems`
+--
+
+DROP TABLE IF EXISTS `hotitems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hotitems` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `hotitems_product_id_foreign` (`product_id`),
+  CONSTRAINT `hotitems_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hotitems`
+--
+
+LOCK TABLES `hotitems` WRITE;
+/*!40000 ALTER TABLE `hotitems` DISABLE KEYS */;
+INSERT INTO `hotitems` VALUES (1,1),(2,2),(3,3),(4,3);
+/*!40000 ALTER TABLE `hotitems` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,'azeaze','azeaze','2016-12-10 09:00:23','2016-12-10 09:00:23'),(2,'Hello@world.be','azeazeAAAA','2016-12-10 12:09:53','2016-12-10 12:09:53');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -80,7 +137,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=439 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +146,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (230,'2014_10_12_000000_create_users_table',1),(231,'2014_10_12_100000_create_password_resets_table',1),(232,'2016_11_26_083617_create_categories_table',1),(233,'2016_11_26_083618_create_products_table',1),(234,'2016_11_26_083708_create_productimages_table',1),(235,'2016_11_26_083724_create_tags_table',1),(236,'2016_11_26_083741_create_subscribers_table',1),(237,'2016_11_26_083812_create_questions_table',1),(238,'2016_11_26_085407_create_product_tag_table',1),(239,'2016_12_02_201223_create_carouselimages_table',1);
+INSERT INTO `migrations` VALUES (427,'2014_10_12_000000_create_users_table',1),(428,'2014_10_12_100000_create_password_resets_table',1),(429,'2016_11_26_083617_create_categories_table',1),(430,'2016_11_26_083618_create_products_table',1),(431,'2016_11_26_083708_create_productimages_table',1),(432,'2016_11_26_083724_create_tags_table',1),(433,'2016_11_26_083741_create_subscribers_table',1),(434,'2016_11_26_083812_create_questions_table',1),(435,'2016_11_26_085407_create_product_tag_table',1),(436,'2016_12_02_201223_create_carouselimages_table',1),(437,'2016_12_03_133647_create_hotitems_table',1),(438,'2016_12_09_212341_create_messages_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +198,7 @@ CREATE TABLE `productimages` (
   PRIMARY KEY (`id`),
   KEY `productimages_product_id_foreign` (`product_id`),
   CONSTRAINT `productimages_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +207,7 @@ CREATE TABLE `productimages` (
 
 LOCK TABLES `productimages` WRITE;
 /*!40000 ALTER TABLE `productimages` DISABLE KEYS */;
-INSERT INTO `productimages` VALUES (1,'/img/Voorkant_cooling mat_01.02.png','Dog cooling mat image 1',1,NULL,NULL),(2,'/img/Voorkant_cooling mat_01.02.png','Dog cooling mat image 2',1,NULL,NULL),(3,'/img/Voorkant_cooling mat_01.02.png','Dog cooling mat image 3',1,NULL,NULL);
+INSERT INTO `productimages` VALUES (1,'cooling_mat.png','Dog cooling mat image 1',1,NULL,NULL),(2,'cooling_mat.png','Dog cooling mat image 2',1,NULL,NULL),(3,'dog-villa.jpg','Dog cooling mat image 3',1,NULL,NULL),(4,'dog-villa.jpg','Picture of dogvilla.',2,NULL,NULL),(5,'cat-pole.jpg','Picture of cat pole.',3,NULL,NULL),(6,'cat-pole.jpg','Picture of cat pole.',3,NULL,NULL),(7,'cat-pole.jpg','Picture of cat pole.',4,NULL,NULL);
 /*!40000 ALTER TABLE `productimages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +230,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `products_category_id_foreign` (`category_id`),
   CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +239,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Dog cooler',15.99,'Dog cooling mat','Technical description of a dog cooling mat.',1,NULL,NULL);
+INSERT INTO `products` VALUES (1,'Dog cooler',15.99,'Dog cooling mat','Technical description of a dog cooling mat.',1,NULL,NULL),(2,'Dog villa',999.99,'Very large dog villa.','Very large dog villa for very large dog.',1,NULL,NULL),(3,'Cat pole',999.99,'Average sized cat pole.','Very average sized cat pole.',2,NULL,NULL),(4,'Cat pole',999.99,'Average sized cat pole.','Very average sized cat pole.',2,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,7 +320,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'0'),(2,'Luxury'),(3,'New'),(4,'On sale'),(5,'Other');
+INSERT INTO `tags` VALUES (1,'Splash \'n fun'),(2,'Luxury'),(3,'New'),(4,'On sale'),(5,'Other');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +349,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin@kowloon.be','$2y$10$tmzVaRHOBxaIt/GnNLIQduv.ywT.aMivgLc.PJftmwC0Gq7W2D/Fi',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin@kowloon.be','$2y$10$d.nwH/pBqaH0UCsGI78qsuCEquQoXNVUYPU89edSCUkGQiWa0JNFS',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -305,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-02 21:53:37
+-- Dump completed on 2016-12-10 15:45:58

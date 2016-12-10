@@ -20,7 +20,6 @@
 		<h1 class="title">About us</h1>
 		<div class="about-left-content">
 			<h3 class="title">Kowloon</h3>
-			{{ trans('messages.welcome') }}
 			<p>Pet Concept, active since 1998, is developing, importing and exporting products for pets worldwide.</p> 
 			<p>Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae sequi nesciunt.</p>
 		</div>

@@ -2,6 +2,7 @@
 
 @section('content')
 
+@include('includes.admin-nav')
 @include('includes.carousel')
 
 <div class="content">

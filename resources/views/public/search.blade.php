@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('includes.admin-nav')
+
 <div class="content secondary-bg">
 	<div class="main-content">
 		<span>Advanced filter</span>

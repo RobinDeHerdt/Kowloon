@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+@include('includes.admin-nav')
+
 <a href="/home"><img src="/img/logo.png" alt="Kowloon logo" class="logo-image"></a>
 <div class="carousel">
 	<div class="carousel-inner">

@@ -17,7 +17,7 @@ class CategoryController extends Controller
     	$carouselimages = Carouselimage::all();
     	$tags			= Tag::all();
 
-    	return view('productoverview', [
+    	return view('public.productoverview', [
     		'category' 			=> $category,
     		'products' 			=> $products,
     		'carouselimages'	=> $carouselimages,

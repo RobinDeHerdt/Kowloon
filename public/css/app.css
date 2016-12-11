@@ -600,6 +600,7 @@ h1 {
     .language-container .language a {
       text-decoration: none; }
   .language-container span {
+    font-weight: 500;
     font-size: 36px;
     font-family: choplin;
     color: #e27500; }
@@ -619,10 +620,10 @@ h1 {
 .cookie-module {
   position: absolute;
   width: 25%;
-  height: 325px;
+  top: 35vh;
+  height: 20%;
   left: 37.5%;
-  background-color: #e6cfb9;
-  top: 400px; }
+  background-color: #e6cfb9; }
   .cookie-module .close-cookie-window {
     position: relative;
     top: -20px;

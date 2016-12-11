@@ -11,6 +11,6 @@ class SearchController extends Controller
     {	
     	$categories = Category::all();
 
-    	return view('search', ['categories' => $categories]);
+    	return view('public.search', ['categories' => $categories]);
     }
 }

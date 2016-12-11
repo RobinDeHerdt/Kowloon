@@ -13,7 +13,7 @@ class ContactController extends Controller
     	// Moet nog aangepast worden!
     	$questions = Question::all();
 
-    	return view('about', ['questions' => $questions]);
+    	return view('public.about', ['questions' => $questions]);
     }
 
     public function store(Request $request)

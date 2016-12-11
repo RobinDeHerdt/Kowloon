@@ -15,7 +15,7 @@ class HomeController extends Controller
     	$categories 	= Category::all();
     	$carouselimages = Carouselimage::all();
 
-        return view('home', [
+        return view('public.home', [
         	'hotitems' 			=> $hotitems,
         	'categories' 		=> $categories,
          	'carouselimages' 	=> $carouselimages

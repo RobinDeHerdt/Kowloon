@@ -15,7 +15,7 @@ class ProductController extends Controller
     	$relatedProducts 	= Product::where('category_id', $category_id)->where('id', '!=', $product_id)->take(4)->get();
     	$questions			= Question::where('product_id', $product_id)->get();
         
-    	return view('productdetail', [
+    	return view('public.productdetail', [
     		'product' 			=> $product,
     		'relatedProducts' 	=> $relatedProducts,
     		'questions' 		=> $questions

@@ -1,6 +1,7 @@
 html {
   min-height: 100%;
-  position: relative; }
+  position: relative;
+  overflow: auto; }
 
 body {
   background-color: #454545;

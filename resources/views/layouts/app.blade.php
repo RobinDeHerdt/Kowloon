@@ -21,7 +21,7 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body onunload="savePos()">
     @if (Cookie::get('cookiePopup') === null)
     <div class="cookie-overlay">
         <div class="cookie-module">
@@ -73,6 +73,7 @@
         @yield('content')
     </div>
     <script src="/js/app.js"></script>
+    <script src="/js/scroll.js"></script>
     <script src="/js/sidebar.js"></script>
     <script src="/js/cookiewindow.js"></script>
     </body>

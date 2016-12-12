@@ -42,10 +42,10 @@
 		  	</button>
 
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-			    <li><a href="#">Price: low to high</a></li>
-			    <li><a href="#">Price: high to low</a></li>
-			    <li><a href="#">Latest</a></li>
-			    <li><a href="#">Oldest</a></li>
+			    <li><a href="?sort=price_asc">Price: low to high</a></li>
+			    <li><a href="?sort=price_desc">Price: high to low</a></li>
+			    <li><a href="?sort=latest">Latest</a></li>
+			    <li><a href="?sort=oldest">Oldest</a></li>
 		  	</ul>
 		</div>
 

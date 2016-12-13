@@ -13,27 +13,29 @@
 			<span class="caret"></span>
 		</div>
 		<div class="filter hide" id="productFilter">
-		{!! Form::open(['url' => '/category/' . $category->id, 'method' => 'get']) !!}
-			<div class="collection">
-				<p>By collection </p>
-				@foreach ($tags as $tag)
-					<div class="collection-item">
-						<input type="checkbox" name="{{ $tag->name}}">
-						<label>{{ $tag->name }} </label>
-					</div>
-				@endforeach	
-			</div>
-			<div class="price">
-				<p>Price range </p>
-				<span class="euro">€ <input type="text" name="minimumprice" value="{{ $minimumPricedProduct->price}}"></span>
-				<span class="price-divider"> - </span>
-				<span class="euro">€ <input type="text" name="maximumprice" value="{{ $maximumPricedProduct->price}}"></span>
-			</div>
-			<div class="form-group">
-			{{ Form::submit('Filter', ['class' => 'button']) }}
-			</div>
+			<form action="/category/{{$category->id}}" method="GET">
+				<div class="collection">
+					<p>By collection </p>
+					@foreach ($tags as $tag)
+						<div class="collection-item">
+							<input type="checkbox" name="{{$tag->name}}">
+							<label for="{{ $tag->name }}">{{ $tag->name }}</label>
+						</div>
+					@endforeach	
+				</div>
+				<div class="price">
+					<p>Price range </p>
+					<span class="euro">€ <input type="text" name="minimumprice" value="{{ $minimumPricedProduct->price}}"></span>
+					<span class="price-divider"> - </span>
+					<span class="euro">€ <input type="text" name="maximumprice" value="{{ $maximumPricedProduct->price}}"></span>
+				</div>
+				<input type="hidden" value="" name="sort" id="selectedSortFunction">
+				<div class="form-group">
+					<input type="submit" value="Filter" class="button">
+				</div>
+			</form>
 		</div>
-		{!! Form::close() !!}
+		
 		<hr>
 		
 		<div class="text-right">
@@ -47,11 +49,11 @@
 		  	</button>
 
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li><a href="{{ url()->full() }}{{($_GET) ? '&': '?'}}sort=relevance">Relevance</a></li>
-			    <li><a href="{{ url()->full() }}&sort=price_asc">Price: low to high</a></li>
-			    <li><a href="{{ url()->full() }}&sort=price_desc">Price: high to low</a></li>
-			    <li><a href="{{ url()->full() }}&sort=latest">Latest</a></li>
-			    <li><a href="{{ url()->full() }}&sort=oldest">Oldest</a></li>
+				<li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'relevance',url()->full())  : '?sort=relevance')}}">Relevance</a></li>
+				<li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'price_asc',url()->full())  : '?sort=price_asc')}}">Price: low to high</a></li>
+				<li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'price_desc',url()->full())  : '?sort=price_desc')}}">Price: high to low</a></li>
+			    <li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'latest',url()->full())  : '?sort=latest')}}">Latest</a></li>
+			    <li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'oldest',url()->full())  : '?sort=oldest')}}">Oldest</a></li>
 		  	</ul>
 		</div>
 
@@ -85,21 +87,23 @@
 	(function(){
 		var displaySelectedValueField 	= document.getElementById('dropdownMenu1');
 		var sortBy 						= getParameterByName('sort');
+		var selectedSortFunction		= document.getElementById('selectedSortFunction');
 
 		switch(sortBy)
 		{
-			case 'price_asc': sortBy = 'Price: low to high';
+			case 'price_asc': 	sortByOutput = 'Price: low to high';
 				break;
-			case 'price_desc': sortBy = 'Price: high to low';
+			case 'price_desc': 	sortByOutput = 'Price: high to low';
 				break;
-			case 'oldest': sortBy = 'Oldest';
+			case 'oldest': 		sortByOutput = 'Oldest';
 				break;
-			case 'latest': sortBy = 'Latest';
+			case 'latest': 		sortByOutput = 'Latest';
 				break;
-			default: sortBy = 'Relevance';
+			default: 			sortByOutput = 'Relevance';
 		}
 
-		displaySelectedValueField.innerHTML = 'Sort by ' + sortBy + ' <span class="caret"></span>';
+		selectedSortFunction.value 			= sortBy;
+		displaySelectedValueField.innerHTML = 'Sort by ' + sortByOutput + ' <span class="caret"></span>';
 	})();
 
 	// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript

@@ -39,4 +39,6 @@ function()
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/dashboard', 'AdminController@index');
+
+	Route::post('/admin/hotitems', 'HomeController@update');
 });

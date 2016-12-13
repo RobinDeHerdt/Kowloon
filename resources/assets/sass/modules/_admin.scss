@@ -1,19 +1,9 @@
 .login-form {
-	background-color: #f7eade;
+	background-color: white;
 	margin-top: 30%;
 	padding: 25px;
 	color: black;
-
-	.login-form button {
-		background-color: #e27500;
-		border-color: #e27500;
-		width: 72.5%;
-
-		&:hover {
-			background-color: #e27500;
-			border-color: #e27500;
-		}
-	}
+	border-radius: 5px;
 }
 
 .admin-nav {
@@ -28,5 +18,33 @@
 
 	a:nth-child(1) {
 		margin-right: 20px;
+	}
+}
+
+.admin-box {
+	-webkit-box-shadow: 3px 3px 10px 0px rgba(148,148,148,1);
+	-moz-box-shadow: 3px 3px 10px 0px rgba(148,148,148,1);
+	box-shadow: 3px 3px 10px 0px rgba(148,148,148,1);
+	width: 100%;
+	padding: 20px 40px;
+
+	h3 {
+		color: black;
+		margin: 5px 0;
+	}
+
+	.hot-item-select {
+		display: inline-block;
+		width: 15%;
+		margin-right: 9%;
+
+		select {
+			width: 100%;
+			margin: 10px 0 40px 0;
+		}
+	}
+
+	.button {
+		background-color: orange;
 	}
 }

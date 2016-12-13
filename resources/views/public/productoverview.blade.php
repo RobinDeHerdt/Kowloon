@@ -14,7 +14,6 @@
 		</div>
 		<div class="filter hide" id="productFilter">
 		{!! Form::open(['url' => '/category/' . $category->id, 'method' => 'get']) !!}
-			
 			<div class="collection">
 				<p>By collection </p>
 				@foreach ($tags as $tag)

@@ -360,7 +360,7 @@ h1 {
     margin: 40px 0;
     color: orange; }
   .secondary-bg .filter {
-    height: 200px; }
+    height: 100px; }
     .secondary-bg .filter .price-divider, .secondary-bg .filter .euro {
       float: right; }
     .secondary-bg .filter .price-divider {
@@ -461,6 +461,9 @@ h1 {
   .admin-nav a:nth-child(1) {
     margin-right: 20px; }
 
+.about-container {
+  margin-bottom: 250px; }
+
 .about-left-content {
   width: 60%;
   float: left; }
@@ -473,7 +476,6 @@ h1 {
   border-bottom: 1px solid #616161; }
 
 .contact-form {
-  margin-top: 250px;
   margin-bottom: 75px;
   width: 75%; }
   .contact-form input, .contact-form textarea {

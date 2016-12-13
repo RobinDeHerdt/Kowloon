@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Message;
+use Session;
 
 class ContactController extends Controller
 {
@@ -19,7 +20,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
     	$this->validate($request, [
-        	'email' 	=> 'required|unique:messages|max:255|email',
+        	'email' 	=> 'required|max:255|email',
         	'message' 	=> 'required|max:1024',
     	]);
 
@@ -29,6 +30,8 @@ class ContactController extends Controller
     	$message->message 	= $request->message;
 
     	$message->save();
+
+        Session::flash('contact_status', 'Success!');
 
     	return back();
     }

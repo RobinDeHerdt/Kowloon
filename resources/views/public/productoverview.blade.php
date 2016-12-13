@@ -8,26 +8,33 @@
 <div class="content">
 	<div class="main-content">
 	<h1 class="title">{{ str_singular($category->name) }} articles.</h1>
-		<span>Filter</span>
-		<span class="caret"></span>
-		<div class="filter">
+		<div id="filterToggle" onclick="toggleFilter()">
+			<span>Filter</span>
+			<span class="caret"></span>
+		</div>
+		<div class="filter hide" id="productFilter">
+		{!! Form::open(['url' => '/category/' . $category->id, 'method' => 'get']) !!}
+			
 			<div class="collection">
 				<p>By collection </p>
 				@foreach ($tags as $tag)
 					<div class="collection-item">
-						<input type="checkbox">
+						<input type="checkbox" name="{{ $tag->name}}">
 						<label>{{ $tag->name }} </label>
 					</div>
 				@endforeach	
 			</div>
 			<div class="price">
 				<p>Price range </p>
-				<span class="euro">€ <input type="text"></span>
+				<span class="euro">€ <input type="text" name="minimumprice" value="{{ $minimumPricedProduct->price}}"></span>
 				<span class="price-divider"> - </span>
-				<span class="euro">€ <input type="text"></span>
+				<span class="euro">€ <input type="text" name="maximumprice" value="{{ $maximumPricedProduct->price}}"></span>
+			</div>
+			<div class="form-group">
+			{{ Form::submit('Filter', ['class' => 'button']) }}
 			</div>
 		</div>
-
+		{!! Form::close() !!}
 		<hr>
 		
 		<div class="text-right">
@@ -37,15 +44,15 @@
 
 		<div class="dropdown dropdown-left">
 		  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		    	Sort by relevance
 		    	<span class="caret"></span>
 		  	</button>
 
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-			    <li><a href="?sort=price_asc">Price: low to high</a></li>
-			    <li><a href="?sort=price_desc">Price: high to low</a></li>
-			    <li><a href="?sort=latest">Latest</a></li>
-			    <li><a href="?sort=oldest">Oldest</a></li>
+				<li><a href="{{ url()->full() }}{{($_GET) ? '&': '?'}}sort=relevance">Relevance</a></li>
+			    <li><a href="{{ url()->full() }}&sort=price_asc">Price: low to high</a></li>
+			    <li><a href="{{ url()->full() }}&sort=price_desc">Price: high to low</a></li>
+			    <li><a href="{{ url()->full() }}&sort=latest">Latest</a></li>
+			    <li><a href="{{ url()->full() }}&sort=oldest">Oldest</a></li>
 		  	</ul>
 		</div>
 
@@ -75,4 +82,47 @@
 		</div>
 	</div>
 </div>
+<script>
+	(function(){
+		var displaySelectedValueField 	= document.getElementById('dropdownMenu1');
+		var sortBy 						= getParameterByName('sort');
+
+		switch(sortBy)
+		{
+			case 'price_asc': sortBy = 'Price: low to high';
+				break;
+			case 'price_desc': sortBy = 'Price: high to low';
+				break;
+			case 'oldest': sortBy = 'Oldest';
+				break;
+			case 'latest': sortBy = 'Latest';
+				break;
+			default: sortBy = 'Relevance';
+		}
+
+		displaySelectedValueField.innerHTML = 'Sort by ' + sortBy + ' <span class="caret"></span>';
+	})();
+
+	// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+	function getParameterByName(name, url) {
+	    if (!url) {
+	      url = window.location.href;
+	    }
+
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	        results = regex.exec(url);
+
+	    if (!results) return null;
+	    if (!results[2]) return '';
+
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	function toggleFilter()
+	{
+		var productFilter = document.getElementById('productFilter');
+		productFilter.classList.toggle('hide');
+	}
+</script>
 @endsection

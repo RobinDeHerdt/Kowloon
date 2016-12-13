@@ -53,11 +53,12 @@
 					{{ $errors->first('message') }}
 				@endif
 				<div class="form-group">
-					{{ Form::submit('Send', ['class' => 'contact-button']) }}
+					{{ Form::submit('Send', ['class' => 'button']) }}
 				</div>
 			{!! Form::close() !!}
 		</div>
 		@include('includes.faq')
+		<div class="space"></div>
 	</div>
 </div>
 @endsection

@@ -11,14 +11,14 @@ class ProductController extends Controller
 {
     public function index($category_id, $product_id)
     {
-    	$product 			= Product::find($product_id);
-    	$relatedProducts 	= Product::where('category_id', $category_id)->where('id', '!=', $product_id)->take(4)->get();
-    	$questions			= Question::where('product_id', $product_id)->get();
+    	$product 			   = Product::find($product_id);
+    	$relatedProducts 	   = Product::where('category_id', $category_id)->where('id', '!=', $product_id)->take(4)->get();
+    	$questions             = Question::where('product_id', $product_id)->get();
         
     	return view('public.productdetail', [
-    		'product' 			=> $product,
-    		'relatedProducts' 	=> $relatedProducts,
-    		'questions' 		=> $questions
+    		'product' 			    => $product,
+    		'relatedProducts' 	    => $relatedProducts,
+    		'questions' 		    => $questions,
     	]);
     }
 }

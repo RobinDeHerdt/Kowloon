@@ -13,14 +13,8 @@
 
 .contact-form {
 	margin-top: 250px;
+	margin-bottom: 75px;
 	width: 75%;
-
-	.contact-button {
-		color: white;
-		background-color: $button-color;
-		padding: 5px 100px;
-		border: none;
-	}
 	
 	input, textarea {
 		border-radius: 0;
@@ -31,3 +25,9 @@
 	}
 }
 
+.button {
+	color: white;
+	background-color: $button-color;
+	padding: 5px 100px;
+	border: none;
+}

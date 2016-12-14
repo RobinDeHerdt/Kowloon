@@ -113,7 +113,9 @@ h1 {
     width: 24.5%;
     display: inline-block;
     background-color: #565656;
-    padding: 5px; }
+    padding: 5px;
+    margin-bottom: 0.5%;
+    margin-right: 0.2%; }
     .products-container .product-item .image-container {
       height: 180px; }
     .products-container .product-item img {

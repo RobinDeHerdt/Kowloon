@@ -18,8 +18,8 @@
 					<p>By collection </p>
 					@foreach ($tags as $tag)
 						<div class="collection-item">
-<input type="checkbox" name="{{strtolower($tag->tag_name)}}" {{(isset($_GET[strtolower(str_replace(' ','_',$tag->tag_name))]) ? 'checked' : '')}}>
-							<label for="{{strtolower($tag->tag_name)}}">{{ $tag->tag_name }}</label>
+<input type="checkbox" name="{{strtolower($tag->name)}}" {{(isset($_GET[strtolower(str_replace(' ','_',$tag->name))]) ? 'checked' : '')}}>
+							<label for="{{strtolower($tag->name)}}">{{ $tag->name }}</label>
 						</div>
 					@endforeach	
 				</div>

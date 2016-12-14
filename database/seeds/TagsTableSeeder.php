@@ -12,23 +12,23 @@ class TagsTableSeeder extends Seeder
     public function run()
     {
         DB::table('tags')->insert([
-            'tag_name' => "Splash 'n fun",
+            'name' => "Splash 'n fun",
         ]);
 
         DB::table('tags')->insert([
-            'tag_name' => 'Luxury',
+            'name' => 'Luxury',
         ]);
 
         DB::table('tags')->insert([
-            'tag_name' => 'New',
+            'name' => 'New',
         ]);
 
         DB::table('tags')->insert([
-            'tag_name' => 'On sale',
+            'name' => 'On sale',
         ]);
 
         DB::table('tags')->insert([
-            'tag_name' => 'Other',
+            'name' => 'Other',
         ]);
     }
 }

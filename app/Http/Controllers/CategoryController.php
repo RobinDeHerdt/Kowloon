@@ -18,11 +18,12 @@ class CategoryController extends Controller
 
         $query          = Product::where('category_id', $id);
         
-        foreach ($tags as $key => $tag) {
-            if($request->query(strtolower(str_replace(' ','_',$tag->tag_name)))) 
+        foreach ($tags as $key => $tag) 
+        {
+            if($request->query(strtolower(str_replace(' ','_',$tag->name)))) 
             {
                 $query->whereHas('tags', function($q) use ($tag){
-                    $q->where('tag_name', $tag->tag_name);
+                    $q->where('name', $tag->name);
                 });
             }
         }
@@ -45,14 +46,23 @@ class CategoryController extends Controller
                     $sortBy     = 'created_at';
                     $sortOrder  = 'desc';
                 break;
-
             // Pas dit aan naar evt. hot items
             default: 
                     $sortBy     = 'created_at';
                     $sortOrder  = 'desc';
         }
 
-        $products = $query->orderBy($sortBy, $sortOrder)->get();
+        if ($request->query('minimumprice') && $request->query('maximumprice'))
+        {
+            $minprice       = $request->query('minimumprice');
+            $maxprice       = $request->query('maximumprice');
+
+            $products = $query->whereBetween('price',[$minprice,$maxprice])->orderBy($sortBy, $sortOrder)->get();
+        }
+        else
+        {   
+            $products = $query->orderBy($sortBy, $sortOrder)->get();
+        }   
 
         $minimumPricedProduct  = $products->sortBy('price')->first();
         $maximumPricedProduct  = $products->sortByDesc('price')->first();

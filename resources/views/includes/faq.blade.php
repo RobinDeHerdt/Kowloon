@@ -8,7 +8,7 @@
 			</div>
 		@endforeach
 	@else
-		<h1>No questions for this product yet.</h1>
+		<h3>No questions for this product yet.</h3>
 	@endif
 	<br>
 </div>

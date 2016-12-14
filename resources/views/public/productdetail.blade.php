@@ -27,11 +27,11 @@
 				<img src="/img/k_logo.png" class="small_logo">
 				<div class="tag">
 					<div class="tag-category-color {{ str_singular(strtolower($product->category->name)) }}"></div>
-						{{ $product->category->tag_name }}
+						{{ $product->category->name }}
 				</div>
 				@foreach($product->tags as $tag)
 				<div class="tag">
-					{{ $tag->tag_name }}
+					{{ $tag->name }}
 				</div>
 				@endforeach
 			</div>
@@ -59,12 +59,12 @@
 		<h1 class="title">Related products</h1>
 		<div class="products-container">
 			@foreach ($relatedProducts as $product)
-			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
 			<div class="product-item">
+			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
 				<div class="product-image-container overlay {{ str_singular(strtolower($product->category->name)) }}">
 					<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
 				</div>
-				</a>
+			</a>
 			</div>
 			@endforeach
 		</div>

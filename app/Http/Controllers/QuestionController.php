@@ -15,22 +15,34 @@ class QuestionController extends Controller
     	if($request->query('query'))
     	{
     		$inputstring = strip_tags($request->query('query'));
-    		$keywords = explode(' ',$inputstring);
 
-    		foreach ($keywords as $key => $keyword) {
-    			$query = Question::where('title', 'like', '%'.$keyword.'%')->orWhere('body', 'like', '%'.$keyword.'%');
-    		}
+            // Check of input whitespace is
+            if (!ctype_space($inputstring))
+            {
+        		$keywords = explode(' ',$inputstring);
 
-    		$questions = $query->get();
-
-    		if($questions->count())
-    		{
-    			$response = 'Er werden ' . $questions->count() . ' resultaten gevonden voor "' . $inputstring . '":'; 
-    		}
-    		else
-    		{
-    			$response = 'Er werden geen resultaten gevonden voor "' . $inputstring . '"'; 
-    		}
+        		$questions = Question::where(function($q) use ($keywords)
+                {
+                    foreach ($keywords as $key => $keyword) 
+                    {
+                        $q->orWhere('body', 'like', '%'.$keyword.'%')->orWhere('title', 'like', '%'.$keyword.'%');
+                    }
+                })->get();
+            
+            
+        		if($questions->count())
+        		{
+        			$response = 'Er werden ' . $questions->count() . ' resultaten gevonden voor "' . $inputstring . '":'; 
+        		}
+        		else
+        		{
+        			$response = 'Er werden geen resultaten gevonden voor "' . $inputstring . '"'; 
+        		}
+            }
+            else
+            {
+                $response = 'Dit is geen goede zoekopdracht. Probeer nog een keer.';
+            }
     	}
 
     	return view('public.faq', [

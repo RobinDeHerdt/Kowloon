@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<h1 class="title">Related products</h1>
-		<div class="products-container">
+		<div class="products-container justify">
 			@foreach ($relatedProducts as $product)
 			<div class="product-item">
 			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">

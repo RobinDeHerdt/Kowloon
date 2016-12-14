@@ -39,6 +39,7 @@ function()
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/dashboard', 'AdminController@index');
-
+    Route::get('admin/messages', 'MessageController@index');
+    Route::get('admin/message/{id}', 'MessageController@show');
 	Route::post('/admin/hotitems', 'HomeController@update');
 });

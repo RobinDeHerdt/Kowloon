@@ -10,6 +10,17 @@
 			<div class="alert alert-warning"><span>Oops! Something went terribly wrong! Better check the form again.</span></div>
 		@endif
 		<div class="admin-box">
+		<h3 class="title">New messages</h3>
+			@foreach ($unseenmessages as $message)
+				<div class="message unread">
+					<span>From: {{$message->email}}</span>
+					<p>{{$message->message}}</p>
+				</div>
+			@endforeach
+			<a href="/admin/messages">View all messages</a>
+		</div>
+
+		<div class="admin-box">
 			<h3 class="title">Hot-items</h3>
 			<form action="/admin/hotitems" method="POST">	
 				{{ Form::token() }}

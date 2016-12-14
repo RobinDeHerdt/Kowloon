@@ -31,7 +31,7 @@ class ContactController extends Controller
 
     	$message->save();
 
-        Session::flash('contact_status', 'Success!');
+        Session::flash('contact_status', 'Bedankt voor je bericht!');
 
     	return back();
     }

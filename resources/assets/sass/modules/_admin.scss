@@ -47,4 +47,15 @@
 	.button {
 		background-color: orange;
 	}
+
+	.message {
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding-left: 2.5%;
+		width: 95%;
+	}
+
+	.unread {
+		border-left: 2px solid black;
+	}
 }

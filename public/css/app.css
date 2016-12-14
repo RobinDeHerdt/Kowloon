@@ -475,6 +475,13 @@ h1 {
       margin: 10px 0 40px 0; }
   .admin-box .button {
     background-color: orange; }
+  .admin-box .message {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 2.5%;
+    width: 95%; }
+  .admin-box .unread {
+    border-left: 2px solid black; }
 
 .about-container {
   margin-bottom: 250px; }

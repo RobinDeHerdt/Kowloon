@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
             $table->string('email')->unqiue();
             $table->text('message');
+            $table->boolean('seen')->default(0);
             $table->timestamps();
         });
     }

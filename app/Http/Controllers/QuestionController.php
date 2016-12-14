@@ -16,10 +16,11 @@ class QuestionController extends Controller
     	{
     		$inputstring = strip_tags($request->query('query'));
 
-            // Check of input whitespace is
-            if (!ctype_space($inputstring))
+            // Check of input niet alleen whitespace is/niet leeg is zonder tags
+            if (!empty($inputstring) && !ctype_space($inputstring))
             {
-        		$keywords = explode(' ',$inputstring);
+        		// Split op meer dan 1 whitespace + negeer spaties voor of na inputstring
+                $keywords = preg_split('/\s+/', $inputstring, -1, PREG_SPLIT_NO_EMPTY);
 
         		$questions = Question::where(function($q) use ($keywords)
                 {
@@ -28,7 +29,6 @@ class QuestionController extends Controller
                         $q->orWhere('body', 'like', '%'.$keyword.'%')->orWhere('title', 'like', '%'.$keyword.'%');
                     }
                 })->get();
-            
             
         		if($questions->count())
         		{

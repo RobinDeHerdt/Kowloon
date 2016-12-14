@@ -28,13 +28,42 @@
 			</div>
 		</div>
 		<div class="space"></div>
-		{!! Form::open(['url' => '/search']) !!}
-			{{ Form::token() }}
-				{{ Form::text('search', '', ['placeholder' => 'Just start typing and hit "enter" to search','class' => 'search-field']) }}
-				@if ($errors->first('search'))
-					{{ $errors->first('search') }}
-				@endif
+
+		{!! Form::open(['url' => '/search', 'method' => 'GET']) !!}
+				{{ Form::text('query', '', ['placeholder' => 'Just start typing and hit "enter" to search','class' => 'search-field']) }}
 		{!! Form::close() !!}
+	
+		@if ($results)
+			@if ($results->count())
+			<div id="search-info">
+				<span>Don't find what you're looking for?</span><br>
+				<span>You can always contact our <a href="/about">customer service</a>. We're happy to help you!</span>
+			</div>
+			@endif
+		@endif
+
+		@if ($response)
+		<h3 id="search-response">{{ $response }}</h3>
+		@endif
+
+		@if($results)
+		<div class="searchresults-container">
+			@foreach ($results as $result)
+				<div class="searchresult">
+					<div class="result-image">
+						<img src="/img/{{$result->productimages->first()->image_url}}" alt="">
+					</div>
+					<div class="result-text">
+						<h3>{{$result->name}}</h3>
+						<span>€{{$result->price}}</span>
+						<p>{{$result->description}}</p>
+						<p>{{$result->technical_description}}</p>
+						<a href="/category/{{$result->category->id}}/product/{{$result->id}}"></a>
+					</div>
+				</div>
+			@endforeach
+		</div>
+		@endif
 	</div>
 </div>
 <script>

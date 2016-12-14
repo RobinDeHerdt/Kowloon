@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
-<div class="content secondary-bg">
+<div class="content search-page secondary-bg">
 	<div class="main-content">
+		<div class="logout">
+			<a href="{{ url('/logout') }}"
+		        onclick="event.preventDefault();
+		                 document.getElementById('logout-form').submit();">
+		        Logout
+		    </a>
+		    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+		        {{ csrf_field() }}
+		    </form>
+		</div>
 		<h1>Dashboard</h1>
 		@if(Session::has('hotitems_update_status'))
 	    	<div class="alert alert-success"><span>{{ session('hotitems_update_status') }}</span></div>

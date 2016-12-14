@@ -9,9 +9,6 @@
 		<h1 class="title">Frequently Asked Questions</h1>
 		{!! Form::open(['url' => '/faq', 'method' => 'get']) !!}
 				{{ Form::text('query', '', ['placeholder' => 'Search on keyword','class' => 'search-field dark']) }}
-				@if ($errors->first('query'))
-					{{ $errors->first('query') }}
-				@endif
 		{!! Form::close() !!}
 		@if ($questions)
 			@if ($questions->count())
@@ -29,7 +26,7 @@
 				@foreach ($questions as $question)
 					<div class="searchresult">
 						<h3>{{ $question->title}}</h3>
-						<p>{{ $question->body}}</p>
+						<p class="answer">{{ $question->body}}</p>
 					</div>
 				@endforeach
 			@endif

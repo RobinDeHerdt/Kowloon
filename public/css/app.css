@@ -441,7 +441,20 @@ h1 {
     width: 100%;
     padding: 10px 20px;
     margin-top: 10px; }
-  .searchresults-container p {
+    .searchresults-container .searchresult .result-image {
+      width: 25%;
+      display: inline-block;
+      height: 100%; }
+      .searchresults-container .searchresult .result-image img {
+        width: 100%; }
+    .searchresults-container .searchresult .result-text {
+      display: inline-block;
+      width: 60%;
+      margin-left: 2.5%;
+      margin-top: 1%; }
+      .searchresults-container .searchresult .result-text h3 {
+        margin: 0 0 10px 0; }
+  .searchresults-container .answer {
     margin-left: 2.5%;
     font-weight: 500; }
 
@@ -505,6 +518,12 @@ h1 {
     width: 95%; }
   .admin-box .unread {
     border-left: 2px solid black; }
+
+.logout {
+  position: relative;
+  top: 40px;
+  font-size: 18px;
+  float: right; }
 
 .about-container {
   margin-bottom: 250px; }

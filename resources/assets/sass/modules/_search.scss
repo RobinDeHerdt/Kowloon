@@ -114,9 +114,30 @@
 		width: 100%;
 		padding: 10px 20px;
 		margin-top: 10px;
+
+		.result-image {
+			width: 25%;
+			display: inline-block;
+			height: 100%;
+			
+			img {
+				width: 100%;
+			}
+		}
+
+		.result-text {
+			h3 {
+				margin: 0 0 10px 0;
+			}
+
+			display: inline-block;
+			width: 60%;
+			margin-left: 2.5%;
+			margin-top: 1%;
+		}
 	}
 
-	p {
+	.answer {
 		margin-left: 2.5%;
 		font-weight: 500;
 	}

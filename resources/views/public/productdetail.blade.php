@@ -27,11 +27,11 @@
 				<img src="/img/k_logo.png" class="small_logo">
 				<div class="tag">
 					<div class="tag-category-color {{ str_singular(strtolower($product->category->name)) }}"></div>
-						{{ $product->category->name }}
+						{{ $product->category->tag_name }}
 				</div>
 				@foreach($product->tags as $tag)
 				<div class="tag">
-					{{ $tag->name }}
+					{{ $tag->tag_name }}
 				</div>
 				@endforeach
 			</div>

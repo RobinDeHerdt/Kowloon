@@ -19,6 +19,24 @@ class ProductimagesTableSeeder extends Seeder
 
         DB::table('productimages')->insert([
             'image_url' => 'cooling_mat.png',
+            'description' => 'Dog cooling mat image 1',
+            'product_id' => 5,
+        ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'cooling_mat.png',
+            'description' => 'Dog cooling mat image 1',
+            'product_id' => 6,
+        ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'cooling_mat.png',
+            'description' => 'Dog cooling mat image 1',
+            'product_id' => 7,
+        ]);
+
+        DB::table('productimages')->insert([
+            'image_url' => 'cooling_mat.png',
             'description' => 'Dog cooling mat image 2',
             'product_id' => 1,
         ]);

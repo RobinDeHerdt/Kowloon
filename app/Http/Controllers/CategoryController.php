@@ -12,32 +12,50 @@ class CategoryController extends Controller
 {
     public function index($id, Request $request)
     {
-        $sortBy = $request->query('sort');
+        $carouselimages = Carouselimage::all();
+        $category       = Category::find($id);
+        $tags           = Tag::all();
 
-        switch ($sortBy)
+        $query          = Product::where('category_id', $id);
+        
+        foreach ($tags as $key => $tag) {
+            if($request->query(strtolower(str_replace(' ','_',$tag->tag_name)))) 
+            {
+                $query->whereHas('tags', function($q) use ($tag){
+                    $q->where('tag_name', $tag->tag_name);
+                });
+            }
+        }
+
+        switch ($request->query('sort'))
         {
             case 'price_asc': 
-                $products = Product::where('category_id', $id)->orderBy('price', 'asc')->get();
+                    $sortBy     = 'price';
+                    $sortOrder  = 'asc';
                 break;
             case 'price_desc':
-                $products = Product::where('category_id', $id)->orderBy('price','desc')->get();
-                break;
-            case 'latest':
-                $products = Product::where('category_id', $id)->orderBy('created_at','desc')->get();
+                    $sortBy     = 'price';
+                    $sortOrder  = 'desc';
                 break;
             case 'oldest':
-                $products = Product::where('category_id', $id)->orderBy('created_at', 'asc')->get();
+                    $sortBy     = 'created_at';
+                    $sortOrder  = 'asc';
                 break;
-            default: 
-                $products = Product::where('category_id', $id)->get();
-        }
-    	
-    	$category 		= Category::find($id);
-    	$carouselimages = Carouselimage::all();
-    	$tags			= Tag::all();
+            case 'latest':
+                    $sortBy     = 'created_at';
+                    $sortOrder  = 'desc';
+                break;
 
-        $minimumPricedProduct  = Product::where('category_id', $id)->orderBy('price', 'asc')->first();
-        $maximumPricedProduct  = Product::where('category_id', $id)->orderBy('price', 'desc')->first();
+            // Pas dit aan naar evt. hot items
+            default: 
+                    $sortBy     = 'created_at';
+                    $sortOrder  = 'desc';
+        }
+
+        $products = $query->orderBy($sortBy, $sortOrder)->get();
+
+        $minimumPricedProduct  = $products->sortBy('price')->first();
+        $maximumPricedProduct  = $products->sortByDesc('price')->first();
 
     	return view('public.productoverview', [
     		'category' 			    => $category,

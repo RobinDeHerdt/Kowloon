@@ -42,5 +42,29 @@ class ProductsTableSeeder extends Seeder
             'technical_description' => 'Very average sized cat pole.',
             'category_id' => 2,
         ]);
+
+        DB::table('products')->insert([
+            'name' => 'Dog cooler',
+            'price' => 15.99,
+            'description' => 'Dog cooling mat',
+            'technical_description' => 'Technical description of a dog cooling mat.',
+            'category_id' => 1,
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Dog cooler',
+            'price' => 15.99,
+            'description' => 'Dog cooling mat',
+            'technical_description' => 'Technical description of a dog cooling mat.',
+            'category_id' => 1,
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Dog cooler',
+            'price' => 15.99,
+            'description' => 'Dog cooling mat',
+            'technical_description' => 'Technical description of a dog cooling mat.',
+            'category_id' => 1,
+        ]);
     }
 }

@@ -12,22 +12,22 @@
 			<span>Filter</span>
 			<span class="caret"></span>
 		</div>
-		<div class="filter hide" id="productFilter">
+		<div class="filter" id="productFilter">
 			<form action="/category/{{$category->id}}" method="GET">
 				<div class="collection">
 					<p>By collection </p>
 					@foreach ($tags as $tag)
 						<div class="collection-item">
-							<input type="checkbox" name="{{$tag->name}}">
-							<label for="{{ $tag->name }}">{{ $tag->name }}</label>
+<input type="checkbox" name="{{strtolower($tag->tag_name)}}" {{(isset($_GET[strtolower(str_replace(' ','_',$tag->tag_name))]) ? 'checked' : '')}}>
+							<label for="{{strtolower($tag->tag_name)}}">{{ $tag->tag_name }}</label>
 						</div>
 					@endforeach	
 				</div>
 				<div class="price">
 					<p>Price range </p>
-					<span class="euro">€ <input type="text" name="minimumprice" value="{{ $minimumPricedProduct->price}}"></span>
+					<span class="euro">€ <input type="text" name="minimumprice" value="{{ (isset($_GET['minimumprice'])) ? $_GET['minimumprice'] : (isset($minimumPricedProduct->price) ? $minimumPricedProduct->price : 0)}}"></span>
 					<span class="price-divider"> - </span>
-					<span class="euro">€ <input type="text" name="maximumprice" value="{{ $maximumPricedProduct->price}}"></span>
+					<span class="euro">€ <input type="text" name="maximumprice" value="{{ (isset($_GET['maximumprice'])) ? $_GET['maximumprice'] : (isset($minimumPricedProduct->price) ? $maximumPricedProduct->price : 0)}}"></span>
 				</div>
 				<input type="hidden" value="" name="sort" id="selectedSortFunction">
 				<div class="form-group">
@@ -35,9 +35,7 @@
 				</div>
 			</form>
 		</div>
-		
 		<hr>
-		
 		<div class="text-right">
 			<span class="text-thin">{{ str_singular($category->name) }} items: </span>
 			<span>{{ count($products) }} of {{ count($products) }}</span>
@@ -78,7 +76,7 @@
 				</div>
 			@endforeach
 		@else
-			<h1>No products in this category yet.</h1>
+			<h1>No products found.</h1>
 		@endif
 		</div>
 	</div>
@@ -100,6 +98,7 @@
 			case 'latest': 		sortByOutput = 'Latest';
 				break;
 			default: 			sortByOutput = 'Relevance';
+								sortBy 		 = 'relevance';
 		}
 
 		selectedSortFunction.value 			= sortBy;

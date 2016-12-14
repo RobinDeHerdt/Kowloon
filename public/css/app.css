@@ -354,29 +354,32 @@ h1 {
 
 .secondary-bg {
   background-color: #f6f6f6 !important;
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
+  min-height: 100vh; }
+
+.search-page {
   color: #2b2b2b; }
-  .secondary-bg h1 {
+  .search-page h1 {
     margin: 40px 0;
     color: orange; }
-  .secondary-bg .filter {
+  .search-page .filter {
     height: 100px; }
-    .secondary-bg .filter .price-divider, .secondary-bg .filter .euro {
+    .search-page .filter .price-divider, .search-page .filter .euro {
       float: right; }
-    .secondary-bg .filter .price-divider {
+    .search-page .filter .price-divider {
       padding: 10px 20px; }
-    .secondary-bg .filter input[type="text"] {
+    .search-page .filter input[type="text"] {
       padding: 0 !important; }
-    .secondary-bg .filter .left {
+    .search-page .filter .left {
       float: left;
       width: 45%; }
-    .secondary-bg .filter .right {
+    .search-page .filter .right {
       position: justified;
       float: right;
       width: 45%; }
-    .secondary-bg .filter .right p {
+    .search-page .filter .right p {
       float: right;
       width: 415px; }
 
@@ -421,6 +424,26 @@ h1 {
 .search-field.dark:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #2b2b2b; }
+
+#search-response {
+  margin: 50px 0; }
+
+#search-info {
+  margin-top: 50px;
+  font-weight: 600; }
+
+.searchresults-container {
+  padding-bottom: 75px; }
+  .searchresults-container .searchresult {
+    -webkit-box-shadow: 3px 3px 10px 0px #949494;
+    -moz-box-shadow: 3px 3px 10px 0px #949494;
+    box-shadow: 3px 3px 10px 0px #949494;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 10px; }
+  .searchresults-container p {
+    margin-left: 2.5%;
+    font-weight: 500; }
 
 .carousel {
   margin-left: 5%; }
@@ -516,7 +539,7 @@ h1 {
   width: 95%; }
   .content .main-content {
     width: 80%;
-    margin-top: 50px;
+    padding-top: 50px;
     margin-left: 10%; }
 
 .intro-content {

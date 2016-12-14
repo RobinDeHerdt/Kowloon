@@ -4,7 +4,7 @@
 
 @include('includes.admin-nav')
 
-<div class="content secondary-bg">
+<div class="content search-page secondary-bg">
 	<div class="main-content">
 		<div id="filterToggle" onclick="toggleFilter()">
 			<span>Advanced filter</span>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<div class="content secondary-bg">
+<div class="content search-page secondary-bg">
 	<div class="main-content">
 		<h1>Message</h1>
 		<div class="admin-box">

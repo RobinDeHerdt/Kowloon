@@ -2,7 +2,7 @@
 
 <div class="content search-page secondary-bg">
 	<div class="main-content">
-		<div class="logout">
+		<div class="admin-right">
 			<a href="{{ url('/logout') }}"
 		        onclick="event.preventDefault();
 		                 document.getElementById('logout-form').submit();">
@@ -21,12 +21,18 @@
 		@endif
 		<div class="admin-box">
 		<h3 class="title">New messages</h3>
+		@if ($unseenmessages->count())
 			@foreach ($unseenmessages as $message)
 				<div class="message unread">
 					<span>From: {{$message->email}}</span>
 					<p>{{$message->message}}</p>
 				</div>
 			@endforeach
+		@else
+			<div class="message unread">
+					<span>No new messages</span>
+				</div>
+		@endif
 			<a href="/admin/messages">View all messages</a>
 		</div>
 
@@ -48,6 +54,14 @@
 					<input type="submit" class="button" value="Save">
 				</div>
 			</form>
+		</div>
+		<div class="admin-box">
+			<h3 class="title">Products</h3>
+			<a href="/admin/products">View all products</a>
+		</div>
+		<div class="admin-box">
+			<h3 class="title">Faq</h3>
+			<a href="/admin/questions">View all questions</a>
 		</div>
 	</div>
 </div>

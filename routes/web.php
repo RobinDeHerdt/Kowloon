@@ -28,12 +28,12 @@ function()
 	// Route::get('/', function() {
 	// 	return redirect('/home');
 	// });
-	Route::get('faq', 'QuestionController@index');
+	Route::get('faq', 'FaqController@index');
 	Route::get('search', 'SearchController@index');
 	Route::get('about', 'ContactController@index');
 	
 	Route::get('category/{id}', 'CategoryController@index');
-	Route::get('category/{category_id}/product/{product_id}', 'ProductController@index');
+	Route::get('category/{category_id}/product/{product_id}', 'ProductdetailController@index');
 });
 
 
@@ -41,5 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/dashboard', 'AdminController@index');
     Route::get('admin/messages', 'MessageController@index');
     Route::get('admin/message/{id}', 'MessageController@show');
-	Route::post('/admin/hotitems', 'HomeController@update');
+    Route::get('admin/products', 'ProductController@index');
+    Route::get('admin/products/{id}', 'ProductController@show');
+    Route::get('admin/questions', 'QuestionController@index');
+    Route::get('admin/questions/{id}', 'QuestionController@show');
+	Route::post('admin/hotitems', 'HomeController@update');
 });

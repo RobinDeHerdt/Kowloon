@@ -24,9 +24,10 @@
 .admin-box {
 	-webkit-box-shadow: 3px 3px 10px 0px rgba(148,148,148,1);
 	-moz-box-shadow: 3px 3px 10px 0px rgba(148,148,148,1);
-	box-shadow: 3px 3px 10px 0px rgba(148,148,148,1);
+	box-shadow: 2px 2px 10px 0px rgba(148,148,148,1);
 	width: 100%;
 	padding: 20px 40px;
+	margin-top: 20px;
 
 	h3 {
 		color: black;
@@ -60,9 +61,13 @@
 	}
 }
 
-.logout {
+.admin-right {
 	position: relative;
 	top: 40px;
 	font-size: 18px;
 	float: right;
+}
+
+.table {
+	color: black;
 }

@@ -42,7 +42,7 @@ class HomeController extends Controller
         $hotitem3->save();
         $hotitem4->save();
 
-        Session::flash('hotitems_update_status', 'Hot items succesvol bijgewerkt!');
+        Session::flash('hotitems_update_status', 'Hot items updated successfully');
 
         return back();
     }

@@ -499,7 +499,8 @@ h1 {
   box-shadow: 2px 2px 10px 0px #949494;
   width: 100%;
   padding: 20px 40px;
-  margin-top: 20px; }
+  margin-top: 20px;
+  background-color: white; }
   .admin-box h3 {
     color: black;
     margin: 5px 0; }
@@ -526,8 +527,17 @@ h1 {
   font-size: 18px;
   float: right; }
 
+.admin-image {
+  padding-bottom: 50px; }
+  .admin-image img {
+    border: 1px solid black;
+    height: 250px; }
+
 .table {
   color: black; }
+
+.button.orange {
+  background-color: orange; }
 
 .about-container {
   margin-bottom: 250px; }

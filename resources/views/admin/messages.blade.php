@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('content')
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<a href="/admin/dashboard">Back to dashboard</a>
@@ -19,6 +20,4 @@
 		</div>
 	</div>
 </div>
-
-@section('content')
 @endsection

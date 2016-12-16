@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
+@section('content')
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<a href="/admin/dashboard">Back to dashboard</a>
-		<a href="/product/create" class="admin-right">Create product</a>
+		<a href="/admin/products/create" class="admin-right">Create product</a>
 		<h1>Products</h1>
 		<table class="table table-striped">
 		    <thead>
@@ -30,15 +31,18 @@
 							{{$tag->name }}
 						@endforeach
 			        </td>
-			        <td><a href="/admin/product/{{$product->id}}">View</a></td>
-			        <td><a href="/admin/product/edit/{{$product->id}}">Update</a></td>
-			        <td><a href="/admin/product/delete/{{$product->id}}">Delete</a></td>
+			        <td><a href="/admin/products/{{$product->id}}">View</a></td>
+			        <td><a href="/admin/products/edit/{{$product->id}}">Update</a></td>
+			        <td>
+				        <form action="/admin/products/{{$product->id}}/delete" method="POST">
+				        	{{ Form::token() }}
+				        	<input type="submit" value="Delete">
+				        </form>
+			        </td>
 		      	</tr>
 		      	@endforeach
 		    </tbody>
 	  	</table>
 	</div>
 </div>
-
-@section('content')
 @endsection

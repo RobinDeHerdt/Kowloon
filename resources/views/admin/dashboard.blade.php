@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('content')
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<div class="admin-right">
@@ -65,6 +66,4 @@
 		</div>
 	</div>
 </div>
-
-@section('content')
 @endsection

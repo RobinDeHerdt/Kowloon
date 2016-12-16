@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('content')
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<h1>Message</h1>
@@ -13,6 +14,4 @@
 		<a href="{{url()->previous()}}">Back</a>
 	</div>
 </div>
-
-@section('content')
 @endsection

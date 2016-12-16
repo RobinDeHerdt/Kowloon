@@ -28,6 +28,7 @@
 	width: 100%;
 	padding: 20px 40px;
 	margin-top: 20px;
+	background-color: white;
 
 	h3 {
 		color: black;
@@ -68,6 +69,18 @@
 	float: right;
 }
 
+.admin-image {
+	padding-bottom: 50px;
+	img {
+		border: 1px solid black;
+		height: 250px;
+	}
+}
+
 .table {
 	color: black;
 }
+
+.button.orange {
+		background-color: orange;
+	}

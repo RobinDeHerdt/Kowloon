@@ -25,9 +25,7 @@ function()
 
 	// Niet vertaalde routes
 	Route::get('home', 'HomeController@index');
-	// Route::get('/', function() {
-	// 	return redirect('/home');
-	// });
+
 	Route::get('faq', 'FaqController@index');
 	Route::get('search', 'SearchController@index');
 	Route::get('about', 'ContactController@index');
@@ -36,14 +34,22 @@ function()
 	Route::get('category/{category_id}/product/{product_id}', 'ProductdetailController@index');
 });
 
-
 Route::group(['middleware' => 'auth'], function () {
+	Route::post('admin/hotitems', 'HomeController@update');
+
     Route::get('admin/dashboard', 'AdminController@index');
     Route::get('admin/messages', 'MessageController@index');
     Route::get('admin/message/{id}', 'MessageController@show');
+
     Route::get('admin/products', 'ProductController@index');
+    Route::get('admin/products/create', 'ProductController@create');
     Route::get('admin/products/{id}', 'ProductController@show');
+    
+    Route::post('admin/products/{id}/delete', 'ProductController@destroy');
+
     Route::get('admin/questions', 'QuestionController@index');
+    Route::get('admin/questions/create', 'QuestionController@create');
+    Route::post('admin/questions/create', 'QuestionController@store');
     Route::get('admin/questions/{id}', 'QuestionController@show');
-	Route::post('admin/hotitems', 'HomeController@update');
+    Route::post('admin/questions/{id}/delete', 'QuestionController@destroy');
 });

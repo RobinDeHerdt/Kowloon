@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Product;
 use Session;
 
 class QuestionController extends Controller
@@ -17,23 +18,37 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('admin.question');
+        $question = Question::find($id);
+
+        return view('admin.question', [
+            'question' => $question
+        ]);
     }
 
     public function create()
     {
-        return view('admin.createquestion');
+        $products = Product::paginate(10);
+
+        return view('admin.createquestion', [
+            'products' => $products
+        ]);
     }
 
     public function store(Request $request) 
     {
         $question = new Question();
 
-        $question->title        = $request->title;
-        $question->body         = $request->body;
-        $question->product_id   = 1;
+        $question->question     = $request->question;
+        $question->answer       = $request->answer;
+
+        if($request->products)
+        {
+            foreach ($request->products as $key => $product) {
+                $question->products()->attach($product);
+            }
+        }
 
         $question->save();
 

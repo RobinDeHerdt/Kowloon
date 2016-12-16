@@ -3,8 +3,8 @@
 	@if($questions->count())
 		@foreach ($questions as $question)
 			<div class="question">
-				<h3>{{ $question->title }}</h3>
-				<p>{{ $question->body }}</p>
+				<h3>{{ $question->question }}</h3>
+				<p>{{ $question->answer }}</p>
 			</div>
 		@endforeach
 	@else

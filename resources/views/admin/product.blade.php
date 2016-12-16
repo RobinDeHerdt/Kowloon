@@ -16,7 +16,7 @@
 
 		<h3>Questions</h3>
 		@foreach($product->questions as $question)
-			<span>{{ $question->title}}</span>
+			<span>{{ $question->question}}</span>
 			<p>{{$question->answer}}</p>
 		@endforeach
 

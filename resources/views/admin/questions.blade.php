@@ -17,6 +17,7 @@
 		      	<tr>
 			        <th>Question</th>
 			        <th>Answer</th>
+			        <th>View</th>
 			        <th>Update</th>
 			        <th>Delete</th>
 		      	</tr>
@@ -24,8 +25,9 @@
 		    <tbody>
 		    	@foreach ($questions as $question)
 		      	<tr>
-			        <td>{{$question->title}}</td>
-			        <td>{{$question->body}}</td>
+			        <td>{{$question->question}}</td>
+			        <td>{{$question->answer}}</td>
+			        <th><a href="/admin/questions/{{$question->id}}">View</a></th>
 			        <td><a href="/admin/questions/edit/{{$question->id}}">Update</a></td>
 			        <td>
 				        <form action="/admin/questions/{{$question->id}}/delete" method="POST">

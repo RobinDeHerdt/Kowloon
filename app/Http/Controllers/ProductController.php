@@ -38,7 +38,8 @@ class ProductController extends Controller
 
         if(count($hotitems))
         {
-            foreach ($hotitems as $key => $hotitem) {
+            foreach ($hotitems as $key => $hotitem) 
+            {
                 $firstProduct           = Product::where('id','!=', $id)->first();
                 if($firstProduct)
                 {
@@ -53,13 +54,10 @@ class ProductController extends Controller
         }
 
         $product->tags()->detach();
+        $product->questions()->detach();
 
         foreach ($product->productimages as $key => $image) {
             $image->delete();
-        }
-
-        foreach ($product->questions as $key => $question) {
-            $question->delete();
         }
 
         $product->delete();

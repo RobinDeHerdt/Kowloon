@@ -25,8 +25,8 @@
 			@if($questions)
 				@foreach ($questions as $question)
 					<div class="searchresult">
-						<h3>{{ $question->title}}</h3>
-						<p class="answer">{{ $question->body}}</p>
+						<h3>{{ $question->question}}</h3>
+						<p class="answer">{{ $question->answer}}</p>
 					</div>
 				@endforeach
 			@endif

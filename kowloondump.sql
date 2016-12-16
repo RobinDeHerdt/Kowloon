@@ -15,13 +15,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Current Database: `kowloon`
---
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `robindeher63001` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `kowloon` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `kowloon`;
+USE `robindeher63001`;
 
 --
 -- Table structure for table `carouselimages`

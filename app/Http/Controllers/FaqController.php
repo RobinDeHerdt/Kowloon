@@ -26,7 +26,7 @@ class FaqController extends Controller
                 {
                     foreach ($keywords as $key => $keyword) 
                     {
-                        $q->orWhere('body', 'like', '%'.$keyword.'%')->orWhere('title', 'like', '%'.$keyword.'%');
+                        $q->orWhere('answer', 'like', '%'.$keyword.'%')->orWhere('question', 'like', '%'.$keyword.'%');
                     }
                 })->get();
             

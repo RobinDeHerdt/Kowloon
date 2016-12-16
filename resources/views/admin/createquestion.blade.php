@@ -8,23 +8,27 @@
 		{!! Form::open(['url' => '/admin/questions/create']) !!}
 				{{ Form::token() }}
 				<div class="form-group">
-					{{ Form::label('title', 'Question') }}
-					{{ Form::text('title', '', ['class' => 'form-control']) }}
-					@if ($errors->first('title'))
-						{{ $errors->first('title') }}
+					{{ Form::label('question', 'Question') }}
+					{{ Form::text('question', '', ['class' => 'form-control']) }}
+					@if ($errors->first('question'))
+						{{ $errors->first('question') }}
 					@endif
 				</div>
+
 				<div class="form-group">
-					{{ Form::label('body', 'Answer') }}
-					{{ Form::text('body', '', ['class' => 'form-control']) }}
-					@if ($errors->first('body'))
-						{{ $errors->first('body') }}
+					{{ Form::label('answer', 'Answer') }}
+					{{ Form::text('answer', '', ['class' => 'form-control']) }}
+					@if ($errors->first('answer'))
+						{{ $errors->first('answer') }}
 					@endif
 				</div>
-				
-				<div>
-					<span>Belongs to ... product (dropdown here)</span>
-				</div>
+				<span>This question belongs to the following products: (to create a question for the 'about' page, leave these fields blank) </span>
+				@foreach ($products as $product)
+					<div class="form-group">
+						{{ Form::checkbox('products[]', $product->id) }}
+						{{ Form::label($product->name) }}
+					</div>
+				@endforeach
 				
 				<div class="form-group">
 					{{ Form::submit('Save', ['class' => 'button orange']) }}

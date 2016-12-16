@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    public function product()
+    public function products()
     {
-        return $this->belongsTo('App\Product');
+        return $this->belongsToMany('App\Product');
     }
 }

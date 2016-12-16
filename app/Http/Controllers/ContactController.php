@@ -11,8 +11,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-    	// Moet nog aangepast worden!
-    	$questions = Question::all();
+    	$questions = Question::whereDoesntHave('products')->get();
 
     	return view('public.about', ['questions' => $questions]);
     }

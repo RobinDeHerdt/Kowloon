@@ -11,6 +11,16 @@
 	        {{ session('question_create_status') }}
 	    </div>
 		@endif
+		@if (session('question_update_status'))
+	    <div class="alert alert-success">
+	        {{ session('question_update_status') }}
+	    </div>
+		@endif
+		@if (session('question_delete_status'))
+	    <div class="alert alert-success">
+	        {{ session('question_delete_status') }}
+	    </div>
+		@endif
 		@if($questions->count())
 		<table class="table table-striped">
 		    <thead>
@@ -28,7 +38,7 @@
 			        <td>{{$question->question}}</td>
 			        <td>{{$question->answer}}</td>
 			        <th><a href="/admin/questions/{{$question->id}}">View</a></th>
-			        <td><a href="/admin/questions/edit/{{$question->id}}">Update</a></td>
+			        <td><a href="/admin/questions/{{$question->id}}/edit">Update</a></td>
 			        <td>
 				        <form action="/admin/questions/{{$question->id}}/delete" method="POST">
 				        	{{ Form::token() }}
@@ -40,7 +50,7 @@
 		    </tbody>
 	  	</table>
 	  	@else
-			<h3>There are no questions.</h3>
+			<h3>There are no questions. <a href="/admin/questions/create">Create question</a>.</h3>
     	@endif
 	</div>
 </div>

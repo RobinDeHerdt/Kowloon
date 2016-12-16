@@ -4,12 +4,12 @@
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<a href="/admin/questions">Back to overview</a>
-		<h1>New question</h1>
-		{!! Form::open(['url' => '/admin/questions/create']) !!}
+		<h1>Update question</h1>
+		{!! Form::open(['url' => '/admin/questions/'.$question->id.'/edit']) !!}
 				{{ Form::token() }}
 				<div class="form-group">
 					{{ Form::label('question', 'Question') }}
-					{{ Form::text('question', '', ['class' => 'form-control']) }}
+					{{ Form::text('question', $question->question, ['class' => 'form-control']) }}
 					@if ($errors->first('question'))
 						{{ $errors->first('question') }}
 					@endif
@@ -17,15 +17,15 @@
 
 				<div class="form-group">
 					{{ Form::label('answer', 'Answer') }}
-					{{ Form::text('answer', '', ['class' => 'form-control']) }}
+					{{ Form::text('answer', $question->answer, ['class' => 'form-control']) }}
 					@if ($errors->first('answer'))
 						{{ $errors->first('answer') }}
 					@endif
 				</div>
-				<label>This question belongs to the following products: (to create a question for the 'about' page, leave these fields blank) </label>
+				<span>This question belongs to the following products: (to create a question for the 'about' page, leave these fields blank) </span>
 				@foreach ($products as $product)
 					<div class="form-group">
-						{{ Form::checkbox('products[]', $product->id) }}
+						{{ Form::checkbox('products[]', $product->id, ($question->products->contains($product->id) ? 'true' : ''))}}
 						{{ Form::label($product->name) }}
 					</div>
 				@endforeach

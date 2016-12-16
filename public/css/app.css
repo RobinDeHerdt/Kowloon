@@ -10,7 +10,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   line-height: 175%;
-  height: 100%;
+  min-height: 100%;
   width: 100%; }
 
 @font-face {
@@ -354,10 +354,8 @@ h1 {
 
 .secondary-bg {
   background-color: #f6f6f6 !important;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  min-height: 100vh; }
+  min-height: 100vh !important;
+  padding: 50px; }
 
 .search-page {
   color: #2b2b2b; }

@@ -29,11 +29,46 @@ class QuestionController extends Controller
 
     public function create()
     {
-        $products = Product::paginate(10);
+        $products = Product::all();
 
         return view('admin.createquestion', [
             'products' => $products
         ]);
+    }
+
+    public function edit($id)
+    {
+        $question           = Question::find($id);
+        $products           = Product::all();
+
+        return view('admin.editquestion', [
+            'question' => $question,
+            'products'  => $products
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $question = Question::find($id);
+
+        $question->question = $request->question;
+        $question->answer   = $request->answer;
+
+        if($request->products)
+        {
+            $question->products()->sync($request->products);
+        }
+        else
+        {
+            $question->products()->detach();
+        }
+
+
+        $question->save();
+
+        Session::flash('question_update_status', 'Question updated successfully');
+
+        return redirect()->action('QuestionController@index');
     }
 
     public function store(Request $request) 
@@ -43,14 +78,12 @@ class QuestionController extends Controller
         $question->question     = $request->question;
         $question->answer       = $request->answer;
 
+        $question->save();
+
         if($request->products)
         {
-            foreach ($request->products as $key => $product) {
-                $question->products()->attach($product);
-            }
+            $question->products()->attach($request->products);
         }
-
-        $question->save();
 
         Session::flash('question_create_status', 'Question created successfully');
 
@@ -60,7 +93,10 @@ class QuestionController extends Controller
     public function destroy($id)
     {
     	$question = Question::find($id);
+        $question->products()->detach();
     	$question->delete();
+
+        Session::flash('question_delete_status', 'Question deleted successfully');
 
     	return back();
     }

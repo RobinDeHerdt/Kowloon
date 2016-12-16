@@ -69,9 +69,7 @@
     <div id="menu-open">
         
     </div>
-    <div class="main-container">
-        @yield('content')
-    </div>
+    @yield('content')
     <script src="/js/app.js"></script>
     <script src="/js/scroll.js"></script>
     <script src="/js/sidebar.js"></script>

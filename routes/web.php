@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/questions', 'QuestionController@index');
     Route::get('admin/questions/create', 'QuestionController@create');
     Route::post('admin/questions/create', 'QuestionController@store');
+    Route::post('admin/questions/{id}/edit', 'QuestionController@update');
     Route::get('admin/questions/{id}', 'QuestionController@show');
+    Route::get('admin/questions/{id}/edit', 'QuestionController@edit');
     Route::post('admin/questions/{id}/delete', 'QuestionController@destroy');
 });

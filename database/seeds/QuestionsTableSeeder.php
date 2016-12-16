@@ -30,5 +30,10 @@ class QuestionsTableSeeder extends Seeder
             'question'  => 'How do I know I am not a dog',
             'answer'    => '...',
         ]);
+
+        DB::table('questions')->insert([
+            'question'  => 'What is this about all about?',
+            'answer'    => "It's about our company, kowloon.",
+        ]);
     }
 }

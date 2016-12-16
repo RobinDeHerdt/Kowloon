@@ -1,14 +1,12 @@
 .secondary-bg {
 	background-color: #f6f6f6 !important;
-	position: relative;
-	top: 0;
-	bottom: 0;
-	min-height: 100vh;
+	min-height: 100vh !important;
+	padding: 50px;
 }
 
 .search-page {
 	color: $secondary-text-color;
-
+	
 	h1 {
 		margin: 40px 0;
 		color: orange;

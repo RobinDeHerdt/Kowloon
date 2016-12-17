@@ -11,6 +11,21 @@
 	        {{ session('product_create_status') }}
 	    </div>
 		@endif
+		@if (session('product_update_status'))
+	    <div class="alert alert-success">
+	        {{ session('product_update_status') }}
+	    </div>
+		@endif
+		@if (session('product_delete_status'))
+	    <div class="alert alert-success">
+	        {{ session('product_delete_status') }}
+	    </div>
+		@endif
+		@if (session('product_delete_failed'))
+	    <div class="alert alert-danger">
+	        {{ session('product_delete_failed') }}
+	    </div>
+		@endif
 		<table class="table table-striped">
 		    <thead>
 		      	<tr>
@@ -37,7 +52,7 @@
 						@endforeach
 			        </td>
 			        <td><a href="/admin/products/{{$product->id}}">View</a></td>
-			        <td><a href="/admin/products/edit/{{$product->id}}">Update</a></td>
+			        <td><a href="/admin/products/{{$product->id}}/edit">Update</a></td>
 			        <td>
 				        <form action="/admin/products/{{$product->id}}/delete" method="POST">
 				        	{{ Form::token() }}

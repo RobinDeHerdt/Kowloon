@@ -6,14 +6,18 @@
 		<a href="/admin/products">Back to overview</a>
 		<h1>Productinfo</h1>
 		<h3>{{ $product->name}}</h3>
-		<p>{{ $product->description}}</p>
-		<p>{{ $product->technical_description}}</p>
+		<p>Categry: {{$product->category->name}}</p>
+		<p>Description: {{ $product->description}}</p>
+		<p>Technical description: {{ $product->technical_description}}</p>
 		<h3>Tags: </h3>
 		<br>
-		@foreach ($product->tags as $tag)
-			<span>- {{ $tag->name}}</span><br>
-		@endforeach
-
+		@if($product->tags->count())
+			@foreach ($product->tags as $tag)
+				<span>- {{ $tag->name}}</span><br>
+			@endforeach
+		@else
+			<span>There are no tags for this product.</span>
+		@endif
 		<h3>Questions</h3>
 		@if($product->questions->count())
 			@foreach($product->questions as $question)

@@ -16,12 +16,14 @@
 			<form action="/category/{{$category->id}}" method="GET">
 				<div class="collection">
 					<p>By collection </p>
+				@if ($tags)
 					@foreach ($tags as $tag)
 						<div class="collection-item">
 <input type="checkbox" name="{{strtolower($tag->name)}}" {{(isset($_GET[strtolower(str_replace(' ','_',$tag->name))]) ? 'checked' : '')}}>
 							<label for="{{strtolower($tag->name)}}">{{ $tag->name }}</label>
 						</div>
 					@endforeach	
+				@endif
 				</div>
 				<div class="price">
 					<p>Price range </p>

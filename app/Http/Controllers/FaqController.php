@@ -38,9 +38,9 @@ class FaqController extends Controller
                     $questions->appends($input, $value);
                 }
 
-        		if($questions->count())
+        		if($questions->total())
         		{
-        			$response = 'Er werden ' . $questions->count() . ' resultaten gevonden voor "' . $inputstring . '":'; 
+        			$response = 'Er werden ' . $questions->total() . ' resultaten gevonden voor "' . $inputstring . '":'; 
         		}
         		else
         		{

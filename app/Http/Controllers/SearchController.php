@@ -14,6 +14,9 @@ class SearchController extends Controller
     	$results 	= null;
     	$response	= null;
 
+        $minprice   = Product::all()->sortBy('price')->first()->price;
+        $maxprice   = Product::all()->sortByDesc('price')->first()->price;
+
     	if($request->query('query'))
     	{
     		$inputstring = strip_tags($request->query('query'));
@@ -24,25 +27,44 @@ class SearchController extends Controller
         		// Split op meer dan 1 whitespace + negeer spaties voor of na inputstring
                 $keywords = preg_split('/\s+/', $inputstring, -1, PREG_SPLIT_NO_EMPTY);
 
-        		$results = Product::where(function($q) use ($keywords)
+                if($request->categories) 
                 {
-                    foreach ($keywords as $key => $keyword) 
-                    {
-                        $q->orWhere('name', 'like', '%'.$keyword.'%')
-                          ->orWhere('description', 'like', '%'.$keyword.'%')
-                          ->orWhere('technical_description', 'like', '%'.$keyword.'%');
-                    }
-                })->paginate(3);
+                    // Fix min and max layout in view
+                    $minprice       = $request->query('minprice');
+                    $maxprice       = $request->query('maxprice');
 
-                 // https://github.com/laravel/framework/issues/858
+                    $results = Product::whereIn('category_id',$request->categories)->whereBetween('price',[$minprice,$maxprice])->where(function($q) use ($keywords)
+                    {
+                        foreach ($keywords as $key => $keyword) 
+                        {
+                            $q->orWhere('name', 'like', '%'.$keyword.'%')
+                              ->orWhere('description', 'like', '%'.$keyword.'%')
+                              ->orWhere('technical_description', 'like', '%'.$keyword.'%');
+                        }
+                    })->paginate(3);
+                }
+                else
+                {
+                    $results = Product::where(function($q) use ($keywords)
+                    {
+                        foreach ($keywords as $key => $keyword) 
+                        {
+                            $q->orWhere('name', 'like', '%'.$keyword.'%')
+                              ->orWhere('description', 'like', '%'.$keyword.'%')
+                              ->orWhere('technical_description', 'like', '%'.$keyword.'%');
+                        }
+                    })->paginate(3);
+                }
+                
+                // https://github.com/laravel/framework/issues/858
                 foreach (Input::except('page') as $input => $value)
                 {
                     $results->appends($input, $value);
                 }
 
-        		if($results->count())
+        		if($results->total())
         		{
-        			$response = 'Er werden ' . $results->count() . ' resultaten gevonden voor "' . $inputstring . '":'; 
+        			$response = 'Er werden ' . $results->total() . ' resultaten gevonden voor "' . $inputstring . '":'; 
         		}
         		else
         		{
@@ -56,11 +78,26 @@ class SearchController extends Controller
     	}
 
     	$categories = Category::all();
+        $selectedCategories = [];
+
+        if($request->categories)
+        {
+           $selectedCategories = $request->categories; 
+        } 
+        else
+        {
+            foreach ($categories as $key => $category) {
+                array_push($selectedCategories, $category->id);
+            } 
+        }
 
     	return view('public.search', [
-			'results'        => $results,
-			'response' 		 => $response,
-			'categories' 	 => $categories
+			'results'               => $results,
+			'response' 		        => $response,
+			'categories' 	        => $categories,
+            'selectedCategories'    => $selectedCategories,
+            'minprice'              => $minprice,
+            'maxprice'              => $maxprice,
 		]);
     }
 }

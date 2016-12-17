@@ -33,14 +33,14 @@
 		}
 
 		.right {
-			position: justified;
+			text-align: justify;
 			float: right;
-			width: 45%;
+			width: 50%;
 		}
 
 		.right p {
 			float: right;
-			width: 415px;
+			margin-right: 75%;
 		}
 	}
 }

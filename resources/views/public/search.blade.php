@@ -10,27 +10,26 @@
 			<span>Advanced filter</span>
 			<span class="caret"></span>
 		</div>
-		<div class="filter hide" id="productFilter">
+		{!! Form::open(['url' => '/search', 'method' => 'GET', 'id' => 'search_form']) !!}
+		<div class="filter" id="productFilter">
 			<div class="collection left">
 				<p>Category</p>
-				@foreach ($categories as $category)
+				@foreach ($categories as $key => $category)
 					<div class="collection-item">
-						<input type="checkbox">
-						<label>{{ $category->name }} </label>
+						{{ Form::checkbox('categories[]', $category->id, (in_array($category->id, $selectedCategories)) ? true : '')}}
+						{{ Form::label($category->name) }}
 					</div>
 				@endforeach	
 			</div>
 			<div class="price right">
 				<p>Price range </p>
-				<span class="euro">€ <input type="text"></span>
+				<span class="euro">€ {{ Form::text('maxprice', $maxprice)}}</span>
 				<span class="price-divider"> - </span>
-				<span class="euro">€ <input type="text"></span>
+				<span class="euro">€ {{ Form::text('minprice', $minprice)}}</span>
 			</div>
 		</div>
 		<div class="space"></div>
-
-		{!! Form::open(['url' => '/search', 'method' => 'GET']) !!}
-				{{ Form::text('query', '', ['placeholder' => 'Just start typing and hit "enter" to search','class' => 'search-field']) }}
+		{{ Form::text('query', '', ['placeholder' => 'Just start typing and hit "enter" to search','class' => 'search-field', 'onkeypress' => 'keyPress(event);']) }}
 		{!! Form::close() !!}
 	
 		@if ($results)
@@ -72,6 +71,16 @@
 	{
 		var productFilter = document.getElementById('productFilter');
 		productFilter.classList.toggle('hide');
+	}
+
+	function keyPress(e)
+	{
+		var searchfield = document.getElementsByClassName('search-field')[0];
+		if(e.keyCode === 13)
+		{
+			var form = document.getElementById('search_form');
+			form.submit();
+		}
 	}
 </script>
 @endsection

@@ -6,6 +6,11 @@
 		<a href="/admin/dashboard">Back to dashboard</a>
 		<a href="/admin/products/create" class="admin-right">Create product</a>
 		<h1>Products</h1>
+		@if (session('product_create_status'))
+	    <div class="alert alert-success">
+	        {{ session('product_create_status') }}
+	    </div>
+		@endif
 		<table class="table table-striped">
 		    <thead>
 		      	<tr>

@@ -537,6 +537,9 @@ h1 {
 .button.orange {
   background-color: orange; }
 
+.imageupload-container {
+  margin: 50px 0; }
+
 .about-container {
   margin-bottom: 250px; }
 

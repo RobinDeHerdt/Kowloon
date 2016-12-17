@@ -6,34 +6,34 @@
 		<a href="/admin/questions">Back to overview</a>
 		<h1>New question</h1>
 		{!! Form::open(['url' => '/admin/questions/create']) !!}
-				{{ Form::token() }}
-				<div class="form-group">
-					{{ Form::label('question', 'Question') }}
-					{{ Form::text('question', '', ['class' => 'form-control']) }}
-					@if ($errors->first('question'))
-						{{ $errors->first('question') }}
-					@endif
-				</div>
+			{{ Form::token() }}
+			<div class="form-group">
+				{{ Form::label('question', 'Question') }}
+				{{ Form::text('question', '', ['class' => 'form-control']) }}
+				@if ($errors->first('question'))
+					{{ $errors->first('question') }}
+				@endif
+			</div>
 
+			<div class="form-group">
+				{{ Form::label('answer', 'Answer') }}
+				{{ Form::text('answer', '', ['class' => 'form-control']) }}
+				@if ($errors->first('answer'))
+					{{ $errors->first('answer') }}
+				@endif
+			</div>
+			<label>This question belongs to the following products: (to create a question for the 'about' page, leave these fields blank) </label>
+			@foreach ($products as $product)
 				<div class="form-group">
-					{{ Form::label('answer', 'Answer') }}
-					{{ Form::text('answer', '', ['class' => 'form-control']) }}
-					@if ($errors->first('answer'))
-						{{ $errors->first('answer') }}
-					@endif
+					{{ Form::checkbox('products[]', $product->id) }}
+					{{ Form::label($product->name) }}
 				</div>
-				<label>This question belongs to the following products: (to create a question for the 'about' page, leave these fields blank) </label>
-				@foreach ($products as $product)
-					<div class="form-group">
-						{{ Form::checkbox('products[]', $product->id) }}
-						{{ Form::label($product->name) }}
-					</div>
-				@endforeach
-				
-				<div class="form-group">
-					{{ Form::submit('Save', ['class' => 'button orange']) }}
-				</div>
-			{!! Form::close() !!}
+			@endforeach
+			
+			<div class="form-group">
+				{{ Form::submit('Save', ['class' => 'button orange']) }}
+			</div>
+		{!! Form::close() !!}
 	</div>
 </div>
 @endsection

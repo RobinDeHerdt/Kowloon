@@ -15,10 +15,14 @@
 		@endforeach
 
 		<h3>Questions</h3>
-		@foreach($product->questions as $question)
-			<span>{{ $question->question}}</span>
-			<p>{{$question->answer}}</p>
-		@endforeach
+		@if($product->questions->count())
+			@foreach($product->questions as $question)
+				<span>{{ $question->question}}</span>
+				<p>{{$question->answer}}</p>
+			@endforeach
+		@else
+			<span>There are no questions for this product. Create a question <a href="/admin/questions/create">here</a>.</span>
+		@endif
 
 		<h3>Images</h3>
 		@foreach ($product->productimages as $image)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Carouselimage;
 use App\Category;
@@ -57,11 +58,17 @@ class CategoryController extends Controller
             $minprice       = $request->query('minimumprice');
             $maxprice       = $request->query('maximumprice');
 
-            $products = $query->whereBetween('price',[$minprice,$maxprice])->orderBy($sortBy, $sortOrder)->get();
+            $products = $query->whereBetween('price',[$minprice,$maxprice])->orderBy($sortBy, $sortOrder)->paginate(4);
+
+            // https://github.com/laravel/framework/issues/858
+            foreach (Input::except('page') as $input => $value)
+            {
+                $products->appends($input, $value);
+            }
         }
         else
         {   
-            $products = $query->orderBy($sortBy, $sortOrder)->get();
+            $products = $query->orderBy($sortBy, $sortOrder)->paginate(4);
         }   
 
         $minimumPricedProduct  = $products->sortBy('price')->first();

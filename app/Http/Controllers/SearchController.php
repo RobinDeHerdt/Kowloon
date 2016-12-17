@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
@@ -31,7 +32,13 @@ class SearchController extends Controller
                           ->orWhere('description', 'like', '%'.$keyword.'%')
                           ->orWhere('technical_description', 'like', '%'.$keyword.'%');
                     }
-                })->get();
+                })->paginate(3);
+
+                 // https://github.com/laravel/framework/issues/858
+                foreach (Input::except('page') as $input => $value)
+                {
+                    $results->appends($input, $value);
+                }
 
         		if($results->count())
         		{

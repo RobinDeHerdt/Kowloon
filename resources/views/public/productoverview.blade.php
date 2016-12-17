@@ -77,10 +77,12 @@
 					</div>
 				</div>
 			@endforeach
+
 		@else
 			<h1>No products found.</h1>
 		@endif
 		</div>
+		{{ $products->links() }}
 	</div>
 </div>
 <script>

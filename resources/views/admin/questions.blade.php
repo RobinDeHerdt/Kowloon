@@ -49,6 +49,7 @@
 		      	@endforeach
 		    </tbody>
 	  	</table>
+	  	{{ $questions->links() }}
 	  	@else
 			<h3>There are no questions. <a href="/admin/questions/create">Create question</a>.</h3>
     	@endif

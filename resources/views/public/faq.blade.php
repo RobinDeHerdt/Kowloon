@@ -29,6 +29,7 @@
 						<p class="answer">{{ $question->answer}}</p>
 					</div>
 				@endforeach
+				{{ $questions->links() }}
 			@endif
 		</div>
 	</div>

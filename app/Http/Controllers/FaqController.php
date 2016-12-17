@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Question;
 
+
 class FaqController extends Controller
 {
-        public function index(Request $request)
+    public function index(Request $request)
     {	
     	$questions 	= null;
     	$response	= null;
@@ -28,8 +30,14 @@ class FaqController extends Controller
                     {
                         $q->orWhere('answer', 'like', '%'.$keyword.'%')->orWhere('question', 'like', '%'.$keyword.'%');
                     }
-                })->get();
-            
+                })->paginate(3);
+
+                // https://github.com/laravel/framework/issues/858
+                foreach (Input::except('page') as $input => $value)
+                {
+                    $questions->appends($input, $value);
+                }
+
         		if($questions->count())
         		{
         			$response = 'Er werden ' . $questions->count() . ' resultaten gevonden voor "' . $inputstring . '":'; 

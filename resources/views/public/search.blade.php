@@ -62,6 +62,7 @@
 					</div>
 				</div>
 			@endforeach
+			{{ $results->links() }}
 		</div>
 		@endif
 	</div>

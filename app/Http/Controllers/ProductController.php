@@ -140,16 +140,6 @@ class ProductController extends Controller
                 $firstProduct           = Product::where('id','!=', $id)->first();
                 if($firstProduct)
                 {
-                    $product->tags()->detach();
-                    $product->questions()->detach();
-
-                    foreach ($product->productimages as $key => $image) {
-                        $image->delete();
-                    }
-
-                    $product->delete();
-                    Session::flash('product_delete_status', 'Product deleted successfully');
-
                     $hotitem->product_id    = $firstProduct->id;
                     $hotitem->save();
                 }
@@ -159,6 +149,16 @@ class ProductController extends Controller
                 }  
             } 
         }
+
+        $product->tags()->detach();
+        $product->questions()->detach();
+
+        foreach ($product->productimages as $key => $image) {
+            $image->delete();
+        }
+
+        $product->delete();
+        Session::flash('product_delete_status', 'Product deleted successfully');
 
         return back();
     }

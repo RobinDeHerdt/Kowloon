@@ -85,50 +85,17 @@
 		{{ $products->links() }}
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="/js/showselecteddropdownvalue.js"></script>
 <script>
-	(function(){
-		var displaySelectedValueField 	= document.getElementById('dropdownMenu1');
-		var sortBy 						= getParameterByName('sort');
-		var selectedSortFunction		= document.getElementById('selectedSortFunction');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		switch(sortBy)
-		{
-			case 'price_asc': 	sortByOutput = 'Price: low to high';
-				break;
-			case 'price_desc': 	sortByOutput = 'Price: high to low';
-				break;
-			case 'oldest': 		sortByOutput = 'Oldest';
-				break;
-			case 'latest': 		sortByOutput = 'Latest';
-				break;
-			default: 			sortByOutput = 'Relevance';
-								sortBy 		 = 'relevance';
-		}
-
-		selectedSortFunction.value 			= sortBy;
-		displaySelectedValueField.innerHTML = 'Sort by ' + sortByOutput + ' <span class="caret"></span>';
-	})();
-
-	// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-	function getParameterByName(name, url) {
-	    if (!url) {
-	      url = window.location.href;
-	    }
-
-	    name = name.replace(/[\[\]]/g, "\\$&");
-	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-	        results = regex.exec(url);
-
-	    if (!results) return null;
-	    if (!results[2]) return '';
-
-	    return decodeURIComponent(results[2].replace(/\+/g, " "));
-	}
-
-	function toggleFilter()
-	{
-		var productFilter = document.getElementById('productFilter');
-		productFilter.classList.toggle('hide');
-	}
+ga('create', 'UA-89247037-1', 'auto');
+ga('send', 'pageview');
 </script>
 @endsection

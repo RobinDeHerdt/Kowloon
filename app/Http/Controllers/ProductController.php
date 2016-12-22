@@ -146,6 +146,8 @@ class ProductController extends Controller
                 else
                 {
                     Session::flash('product_delete_failed', 'You can not delete all products. Without products there are no hot items to display on the front page.');
+
+                    return back();
                 }  
             } 
         }

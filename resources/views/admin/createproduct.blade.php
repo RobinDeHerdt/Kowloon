@@ -61,12 +61,15 @@
 					{{ Form::text('imagedescription[]', '', ['class' => 'form-control']) }}
 				</div>
 			</div>
-			<button type="button" onclick="createForm();">Add another image</button>
+			<button type="button" onclick="createForm();" id="addImage">Add another image</button>
 			<div class="form-group">
 				{{ Form::submit('Save', ['class' => 'button orange']) }}
 			</div>
 		{!! Form::close() !!}
 	</div>
 </div>
+@endsection
+
+@section('scripts')
 <script src="/js/addimageuploadinput.js"></script>
 @endsection

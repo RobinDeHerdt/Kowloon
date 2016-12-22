@@ -3,7 +3,6 @@
 @section('content')
 
 @include('includes.admin-nav')
-
 <a href="/home"><img src="/img/logo.png" alt="Kowloon logo" class="logo-image"></a>
 <div class="carousel">
 	<div class="carousel-inner">
@@ -70,4 +69,16 @@
 		<div class="space"></div>
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89247037-1', 'auto');
+ga('send', 'pageview');
+</script>
 @endsection

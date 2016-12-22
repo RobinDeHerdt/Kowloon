@@ -70,6 +70,7 @@
         
     </div>
     @yield('content')
+    @yield('scripts')
     <script src="/js/app.js"></script>
     <script src="/js/scroll.js"></script>
     <script src="/js/sidebar.js"></script>

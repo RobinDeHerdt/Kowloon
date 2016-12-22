@@ -79,5 +79,8 @@
 		{!! Form::close() !!}
 	</div>
 </div>
+@endsection
+
+@section('scripts')
 <script src="/js/addimageuploadinput.js"></script>
 @endsection

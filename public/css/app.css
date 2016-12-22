@@ -200,9 +200,7 @@ h1 {
       object-fit: cover;
       overflow: hidden; }
   .productdetail-left .details-images-container {
-    text-align: justify;
-    height: 150px;
-    /* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */ }
+    height: 150px; }
     .productdetail-left .details-images-container .details-image {
       width: 32.5%;
       display: inline-block;
@@ -218,10 +216,6 @@ h1 {
     .productdetail-left .details-images-container span {
       text-align: left;
       font-size: 13px; }
-    .productdetail-left .details-images-container:after {
-      content: '';
-      width: 100%;
-      display: inline-block; }
 
 .productdetail-right {
   color: white;
@@ -362,24 +356,6 @@ h1 {
   .search-page h1 {
     margin: 40px 0;
     color: orange; }
-  .search-page .filter {
-    height: 100px; }
-    .search-page .filter .price-divider, .search-page .filter .euro {
-      float: right; }
-    .search-page .filter .price-divider {
-      padding: 10px 20px; }
-    .search-page .filter input[type="text"] {
-      padding: 0 !important; }
-    .search-page .filter .left {
-      float: left;
-      width: 45%; }
-    .search-page .filter .right {
-      text-align: justify;
-      float: right;
-      width: 50%; }
-    .search-page .filter .right p {
-      float: right;
-      margin-right: 75%; }
 
 .search-field {
   width: 100%;

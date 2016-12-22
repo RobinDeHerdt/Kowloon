@@ -11,38 +11,6 @@
 		margin: 40px 0;
 		color: orange;
 	}
-
-	.filter {
-		height: 100px;
-
-		.price-divider, .euro {
-			float: right;
-		}
-
-		.price-divider {
-			padding: 10px 20px;
-		}
-
-		input[type="text"] {
-			padding: 0 !important;
-		}
-
-		.left {
-			float: left;
-			width: 45%;
-		}
-
-		.right {
-			text-align: justify;
-			float: right;
-			width: 50%;
-		}
-
-		.right p {
-			float: right;
-			margin-right: 75%;
-		}
-	}
 }
 
 .search-field {

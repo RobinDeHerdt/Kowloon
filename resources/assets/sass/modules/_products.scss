@@ -74,7 +74,6 @@
 	}
 
 	.details-images-container {
-		text-align: justify;
 		height: 150px;
 
 		.details-image {
@@ -89,13 +88,6 @@
 		span {
 			text-align: left;
 			font-size: 13px;
-		}
-
-		/* http://www.goldenapplewebdesign.com/css-equally-spaced-horizontal-elements/ */
-		&:after {
-			content: '';
-			width: 100%;
-			display: inline-block;
 		}
 	}
 }
@@ -139,7 +131,6 @@
 	}
 }
 
-// Voorlopig
 .product-container-margin {
 	margin: 25px 0 75px 0;
 }

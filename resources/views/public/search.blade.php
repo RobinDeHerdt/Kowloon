@@ -3,7 +3,6 @@
 @section('content')
 
 @include('includes.admin-nav')
-
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<div id="filterToggle" onclick="toggleFilter()">
@@ -23,9 +22,9 @@
 			</div>
 			<div class="price right">
 				<p>Price range </p>
-				<span class="euro">€ {{ Form::text('maxprice', $maxprice)}}</span>
-				<span class="price-divider"> - </span>
 				<span class="euro">€ {{ Form::text('minprice', $minprice)}}</span>
+				<span class="price-divider"> - </span>
+				<span class="euro">€ {{ Form::text('maxprice', $maxprice)}}</span>
 			</div>
 		</div>
 		<div class="space"></div>

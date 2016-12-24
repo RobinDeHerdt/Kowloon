@@ -19,7 +19,7 @@
 				@if ($tags)
 					@foreach ($tags as $tag)
 						<div class="collection-item">
-<input type="checkbox" name="{{strtolower($tag->name)}}" {{(isset($_GET[strtolower(str_replace(' ','_',$tag->name))]) ? 'checked' : '')}}>
+<input type="checkbox" name="collections[]" value="{{$tag->id}}" {{(in_array($tag->id, $selectedTags) ? 'checked' : '')}}>
 							<label for="{{strtolower($tag->name)}}">{{ $tag->name }}</label>
 						</div>
 					@endforeach	
@@ -40,7 +40,7 @@
 		<hr>
 		<div class="text-right">
 			<span class="text-thin">{{ str_singular($category->name) }} items: </span>
-			<span>{{ count($products) }} of {{ count($products) }}</span>
+			<span>{{ $products->count() }} of {{ $products->total() }}</span>
 		</div>
 
 		<div class="dropdown dropdown-left">

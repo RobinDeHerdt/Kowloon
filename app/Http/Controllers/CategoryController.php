@@ -13,18 +13,23 @@ class CategoryController extends Controller
 {
     public function index($id, Request $request)
     {
+        $selectedTags   = [];
+        $resultsPerPage = 4;
+
         $carouselimages = Carouselimage::all();
         $category       = Category::find($id);
         $tags           = Tag::all();
 
         $query          = Product::where('category_id', $id);
         
-        foreach ($tags as $key => $tag) 
+        if($request->collections)
         {
-            if($request->query(strtolower(str_replace(' ','_',$tag->name)))) 
+            $selectedTags = $request->collections;
+
+            foreach ($selectedTags as $key => $tag_id) 
             {
-                $query->whereHas('tags', function($q) use ($tag){
-                    $q->where('name', $tag->name);
+                $query->whereHas('tags', function($q) use ($tag_id){
+                    $q->where('tag_id', $tag_id);
                 });
             }
         }
@@ -58,7 +63,7 @@ class CategoryController extends Controller
             $minprice       = $request->query('minimumprice');
             $maxprice       = $request->query('maximumprice');
 
-            $products = $query->whereBetween('price',[$minprice,$maxprice])->orderBy($sortBy, $sortOrder)->paginate(4);
+            $products       = $query->whereBetween('price',[$minprice,$maxprice])->orderBy($sortBy, $sortOrder)->paginate($resultsPerPage);
 
             // https://github.com/laravel/framework/issues/858
             foreach (Input::except('page') as $input => $value)
@@ -68,17 +73,18 @@ class CategoryController extends Controller
         }
         else
         {   
-            $products = $query->orderBy($sortBy, $sortOrder)->paginate(4);
+            $products = $query->orderBy($sortBy, $sortOrder)->paginate($resultsPerPage);
         }   
 
         $minimumPricedProduct  = $products->sortBy('price')->first();
         $maximumPricedProduct  = $products->sortByDesc('price')->first();
 
     	return view('public.productoverview', [
+            'tags'                  => $tags,
     		'category' 			    => $category,
     		'products' 			    => $products,
+            'selectedTags'          => $selectedTags,
     		'carouselimages'	    => $carouselimages,
-    		'tags'				    => $tags,
             'minimumPricedProduct'  => $minimumPricedProduct,
             'maximumPricedProduct'  => $maximumPricedProduct,
     	]);

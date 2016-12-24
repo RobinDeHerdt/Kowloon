@@ -26,21 +26,11 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
-        //  DONT FORGET TO CLEAN THIS SHIT UP
-        $hotitem1 = Hotitem::find(1);
-        $hotitem2 = Hotitem::find(2);
-        $hotitem3 = Hotitem::find(3);
-        $hotitem4 = Hotitem::find(4);
-
-        $hotitem1->product_id = $request->hotitem1;
-        $hotitem2->product_id = $request->hotitem2;
-        $hotitem3->product_id = $request->hotitem3;
-        $hotitem4->product_id = $request->hotitem4;
-
-        $hotitem1->save();
-        $hotitem2->save();
-        $hotitem3->save();
-        $hotitem4->save();
+        foreach ($request->hotitems as $key => $new_hotitem_id) {
+            $hotitem                = Hotitem::find($key+1);
+            $hotitem->product_id    = $new_hotitem_id;
+            $hotitem->save();
+        }
 
         Session::flash('hotitems_update_status', 'Hot items updated successfully');
 

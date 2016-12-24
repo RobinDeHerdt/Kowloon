@@ -44,7 +44,7 @@
 				@foreach ($hotitems as $item)
 				<div class="hot-item-select">
 					<h4>Hot item {{$item->id}}</h4>
-					<select name="hotitem{{$item->id}}">
+					<select name="hotitems[]">
 						@foreach ($products as $product)
 <option value="{{$product->id}}" {{ ($item->product->id == $product->id ? "selected=selected" : "")}}>{{ $product->name }}</option>
 						@endforeach

@@ -531,6 +531,9 @@ label {
     padding: 2px;
     margin-right: 10px; }
 
+#dimensions input {
+  margin: 5px 10px 10px 0; }
+
 .about-container {
   margin-bottom: 250px; }
 

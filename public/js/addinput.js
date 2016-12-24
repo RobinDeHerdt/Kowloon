@@ -1,9 +1,15 @@
-var id 		= 1;
-var colorId = 0;
+var id 				= 1;
+var colorId 		= 0;
+var dimensionsId 	= 0;
 
 if(document.getElementById('colorCount'))
 {
 	colorId = document.getElementById('colorCount').value;
+}
+
+if(document.getElementById('dimensionsCount'))
+{
+	dimensionsId = document.getElementById('dimensionsCount').value;
 }
 
 function createForm(){
@@ -29,4 +35,20 @@ function deleteColor(element) {
 	var id = element.id.replace(element.id.substring(0,11), '');
 
 	document.getElementById('colorId'+id).remove();
+}
+
+function createDimensions() {
+	dimensionsId++;
+
+	var dimensionsContainer = document.getElementById('dimensions');
+	var createdElement 		= document.createElement('div');
+	createdElement.innerHTML = '<input type="text" name="dimensions[]"><button type="button" id="deleteDimensions' + dimensionsId + '" onclick="deleteDimensions(this);">Remove</button>';
+	createdElement.className += " dimensions";
+	createdElement.setAttribute('id', 'dimensionsId' + dimensionsId);
+	dimensionsContainer.appendChild(createdElement);
+}
+
+function deleteDimensions(element) {
+	var id = element.id.replace(element.id.substring(0,16), '');
+	document.getElementById('dimensionsId'+id).remove();
 }

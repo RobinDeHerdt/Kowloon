@@ -70,8 +70,8 @@ class ProductController extends Controller
         $product->save();
 
         for ($i = 0; $i < $count; $i++) { 
-            $productimage = new Productimage(); 
-            $path = $request->image[$i]->store('img', 'upload'); 
+            $productimage               = new Productimage(); 
+            $path                       = $request->image[$i]->store('img', 'upload'); 
             $productimage->image_url    = basename($path);
             $productimage->description  = $request->imagedescription[$i];
             $productimage->product()->associate($product);
@@ -79,10 +79,17 @@ class ProductController extends Controller
         }
 
         for ($i = 0; $i < count($request->colors); $i++) { 
-            $color  = new Color();
-            $color->hex = $request->colors[$i];
+            $color          = new Color();
+            $color->hex     = $request->colors[$i];
             $color->product()->associate($product);
             $color->save();
+        }
+
+        for ($i = 0; $i < count($request->dimensions); $i++) { 
+            $dimension          = new Dimension();
+            $dimension->body    = $request->dimensions[$i];
+            $dimension->product()->associate($product);
+            $dimension->save();
         }
 
         if($request->tags)
@@ -100,15 +107,17 @@ class ProductController extends Controller
 
     public function edit($id) 
     {
-        $product    = Product::find($id);
-        $categories = Category::take(5)->get();
-        $tags       = Tag::all();
-        $colors     = Color::where('product_id', $id)->get();
+        $tags           = Tag::all();
+        $product        = Product::find($id);
+        $categories     = Category::take(5)->get();
+        $colors         = Color::where('product_id', $id)->get();
+        $dimensions     = Dimension::where('product_id', $id)->get();
 
         return view('admin.editproduct', [
             'product'       => $product,
             'colors'        => $colors,
             'tags'          => $tags,
+            'dimensions'    => $dimensions,
             'categories'    => $categories
         ]);
     }
@@ -149,6 +158,19 @@ class ProductController extends Controller
             $color->hex = $request->colors[$i];
             $color->product()->associate($product);
             $color->save();
+        }
+
+        $oldimensions = Dimension::where('product_id', $id)->get();
+
+        foreach ($oldimensions as $key => $oldimension) {
+            $oldimension->delete();
+        }
+
+        for ($i = 0; $i < count($request->dimensions); $i++) { 
+            $dimension          = new Dimension();
+            $dimension->body    = $request->dimensions[$i];
+            $dimension->product()->associate($product);
+            $dimension->save();
         }
 
         if($request->tags)

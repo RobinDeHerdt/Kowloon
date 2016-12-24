@@ -69,6 +69,20 @@
 			
 			<div class="space"></div>
 
+			<label for="dimensions[]">Describe available dimensions for this product:</label>
+			<div id="dimensions">
+			@foreach($dimensions as $key=>$dimension)
+				<div class=" dimensions" id="dimensionsId{{$key+1}}">
+					<input type="text" name="dimensions[]" value="{{$dimension->body}}">
+					<button type="button" id="deleteDimensions{{$key+1}}" onclick="deleteDimensions(this);">Remove</button>
+				</div>
+			@endforeach
+			</div>
+			<input type="hidden" value="{{$dimensions->count()}}" id="dimensionsCount">
+			<button type="button" onclick="createDimensions();" id="addDimensions">Add dimensions</button>
+			
+			<div class="space"></div>
+
 			<label>Uploaded images</label>
 			@foreach ($product->productimages as $image)
 				<div class="form-group">

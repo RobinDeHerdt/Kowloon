@@ -61,6 +61,12 @@
 			
 			<div class="space"></div>
 
+			<label for="dimensions[]">Describe available dimensions for this product:</label>
+			<div id="dimensions"></div>
+			<button type="button" onclick="createDimensions();" id="addDimensions">Add dimensions</button>
+			
+			<div class="space"></div>
+
 			<div id="imageupload-container">
 				<div class="form-group" id="image-upload">
 					@if ($errors->first('image'))

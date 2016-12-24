@@ -8,19 +8,19 @@
 		{!! Form::open(['url' => '/admin/questions/create']) !!}
 			{{ Form::token() }}
 			<div class="form-group">
+				@if ($errors->first('question'))
+					<div class="alert alert-danger">{{ $errors->first('question') }}</div>
+				@endif
 				{{ Form::label('question', 'Question') }}
 				{{ Form::text('question', '', ['class' => 'form-control']) }}
-				@if ($errors->first('question'))
-					{{ $errors->first('question') }}
-				@endif
 			</div>
 
 			<div class="form-group">
+				@if ($errors->first('answer'))
+					<div class="alert alert-danger">{{ $errors->first('answer') }}</div>
+				@endif
 				{{ Form::label('answer', 'Answer') }}
 				{{ Form::text('answer', '', ['class' => 'form-control']) }}
-				@if ($errors->first('answer'))
-					{{ $errors->first('answer') }}
-				@endif
 			</div>
 			<label>This question belongs to the following products: (to create a question for the 'about' page, leave these fields blank) </label>
 			@foreach ($products as $product)

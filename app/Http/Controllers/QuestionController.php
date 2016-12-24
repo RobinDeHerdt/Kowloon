@@ -36,6 +36,30 @@ class QuestionController extends Controller
         ]);
     }
 
+    public function store(Request $request) 
+    {
+        $this->validate($request, [
+            'question'  => 'required',
+            'answer'    => 'required',
+        ]);
+
+        $question = new Question();
+
+        $question->question     = $request->question;
+        $question->answer       = $request->answer;
+
+        $question->save();
+
+        if($request->products)
+        {
+            $question->products()->attach($request->products);
+        }
+
+        Session::flash('question_create_status', 'Question created successfully');
+
+        return redirect()->action('QuestionController@index');
+    }
+
     public function edit($id)
     {
         $question           = Question::find($id);
@@ -49,6 +73,11 @@ class QuestionController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'question'  => 'required',
+            'answer'    => 'required',
+        ]);
+
         $question = Question::find($id);
 
         $question->question = $request->question;
@@ -67,25 +96,6 @@ class QuestionController extends Controller
         $question->save();
 
         Session::flash('question_update_status', 'Question updated successfully');
-
-        return redirect()->action('QuestionController@index');
-    }
-
-    public function store(Request $request) 
-    {
-        $question = new Question();
-
-        $question->question     = $request->question;
-        $question->answer       = $request->answer;
-
-        $question->save();
-
-        if($request->products)
-        {
-            $question->products()->attach($request->products);
-        }
-
-        Session::flash('question_create_status', 'Question created successfully');
 
         return redirect()->action('QuestionController@index');
     }

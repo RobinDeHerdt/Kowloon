@@ -26,6 +26,16 @@ class Product extends Model
         return $this->hasMany('App\Hotitem');
     }
 
+    public function dimensions()
+    {
+        return $this->hasMany('App\Dimension');
+    }
+
+    public function colors()
+    {
+        return $this->hasMany('App\Color');
+    }
+
     public function questions()
     {
         return $this->belongsToMany('App\Question');

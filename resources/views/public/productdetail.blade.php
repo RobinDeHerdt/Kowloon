@@ -37,10 +37,13 @@
 			</div>
 			<h1 class="title">{{ $product->name }}</h1>
 			<h2>€ {{ $product->price}}</h2>
-			<h2>Colors</h2>
-			<div class="color"></div>
-			<div class="color"></div>
-			<div class="color">	</div>
+			@if($product->colors->count())
+				<h2>Colors</h2>
+				@foreach ($product->colors as $color)
+					<div class="color"></div>
+					<input type="hidden" value="{{$color->hex}}" class="hexval">
+				@endforeach
+			@endif
 			<h2>Description</h2>
 			<p>{{ $product->description}}</p>
 		</div>
@@ -49,11 +52,17 @@
 			<h3>Specifications</h3>
 			<h4>Dimensions</h4>
 			<div class="specification">
-				<span>S - Ø 53x18cm</span><span>M - Ø 53x18cm</span><span>L - Ø 53x18cm</span>
+			@if($product->dimensions->count())
+				@foreach ($product->dimensions as $dimension)
+					<span>{{$dimension->body}}</span>
+				@endforeach
+			@else
+				<span>No dimensions given for this product</span>
+			@endif
 			</div>
 			<h4>Title</h4>
 			<div class="specification">
-				<span>{{  $product->technical_description}}</span>
+				<span>{{$product->technical_description}}</span>
 			</div>
 		</div>
 		<h1 class="title">Related products</h1>
@@ -74,6 +83,7 @@
 	</div>
 </div>
 <script src="/js/displayselectedimage.js"></script>
+<script src="/js/showcolors.js"></script>
 @endsection
 
 @section('scripts')

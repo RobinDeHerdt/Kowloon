@@ -14,8 +14,16 @@ class SearchController extends Controller
     	$results 	= null;
     	$response	= null;
 
-        $minprice   = Product::all()->sortBy('price')->first()->price;
-        $maxprice   = Product::all()->sortByDesc('price')->first()->price;
+        if($request->query('minprice') && $request->query('maxprice'))
+        {
+            $minprice   = $request->query('minprice');
+            $maxprice   = $request->query('maxprice');
+        }
+        else
+        {
+            $minprice   = Product::all()->sortBy('price')->first()->price;
+            $maxprice   = Product::all()->sortByDesc('price')->first()->price;
+        }        
 
     	if($request->query('query'))
     	{
@@ -29,10 +37,6 @@ class SearchController extends Controller
 
                 if($request->categories) 
                 {
-                    // Fix min and max layout in view
-                    $minprice       = $request->query('minprice');
-                    $maxprice       = $request->query('maxprice');
-
                     $results = Product::whereIn('category_id',$request->categories)->whereBetween('price',[$minprice,$maxprice])->where(function($q) use ($keywords)
                     {
                         foreach ($keywords as $key => $keyword) 
@@ -45,7 +49,10 @@ class SearchController extends Controller
                 }
                 else
                 {
-                    $results = Product::where(function($q) use ($keywords)
+                    $minprice       = $request->query('minprice');
+                    $maxprice       = $request->query('maxprice');
+
+                    $results = Product::whereBetween('price',[$minprice,$maxprice])->where(function($q) use ($keywords)
                     {
                         foreach ($keywords as $key => $keyword) 
                         {

@@ -46,6 +46,16 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'                      => 'required',
+            'price'                     => 'required|numeric',
+            'description'               => 'required',
+            'technical_description'     => 'required',
+            'category'                  => 'required',
+            'image'                     => 'required',
+            'imagedescription'          => 'required'
+        ]);
+
         $count = count($request->image);
 
         $product = new Product();
@@ -66,9 +76,12 @@ class ProductController extends Controller
             $productimage->save();
         }
 
-        foreach ($request->tags as $key => $tag) 
+        if($request->tags)
         {
-            $product->tags()->attach($tag);
+            foreach ($request->tags as $key => $tag) 
+            {
+                $product->tags()->attach($tag);
+            }
         }
 
         Session::flash('product_create_status', 'Product created successfully');

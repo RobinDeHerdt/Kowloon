@@ -7,9 +7,9 @@
 				<p>{{ $question->answer }}</p>
 			</div>
 		@endforeach
+		<span class="text-right"><a href="/faq">More questions?</a></span>
 	@else
-		<h3>No questions for this product yet.</h3>
+		<h3>There are no questions (yet).</h3>
 	@endif
 	<br>
 </div>
-<span class="text-right"><a href="/faq">More questions?</a></span>

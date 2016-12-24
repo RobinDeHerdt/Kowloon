@@ -8,7 +8,6 @@ function closeCookieWindow() {
 			element[0].className += ' cookie-close';
         }
     };
-    console.log('Ajax sent');
     xmlhttp.open("GET", "/setcookie", true);
     xmlhttp.send();
 }

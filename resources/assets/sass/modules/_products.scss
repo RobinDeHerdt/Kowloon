@@ -98,14 +98,6 @@
 	float: right;
 	padding: 5px;
 
-	.color {
-		margin-right: 5px;
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		border: 1px solid white;
-	}
 	.tags-container {
 		display: inline-block;
 	}
@@ -154,3 +146,12 @@
 		float: left;
 	}
 }
+
+.color {
+		margin-right: 5px;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		border: 1px solid white;
+	}

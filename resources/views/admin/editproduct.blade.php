@@ -55,6 +55,20 @@
 				</div>
 			@endforeach
 			
+			<label for="colors[]">Select available colors for this product:</label>
+			<div id="colorPicker">
+			@foreach($colors as $key=>$color)
+				<div class=" colorContainer" id="colorId{{$key+1}}">
+					<input type="color" name="colors[]" value="{{$color->hex}}">
+					<button type="button" id="deleteColor{{$key+1}}" onclick="deleteColor(this);">Remove</button>
+				</div>
+			@endforeach
+			</div>
+			<input type="hidden" value="{{$colors->count()}}" id="colorCount">
+			<button type="button" onclick="createColor();" id="addColor">Add color</button>
+			
+			<div class="space"></div>
+
 			<label>Uploaded images</label>
 			@foreach ($product->productimages as $image)
 				<div class="form-group">
@@ -63,10 +77,10 @@
 					{{ Form::label($image->description) }}
 				</div>
 			@endforeach
-
+	
 			<div id="imageupload-container">
 				<div class="form-group" id="image-upload">
-					{{ Form::label('Upload images for this product: ') }}
+					{{ Form::label('Upload new images: ') }}
 					{{ Form::file('image[]')}}
 					{{ Form::label('imagedescription[]', 'Image description') }}
 					{{ Form::text('imagedescription[]', '', ['class' => 'form-control']) }}
@@ -82,5 +96,5 @@
 @endsection
 
 @section('scripts')
-<script src="/js/addimageuploadinput.js"></script>
+<script src="/js/addinput.js"></script>
 @endsection

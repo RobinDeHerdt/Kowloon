@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use Session;
 
 use App\Productimage;
+use App\Dimension;
 use App\Category;
 use App\Product;
 use App\Hotitem;
+use App\Color;
 use App\Tag;
 
 class ProductController extends Controller
@@ -76,6 +78,13 @@ class ProductController extends Controller
             $productimage->save();
         }
 
+        for ($i = 0; $i < count($request->colors); $i++) { 
+            $color  = new Color();
+            $color->hex = $request->colors[$i];
+            $color->product()->associate($product);
+            $color->save();
+        }
+
         if($request->tags)
         {
             foreach ($request->tags as $key => $tag) 
@@ -94,9 +103,11 @@ class ProductController extends Controller
         $product    = Product::find($id);
         $categories = Category::take(5)->get();
         $tags       = Tag::all();
+        $colors     = Color::where('product_id', $id)->get();
 
         return view('admin.editproduct', [
             'product'       => $product,
+            'colors'        => $colors,
             'tags'          => $tags,
             'categories'    => $categories
         ]);
@@ -127,6 +138,19 @@ class ProductController extends Controller
             $productimage->save();
         }
 
+        $oldcolors = Color::where('product_id', $id)->get();
+
+        foreach ($oldcolors as $key => $oldcolor) {
+            $oldcolor->delete();
+        }
+
+        for ($i = 0; $i < count($request->colors); $i++) { 
+            $color  = new Color();
+            $color->hex = $request->colors[$i];
+            $color->product()->associate($product);
+            $color->save();
+        }
+
         if($request->tags)
         {
             $product->tags()->sync($request->tags);
@@ -146,7 +170,7 @@ class ProductController extends Controller
         $product    = Product::find($id);
         $hotitems   = Hotitem::where('product_id', $id)->get();
 
-        if(count($hotitems))
+        if($hotitems->count())
         {
             foreach ($hotitems as $key => $hotitem) 
             {
@@ -163,6 +187,24 @@ class ProductController extends Controller
                     return back();
                 }  
             } 
+        }
+
+        $colors         = Color::where('product_id', $id)->get();
+
+        if($colors->count())
+        {
+            foreach ($colors as $key => $color) {
+                $color->delete();
+            }
+        }
+
+         $dimensions    = Dimension::where('product_id', $id)->get();
+
+        if($dimensions->count())
+        {
+            foreach ($dimensions as $key => $dimension) {
+                $dimension->delete();
+            }
         }
 
         $product->tags()->detach();

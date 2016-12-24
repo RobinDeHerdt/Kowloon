@@ -55,6 +55,12 @@
 				</div>
 			@endforeach
 			
+			<label for="colors[]">Select available colors for this product:</label>
+			<div id="colorPicker"></div>
+			<button type="button" onclick="createColor();" id="addColor">Add color</button>
+			
+			<div class="space"></div>
+
 			<div id="imageupload-container">
 				<div class="form-group" id="image-upload">
 					@if ($errors->first('image'))
@@ -81,5 +87,5 @@
 @endsection
 
 @section('scripts')
-<script src="/js/addimageuploadinput.js"></script>
+<script src="/js/addinput.js"></script>
 @endsection

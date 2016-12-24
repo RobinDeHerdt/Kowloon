@@ -18,6 +18,15 @@
 		@else
 			<span>There are no tags for this product.</span>
 		@endif
+		<h3>Colors</h3>
+		@if($product->colors->count())
+			@foreach ($product->colors as $color)
+				<div class="color"></div>
+				<input type="hidden" value="{{$color->hex}}" class="hexval">
+			@endforeach
+		@else
+			<span>There are no colors for this product.</span>
+		@endif
 		<h3>Questions</h3>
 		@if($product->questions->count())
 			@foreach($product->questions as $question)
@@ -37,4 +46,8 @@
 		@endforeach
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+	<script src="/js/showcolors.js"></script>
 @endsection

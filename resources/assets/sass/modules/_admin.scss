@@ -98,3 +98,14 @@
 label {
 	margin: 7.5px 0; 
 }
+
+#colorPicker {
+	.colorContainer {
+		margin:20px 0;
+		input[type="color"] {
+			height: 50px;
+			padding: 2px;
+			margin-right: 10px;
+		}
+	}
+}

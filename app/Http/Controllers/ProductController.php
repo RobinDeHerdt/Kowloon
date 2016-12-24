@@ -229,9 +229,16 @@ class ProductController extends Controller
             }
         }
 
-        $product->tags()->detach();
-        $product->questions()->detach();
+        foreach ($product->questions as $key => $question) {
+            if($question->products()->count() === 1)
+            {
+                $question->delete();
+            }
+        }
 
+        $product->questions()->detach();
+        $product->tags()->detach();
+        
         foreach ($product->productimages as $key => $image) {
             $image->delete();
         }

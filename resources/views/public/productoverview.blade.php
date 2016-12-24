@@ -27,9 +27,9 @@
 				</div>
 				<div class="price">
 					<p>Price range </p>
-					<span class="euro">€ <input type="text" name="minimumprice" value="{{ (isset($_GET['minimumprice'])) ? $_GET['minimumprice'] : (isset($minimumPricedProduct->price) ? $minimumPricedProduct->price : 0)}}"></span>
+					<span class="euro">€ <input type="text" name="minimumprice" value="{{$minimumprice}}"></span>
 					<span class="price-divider"> - </span>
-					<span class="euro">€ <input type="text" name="maximumprice" value="{{ (isset($_GET['maximumprice'])) ? $_GET['maximumprice'] : (isset($minimumPricedProduct->price) ? $maximumPricedProduct->price : 0)}}"></span>
+					<span class="euro">€ <input type="text" name="maximumprice" value="{{$maximumprice}}"></span>
 				</div>
 				<input type="hidden" value="" name="sort" id="selectedSortFunction">
 				<div class="form-group">

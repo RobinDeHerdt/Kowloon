@@ -414,7 +414,8 @@ h1 {
     box-shadow: 3px 3px 10px 0px #949494;
     width: 100%;
     padding: 10px 20px;
-    margin-top: 10px; }
+    margin-top: 10px;
+    background-color: #fff; }
     .searchresults-container .searchresult .result-image {
       width: 25%;
       display: inline-block;

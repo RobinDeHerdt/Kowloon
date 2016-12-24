@@ -15,6 +15,8 @@ class CategoryController extends Controller
     {
         $selectedTags   = [];
         $resultsPerPage = 4;
+        $minimumprice   = 0;
+        $maximumprice   = 0;
 
         $carouselimages = Carouselimage::all();
         $category       = Category::find($id);
@@ -60,24 +62,34 @@ class CategoryController extends Controller
 
         if ($request->query('minimumprice') && $request->query('maximumprice'))
         {
-            $minprice       = $request->query('minimumprice');
-            $maxprice       = $request->query('maximumprice');
+            $minimumprice       = $request->query('minimumprice');
+            $maximumprice       = $request->query('maximumprice');
 
-            $products       = $query->whereBetween('price',[$minprice,$maxprice])->orderBy($sortBy, $sortOrder)->paginate($resultsPerPage);
-
-            // https://github.com/laravel/framework/issues/858
-            foreach (Input::except('page') as $input => $value)
-            {
-                $products->appends($input, $value);
-            }
+            $products           = $query->whereBetween('price',[$minimumprice,$maximumprice])->orderBy($sortBy, $sortOrder)->paginate($resultsPerPage);
         }
         else
         {   
-            $products = $query->orderBy($sortBy, $sortOrder)->paginate($resultsPerPage);
+            $allproducts            = $query->get();
+            
+            if($allproducts->count())
+            {
+                $minimumpriceditem      = $allproducts->sortBy('price')->first();
+                $maximumpriceditem      = $allproducts->sortByDesc('price')->first();
+
+                $minimumprice           = $minimumpriceditem->price;
+                $maximumprice           = $maximumpriceditem->price;
+            }
+        
+            $products               = $query->orderBy($sortBy, $sortOrder)->paginate($resultsPerPage);
         }   
 
-        $minimumPricedProduct  = $products->sortBy('price')->first();
-        $maximumPricedProduct  = $products->sortByDesc('price')->first();
+        // https://github.com/laravel/framework/issues/858
+        foreach (Input::except('page') as $input => $value)
+        {
+            $products->appends($input, $value);
+        }
+
+        
 
     	return view('public.productoverview', [
             'tags'                  => $tags,
@@ -85,8 +97,8 @@ class CategoryController extends Controller
     		'products' 			    => $products,
             'selectedTags'          => $selectedTags,
     		'carouselimages'	    => $carouselimages,
-            'minimumPricedProduct'  => $minimumPricedProduct,
-            'maximumPricedProduct'  => $maximumPricedProduct,
+            'minimumprice'          => $minimumprice,
+            'maximumprice'          => $maximumprice,
     	]);
     }
 }

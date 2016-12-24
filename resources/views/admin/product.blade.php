@@ -18,6 +18,7 @@
 		@else
 			<span>There are no tags for this product.</span>
 		@endif
+
 		<h3>Colors</h3>
 		@if($product->colors->count())
 			@foreach ($product->colors as $color)
@@ -27,11 +28,21 @@
 		@else
 			<span>There are no colors for this product.</span>
 		@endif
+
+		<h3>Dimensions</h3>
+		@if($product->dimensions->count())
+			@foreach ($product->dimensions as $dimension)
+				<span>- {{ $dimension->body }}</span><br>
+			@endforeach
+		@else
+			<span>There are no dimensions for this product.</span>
+		@endif
+
 		<h3>Questions</h3>
 		@if($product->questions->count())
 			@foreach($product->questions as $question)
-				<span>{{ $question->question}}</span>
-				<p>{{$question->answer}}</p>
+				<span>Q: {{ $question->question}}</span>
+				<p>A: {{$question->answer}}</p>
 			@endforeach
 		@else
 			<span>There are no questions for this product. Create a question <a href="/admin/questions/create">here</a>.</span>

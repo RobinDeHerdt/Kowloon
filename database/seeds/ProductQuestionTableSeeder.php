@@ -28,7 +28,7 @@ class ProductQuestionTableSeeder extends Seeder
 
         DB::table('product_question')->insert([
             'product_id' => 1,
-            'question_id' => 3,
+            'question_id' => 4,
         ]);
 
         DB::table('product_question')->insert([

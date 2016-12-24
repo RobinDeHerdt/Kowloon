@@ -65,6 +65,7 @@
 				<span>{{$product->technical_description}}</span>
 			</div>
 		</div>
+		@if ($relatedProducts->count())
 		<h1 class="title">Related products</h1>
 		<div class="products-container">
 			@foreach ($relatedProducts as $product)
@@ -78,6 +79,7 @@
 			@endforeach
 		</div>
 		<span class="text-right"><a href="/category/{{ $product->category_id}}">View more</a></span>
+		@endif
 		@include('includes.faq')
 		@include('includes.subscribe')
 	</div>

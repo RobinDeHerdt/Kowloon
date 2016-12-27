@@ -12,33 +12,39 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name'      => 'Dogs',
-            'classname' => 'sprite-dog',
+            'name_nl'       => 'Honden',
+            'name_fr'       => 'Chiens',
+            'classname'     => 'dog',
         ]);
 
         DB::table('categories')->insert([
-            'name'      => 'Cats',
-            'classname' => 'sprite-cat',
+            'name_nl'       => 'Katten',
+            'name_fr'       => 'Chats',
+            'classname'     => 'cat',
         ]);
 
         DB::table('categories')->insert([
-            'name'      => 'Fish',
-            'classname' => 'sprite-fish',
+            'name_nl'       => 'Vissen',
+            'name_fr'       => 'Poisson',
+            'classname'     => 'fish',
         ]);
 
         DB::table('categories')->insert([
-            'name'      => 'Birds',
-            'classname' => 'sprite-bird',
+            'name_nl'       => 'Vogels',
+            'name_fr'       => 'Oiseaux',
+            'classname'     => 'bird',
         ]);
 
         DB::table('categories')->insert([
-            'name'      => 'Small Animals',
-            'classname' => 'sprite-hamster',
+            'name_nl'       => 'Kleine dieren',
+            'name_fr'       => 'Petits animaux',
+            'classname'     => 'hamster',
         ]);
 
         DB::table('categories')->insert([
-            'name'      => 'Other',
-            'classname' => 'sprite-other',
+            'name_nl'       => 'Andere',
+            'name_fr'       => 'Autre',
+            'classname'     => 'other',
         ]);
     }
 }

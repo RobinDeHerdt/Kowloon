@@ -27,7 +27,7 @@
 				<img src="/img/k_logo.png" class="small_logo">
 				<div class="tag">
 					<div class="tag-category-color {{ str_singular(strtolower($product->category->name)) }}"></div>
-						{{ $product->category->name }}
+					{{ $product->category->{"name_" . LaravelLocalization::getCurrentLocale()} }}
 				</div>
 				@foreach($product->tags as $tag)
 				<div class="tag">
@@ -38,19 +38,19 @@
 			<h1 class="title">{{ $product->name }}</h1>
 			<h2>€ {{ $product->price}}</h2>
 			@if($product->colors->count())
-				<h2>Colors</h2>
+				<h2>{{ trans('messages.colors') }}</h2>
 				@foreach ($product->colors as $color)
 					<div class="color"></div>
 					<input type="hidden" value="{{$color->hex}}" class="hexval">
 				@endforeach
 			@endif
-			<h2>Description</h2>
+			<h2>{{ trans('messages.description') }}</h2>
 			<p>{{ $product->description}}</p>
 		</div>
 		<hr>
 		<div class="product-specifications">
-			<h3>Specifications</h3>
-			<h4>Dimensions</h4>
+			<h3>{{ trans('messages.specifications') }}</h3>
+			<h4>{{ trans('messages.dimensions')}}</h4>
 			<div class="specification">
 			@if($product->dimensions->count())
 				@foreach ($product->dimensions as $dimension)
@@ -60,25 +60,25 @@
 				<span>No dimensions given for this product</span>
 			@endif
 			</div>
-			<h4>Title</h4>
+			<h4>{{ trans('messages.technical_description')}}</h4>
 			<div class="specification">
 				<span>{{$product->technical_description}}</span>
 			</div>
 		</div>
 		@if ($relatedProducts->count())
-		<h1 class="title">Related products</h1>
+		<h1 class="title">{{ trans('messages.related_products') }}</h1>
 		<div class="products-container">
 			@foreach ($relatedProducts as $product)
 			<div class="product-item">
 			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
-				<div class="product-image-container overlay {{ str_singular(strtolower($product->category->name)) }}">
+				<div class="product-image-container overlay {{ $product->category->classname}}">
 					<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
 				</div>
 			</a>
 			</div>
 			@endforeach
 		</div>
-		<span class="text-right"><a href="/category/{{ $product->category_id}}">View more</a></span>
+		<span class="text-right"><a href="/category/{{ $product->category_id}}">{{ trans('messages.view_more') }}</a></span>
 		@endif
 		@include('includes.faq')
 		@include('includes.subscribe')

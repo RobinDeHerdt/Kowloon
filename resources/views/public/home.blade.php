@@ -12,8 +12,8 @@
     <div class="categories-content">
         @foreach ($categories as $category)
         	<div class="category">
-        		<i class=" sprite {{ $category->classname }}"></i>
-        		<span>{{$category->name}}</span>
+        		<i class=" sprite sprite-{{ $category->classname }}"></i>
+        		<span>{{ $category->{"name_" . LaravelLocalization::getCurrentLocale()} }}</span>
         	</div>
         @endforeach
 	</div>
@@ -28,7 +28,7 @@
 						</div>
 					@endif
 					<a href="/category/{{$hotitem->product->category->id}}/product/{{$hotitem->product->id}}">
-					<div class="image-container overlay {{ str_singular(strtolower($hotitem->product->category->name)) }}">
+					<div class="image-container overlay {{ $hotitem->product->category->classname }}">
 						<img src="/img/{{ $hotitem->product->productimages->first()->image_url}}" alt="hot-item-1">
 					</div>
 					</a>
@@ -39,7 +39,7 @@
 				</div>
 			@endforeach
 		</div>
-		<span class="text-right"><a href="#">Visit the store</a></span>
+		<span class="text-right"><a href="#">{{ trans('messages.visit_store') }}</a></span>
 		@include('includes.subscribe')
 	</div>
 </div>

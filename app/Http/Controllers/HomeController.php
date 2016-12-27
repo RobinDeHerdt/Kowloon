@@ -8,6 +8,7 @@ use App\Category;
 use App\Carouselimage;
 
 use Session;
+use LaravelLocalization;
 
 class HomeController extends Controller
 {
@@ -21,7 +22,7 @@ class HomeController extends Controller
         	'hotitems' 			=> $hotitems,
         	'categories' 		=> $categories,
          	'carouselimages' 	=> $carouselimages
-         ]);
+        ]);
     }
 
     public function update(Request $request)

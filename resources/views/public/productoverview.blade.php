@@ -7,7 +7,7 @@
 
 <div class="content">
 	<div class="main-content">
-	<h1 class="title">{{ str_singular($category->name) }} articles.</h1>
+	<h1 class="title">{{ $category->{"name_" . LaravelLocalization::getCurrentLocale()} }} {{ trans('messages.articles') }}.</h1>
 		<div id="filterToggle" onclick="toggleFilter()">
 			<span>Filter</span>
 			<span class="caret"></span>
@@ -20,7 +20,7 @@
 					@foreach ($tags as $tag)
 						<div class="collection-item">
 <input type="checkbox" name="collections[]" value="{{$tag->id}}" {{(in_array($tag->id, $selectedTags) ? 'checked' : '')}}>
-							<label for="{{strtolower($tag->name)}}">{{ $tag->name }}</label>
+							<label>{{ $tag->name }}</label>
 						</div>
 					@endforeach	
 				@endif
@@ -67,7 +67,7 @@
 						</div>
 					@endif
 					<a href="/category/{{ $category->id }}/product/{{ $product->id }}">
-					<div class="image-container overlay {{ str_singular(strtolower($product->category->name)) }}">
+					<div class="image-container overlay {{ $product->category->classname }}">
 						<img src="/img/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->description}}">
 					</div>
 					</a>

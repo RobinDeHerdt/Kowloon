@@ -1,0 +1,107 @@
+.sprite {
+    background-image: url(/img/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+// Normal sized
+
+.sprite-fish {
+    width: 65px;
+    height: 65px;
+    background-position: -95px -149px;
+}
+
+.sprite-hamster {
+    width: 65px;
+    height: 65px;
+    background-position: -180px -149px;
+}
+
+.sprite-dog {
+    width: 65px;
+    height: 65px;
+    background-position: -180px -64px;
+}
+
+.sprite-bird {
+    width: 65px;
+    height: 65px;
+    background-position: -10px -10px;
+}
+
+.sprite-cat {
+    width: 65px;
+    height: 65px;
+    background-position: -95px -10px;
+}
+
+.sprite-other {
+    width: 65px;
+    height: 65px;
+    background-position: -265px -95px;
+}
+
+// Resized:
+.nav-sprite-fish {
+    width: 65px;
+    height: 65px;
+    background-position: -95px -149px;
+    zoom: .6;
+}
+
+.nav-sprite-hamster {
+    width: 65px;
+    height: 65px;
+    background-position: -180px -149px;
+    zoom: .6;
+}
+
+.nav-sprite-dog {
+    width: 65px;
+    height: 65px;
+    background-position: -180px -64px;
+    zoom: .6;
+}
+
+.nav-sprite-bird {
+    width: 65px;
+    height: 65px;
+    background-position: -10px -10px;
+    zoom: .6;
+}
+
+.nav-sprite-cat {
+    width: 65px;
+    height: 65px;
+    background-position: -95px -10px;
+    zoom: .6;
+}
+
+.nav-sprite-contact-icon {
+    width: 34px;
+    height: 34px;
+    background-position: -180px -10px;
+    zoom: 1.2;
+}
+
+.nav-sprite-faq-icon {
+    width: 65px;
+    height: 65px;
+    background-position: -10px -149px;
+    zoom: .7;
+}
+
+.nav-sprite-menu-icon {
+    width: 65px;
+    height: 65px;
+    background-position: -265px -10px;
+    zoom: .5;
+}
+
+.nav-sprite-search-icon {
+    width: 65px;
+    height: 65px;
+    background-position: -265px -180px;
+    zoom: .7;
+}

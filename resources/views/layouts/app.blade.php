@@ -40,27 +40,27 @@
     <div class="side-container">
         <div class="menu-items">   
             <div class="hamburger">
-               <img src="/img/menu-icon.png" alt="menu" onclick="openMenu()">
+               <i class="sprite nav-sprite-menu-icon" onclick="openMenu()"></i>
             </div>
             <div class="upper-menu-item {{ Request::is('*/search*') ? 'active-menu' : '' }}">
-                <a href="/search"><img src="/img/search-icon.png" alt="search"></a>
+                <a href="/search"><i class="sprite nav-sprite-search-icon"></i></a>
             </div>
             <div class="upper-menu-item {{ Request::is('*/faq') ? 'active-menu' : '' }}">
-                <a href="/faq"><img src="/img/faq-icon.png" alt="faq" class="{{ Request::is('*/faq*') ? 'active-menu' : '' }}"></a>
+                <a href="/faq"><i class="sprite nav-sprite-faq-icon"></i></a>
             </div>
             <div class="upper-menu-item {{ Request::is('*/about') ? 'active-menu' : '' }}">
-                <a href="/about"><img src="/img/contact-icon.png" alt="contact" class="{{ Request::is('*/contact*') ? 'active-menu' : '' }}"></a>
+                <a href="/about"><i class="sprite nav-sprite-contact-icon"></i></a>
             </div>
         </div>
         <div class="divider">
             
         </div>
         <div class="category-items">
-            <a href="/category/1"><img src="/img/dog.png" alt="dogs"  class="menu-img {{ Request::is('*/category/1*') ? 'active-item' : ''}}"></a>
-            <a href="/category/2"><img src="/img/cat.png" alt="cats" class="menu-img {{ Request::is('*/category/2*') ? 'active-item' : ''}}"></a>
-            <a href="/category/3"><img src="/img/fish.png" alt="fish" class="menu-img {{ Request::is('*/category/3*') ? 'active-item' : ''}}"></a>
-            <a href="/category/4"><img src="/img/bird.png" alt="birds" class="menu-img {{ Request::is('*/category/4*') ? 'active-item' : ''}}"></a>
-            <a href="/category/5"><img src="/img/hamster.png" alt="small animals" class="menu-img {{ Request::is('*/category/5*') ? 'active-item' : ''}}"></a>
+            <a href="/category/1"><i class="sprite nav-sprite-dog menu-img {{ Request::is('*/category/1*') ? 'active-item' : ''}}"></i></a>
+            <a href="/category/2"><i class="sprite nav-sprite-cat menu-img {{ Request::is('*/category/2*') ? 'active-item' : ''}}"></i></a>
+            <a href="/category/3"><i class="sprite nav-sprite-fish menu-img {{ Request::is('*/category/3*') ? 'active-item' : ''}}"></i></a>
+            <a href="/category/4"><i class="sprite nav-sprite-bird menu-img {{ Request::is('*/category/4*') ? 'active-item' : ''}}"></i></a>
+            <a href="/category/5"><i class="sprite nav-sprite-hamster menu-img {{ Request::is('*/category/5*') ? 'active-item' : ''}}"></i></a>
         </div>
         <div class="footer-logo">
             <img src="/img/k_logo.png" alt="logo" class="footer-logo">

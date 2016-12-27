@@ -12,7 +12,7 @@
     <div class="categories-content">
         @foreach ($categories as $category)
         	<div class="category">
-        		<img src="/img/{{ $category->image_url }}" alt="{{ $category->name }}">
+        		<i class=" sprite {{ $category->classname }}"></i>
         		<span>{{$category->name}}</span>
         	</div>
         @endforeach

@@ -11,6 +11,7 @@
 		margin-bottom: 40%;
 		
 		.upper-menu-item {
+			padding: 2px 0;
 			width: 100%;
 		}
 
@@ -20,6 +21,7 @@
 
 		.hamburger {
 			background-color: #252525;
+			padding: 2px 0;
 			margin-bottom: 25%;
 		}
 	}
@@ -38,22 +40,21 @@
 			filter: none;
 		}
 
-		a img {
+		a i {
 			filter: brightness(0) invert(1);
 		}
 
-		a:hover img{
+		a:hover i{
 			filter: none;
 		}
 	}
 
 	.category-items, .menu-items {
-		img {
+		i {
 			margin-top: 12.5%;
-			margin-bottom: 12.5%;
+			margin-bottom: 25%;
 
 			margin-left: 25%;
-			width: 50%;
 		}
 	}
 

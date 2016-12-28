@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use LaravelLocalization;
 
 class SearchController extends Controller
 {
@@ -41,9 +42,9 @@ class SearchController extends Controller
                     {
                         foreach ($keywords as $key => $keyword) 
                         {
-                            $q->orWhere('name', 'like', '%'.$keyword.'%')
-                              ->orWhere('description', 'like', '%'.$keyword.'%')
-                              ->orWhere('technical_description', 'like', '%'.$keyword.'%');
+                            $q->orWhere('name_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%')
+                              ->orWhere('description_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%')
+                              ->orWhere('technical_description_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%');
                         }
                     })->paginate(3);
                 }
@@ -56,9 +57,9 @@ class SearchController extends Controller
                     {
                         foreach ($keywords as $key => $keyword) 
                         {
-                            $q->orWhere('name', 'like', '%'.$keyword.'%')
-                              ->orWhere('description', 'like', '%'.$keyword.'%')
-                              ->orWhere('technical_description', 'like', '%'.$keyword.'%');
+                            $q->orWhere('name_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%')
+                              ->orWhere('description_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%')
+                              ->orWhere('technical_description_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%');
                         }
                     })->paginate(3);
                 }

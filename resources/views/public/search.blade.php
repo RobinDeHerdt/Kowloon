@@ -6,29 +6,29 @@
 <div class="content search-page secondary-bg">
 	<div class="main-content">
 		<div id="filterToggle" onclick="toggleFilter()">
-			<span>Advanced filter</span>
+			<span>{{ trans('messages.advanced_filter') }}</span>
 			<span class="caret"></span>
 		</div>
 		{!! Form::open(['url' => '/search', 'method' => 'GET', 'id' => 'search_form']) !!}
 		<div class="filter" id="productFilter">
 			<div class="collection left">
-				<p>Category</p>
+				<p>{{ trans('messages.category') }}</p>
 				@foreach ($categories as $key => $category)
 					<div class="collection-item">
 						{{ Form::checkbox('categories[]', $category->id, (in_array($category->id, $selectedCategories)) ? true : '')}}
-						{{ Form::label($category->name) }}
+						{{ Form::label($category->{"name_" . LaravelLocalization::getCurrentLocale()} ) }}
 					</div>
 				@endforeach	
 			</div>
 			<div class="price right">
-				<p>Price range </p>
+				<p>{{ trans('messages.price_range') }}</p>
 				<span class="euro">€ {{ Form::text('minprice', $minprice)}}</span>
 				<span class="price-divider"> - </span>
 				<span class="euro">€ {{ Form::text('maxprice', $maxprice)}}</span>
 			</div>
 		</div>
 		<div class="space"></div>
-		{{ Form::text('query', '', ['placeholder' => 'Just start typing and hit "enter" to search','class' => 'search-field', 'onkeypress' => 'keyPress(event);']) }}
+		{{ Form::text('query', '', ['placeholder' => trans('messages.search_placeholder'),'class' => 'search-field', 'onkeypress' => 'keyPress(event);']) }}
 		{!! Form::close() !!}
 	
 		@if ($results)
@@ -49,13 +49,13 @@
 			@foreach ($results as $result)
 				<div class="searchresult">
 					<div class="result-image">
-						<img src="/img/{{$result->productimages->first()->image_url}}" alt="">
+						<img src="/img/products/{{$result->productimages->first()->image_url}}" alt="">
 					</div>
 					<div class="result-text">
-						<h3>{{$result->name}}</h3>
+						<h3>{{$result->{"name_" . LaravelLocalization::getCurrentLocale()} }}</h3>
 						<span>€{{$result->price}}</span>
-						<p>{{$result->description}}</p>
-						<p>{{$result->technical_description}}</p>
+						<p>{{$result->{"description_" . LaravelLocalization::getCurrentLocale()} }}</p>
+						<p>{{$result->{"technical_description_" . LaravelLocalization::getCurrentLocale()} }}</p>
 						<a href="/category/{{$result->category->id}}/product/{{$result->id}}"></a>
 					</div>
 				</div>

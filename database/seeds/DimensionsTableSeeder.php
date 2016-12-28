@@ -12,33 +12,33 @@ class DimensionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('dimensions')->insert([
-            'body' => 'S - Ø 53x18cm',
-            'product_id' => 1,
+            'body'          => 'S - Ø 53x18cm',
+            'product_id'    => 1,
         ]);
 
         DB::table('dimensions')->insert([
-            'body' => 'M - Ø 53x18cm',
-            'product_id' => 1,
+            'body'          => 'M - Ø 53x18cm',
+            'product_id'    => 1,
         ]);
 
         DB::table('dimensions')->insert([
-            'body' => 'L - Ø 53x18cm',
-            'product_id' => 1,
+            'body'          => 'L - Ø 53x18cm',
+            'product_id'    => 1,
         ]);
 
         DB::table('dimensions')->insert([
-            'body' => 'S - Ø 53x18cm',
-            'product_id' => 3,
+            'body'          => 'S - Ø 53x18cm',
+            'product_id'    => 3,
         ]);
 
         DB::table('dimensions')->insert([
-            'body' => 'M - Ø 53x18cm',
-            'product_id' => 3,
+            'body'          => 'M - Ø 53x18cm',
+            'product_id'    => 3,
         ]);
 
         DB::table('dimensions')->insert([
-            'body' => 'L - Ø 53x18cm',
-            'product_id' => 4,
+            'body'          => 'L - Ø 53x18cm',
+            'product_id'    => 4,
         ]);
     }
 }

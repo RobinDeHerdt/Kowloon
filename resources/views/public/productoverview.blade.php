@@ -9,37 +9,37 @@
 	<div class="main-content">
 	<h1 class="title">{{ $category->{"name_" . LaravelLocalization::getCurrentLocale()} }} {{ trans('messages.articles') }}.</h1>
 		<div id="filterToggle" onclick="toggleFilter()">
-			<span>Filter</span>
+			<span>{{ trans('messages.filter') }}</span>
 			<span class="caret"></span>
 		</div>
 		<div class="filter" id="productFilter">
 			<form action="/category/{{$category->id}}" method="GET">
 				<div class="collection">
-					<p>By collection </p>
+					<p>{{ trans('messages.collection') }}</p>
 				@if ($tags)
 					@foreach ($tags as $tag)
 						<div class="collection-item">
 <input type="checkbox" name="collections[]" value="{{$tag->id}}" {{(in_array($tag->id, $selectedTags) ? 'checked' : '')}}>
-							<label>{{ $tag->name }}</label>
+							<label>{{ $tag->{"name_" . LaravelLocalization::getCurrentLocale()} }}</label>
 						</div>
 					@endforeach	
 				@endif
 				</div>
 				<div class="price">
-					<p>Price range </p>
+					<p>{{ trans('messages.price_range') }}</p>
 					<span class="euro">€ <input type="text" name="minimumprice" value="{{$minimumprice}}"></span>
 					<span class="price-divider"> - </span>
 					<span class="euro">€ <input type="text" name="maximumprice" value="{{$maximumprice}}"></span>
 				</div>
 				<input type="hidden" value="" name="sort" id="selectedSortFunction">
 				<div class="form-group">
-					<input type="submit" value="Filter" class="button">
+					<input type="submit" value="{{ trans('messages.activate_filter') }}" class="button">
 				</div>
 			</form>
 		</div>
 		<hr>
 		<div class="text-right">
-			<span class="text-thin">{{ str_singular($category->name) }} items: </span>
+			<span class="text-thin">{{ str_singular($category->{"name_" . LaravelLocalization::getCurrentLocale()}) }} items: </span>
 			<span>{{ $products->count() }} of {{ $products->total() }}</span>
 		</div>
 
@@ -68,18 +68,18 @@
 					@endif
 					<a href="/category/{{ $category->id }}/product/{{ $product->id }}">
 					<div class="image-container overlay {{ $product->category->classname }}">
-						<img src="/img/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->description}}">
+						<img src="/img/products/{{ $product->productimages->first()->image_url}}" alt="{{ $product->productimages->first()->{'description_' . LaravelLocalization::getCurrentLocale() } }}">
 					</div>
 					</a>
 					<div class="description">
-						<span>{{ $product->name }}</span>
+						<span>{{ $product->{"name_" . LaravelLocalization::getCurrentLocale()} }}</span>
 						<span>€ {{ $product->price }}</span>
 					</div>
 				</div>
 			@endforeach
 
 		@else
-			<h1>No products found.</h1>
+			<span class="not-found-msg">{{ trans('messages.no_products') }}</span>
 		@endif
 		</div>
 		{{ $products->links() }}

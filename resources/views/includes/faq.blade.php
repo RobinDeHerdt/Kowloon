@@ -3,13 +3,13 @@
 	@if($questions->count())
 		@foreach ($questions as $question)
 			<div class="question">
-				<h3>{{ $question->question }}</h3>
-				<p>{{ $question->answer }}</p>
+				<h3>{{ $question->{"question_" . LaravelLocalization::getCurrentLocale()} }}</h3>
+				<p>{{ $question->{"answer_" . LaravelLocalization::getCurrentLocale()} }}</p>
 			</div>
 		@endforeach
 		<span class="text-right"><a href="/faq">{{ trans('messages.more_faq') }}</a></span>
 	@else
-		<h3>{{ trans('messages.no_faq') }}</h3>
+		<span class="not-found-msg">{{ trans('messages.no_faq') }}</span>
 	@endif
 	<br>
 </div>

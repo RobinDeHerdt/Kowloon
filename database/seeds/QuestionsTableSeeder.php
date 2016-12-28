@@ -12,28 +12,24 @@ class QuestionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('questions')->insert([
-            'question'  => 'How does it cool the dog?',
-            'answer'    => 'Very new technology cools dog.',
+            'question_nl'   => 'Hoe werkt dit product?',
+            'question_fr'   => 'Comment fonctionne ce produit?',
+            'answer_nl'     => 'Nieuwe technologie',
+            'answer_fr'     => 'Nouvelle technologie',
         ]);
 
         DB::table('questions')->insert([
-            'question'  => 'Will my dog get undercooled?',
-            'answer'    => 'No.',
+            'question_nl'   => 'Kan mijn hond onderkoeld raken?',
+            'question_fr'   => 'Mon chien peut-il obtenir l\'hypothermie?',
+            'answer_nl'     => 'No.',
+            'answer_fr'     => 'Non.',
         ]);
 
         DB::table('questions')->insert([
-            'question'  => 'Can I use this to cool myself?',
-            'answer'    => 'If you are a dog, sure.',
-        ]);
-
-        DB::table('questions')->insert([
-            'question'  => 'How do I know I am not a dog',
-            'answer'    => '...',
-        ]);
-
-        DB::table('questions')->insert([
-            'question'  => 'What is this about all about?',
-            'answer'    => "It's about our company, kowloon.",
+            'question_nl'   => 'Hoe contacteer ik Kowloon?',
+            'question_fr'   => 'Hoe contacteer ik Kowloon?',
+            'answer_nl'     => 'Vul het contactformulier in op de \'about\' pagina',
+            'answer_fr'     => 'Remplissez le formulaire de contact sur la page \'about\'',
         ]);
     }
 }

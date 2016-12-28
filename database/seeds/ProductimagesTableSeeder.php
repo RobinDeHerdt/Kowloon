@@ -12,63 +12,80 @@ class ProductimagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('productimages')->insert([
-            'image_url' => 'cooling_mat.png',
-            'description' => 'Dog cooling mat image 1',
-            'product_id' => 1,
+            'image_url'         => 'cooling_mat.png',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 1,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cooling_mat.png',
-            'description' => 'Dog cooling mat image 1',
-            'product_id' => 5,
+            'image_url'         => 'cooling_mat.png',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 5,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cooling_mat.png',
-            'description' => 'Dog cooling mat image 1',
-            'product_id' => 6,
+            'image_url'         => 'cooling_mat.png',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 6,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cooling_mat.png',
-            'description' => 'Dog cooling mat image 1',
-            'product_id' => 7,
+            'image_url'         => 'cooling_mat.png',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 7,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cooling_mat.png',
-            'description' => 'Dog cooling mat image 2',
-            'product_id' => 1,
+            'image_url'         => 'cooling_mat.png',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 1,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'dog-villa.jpg',
-            'description' => 'Dog cooling mat image 3',
-            'product_id' => 1,
+            'image_url'         => 'dog-villa.jpg',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 1,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'dog-villa.jpg',
-            'description' => 'Picture of dogvilla.',
-            'product_id' => 2,
+            'image_url'         => 'dog-villa.jpg',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 2,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cat-pole.jpg',
-            'description' => 'Picture of cat pole.',
-            'product_id' => 3,
+            'image_url'         => 'cat-pole.jpg',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 3,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cat-pole.jpg',
-            'description' => 'Picture of cat pole.',
-            'product_id' => 3,
+            'image_url'         => 'cat-pole.jpg',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 1,
         ]);
 
         DB::table('productimages')->insert([
-            'image_url' => 'cat-pole.jpg',
-            'description' => 'Picture of cat pole.',
-            'product_id' => 4,
+            'image_url'         => 'cat-pole.jpg',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 4,
+        ]);
+
+         DB::table('productimages')->insert([
+            'image_url'         => 'vissenvoer.jpg',
+            'description_nl'    => 'Voorbeeld',
+            'description_fr'    => 'Example',
+            'product_id'        => 8,
         ]);
     }
 }

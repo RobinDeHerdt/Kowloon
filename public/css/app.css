@@ -34,7 +34,8 @@ body {
 
 .text-right {
   float: right;
-  color: white; }
+  color: white;
+  margin: 10px 0; }
   .text-right a {
     color: white;
     float: right; }
@@ -48,11 +49,16 @@ hr {
 .title {
   text-transform: uppercase;
   font-family: choplin !important;
-  color: #ffffff; }
+  color: #fff; }
 
 h1 {
   font-family: choplin !important;
-  color: #ffffff; }
+  color: #fff; }
+
+.not-found-msg {
+  font-family: Arial;
+  color: #fff;
+  font-size: 24px; }
 
 .sprite {
   background-image: url(/img/spritesheet.png);
@@ -228,7 +234,7 @@ h1 {
       text-align: center;
       font-size: 18px;
       color: white;
-      content: "View details";
+      content: "Details";
       top: 0;
       left: 0;
       width: 100%;

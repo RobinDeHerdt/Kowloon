@@ -9,15 +9,15 @@
 	<div class="main-content top-margin">
 		<div class="productdetail-left">
 			<div class="main-image-container">
-				<img src="/img/{{ $product->productimages->first()->image_url }}" id="selected-image">
+				<img src="/img/products/{{ $product->productimages->first()->image_url }}" id="selected-image">
 			</div>
 			<div class="details-images-container">
-				@foreach ($product->productimages as $key=>$image)
+				@foreach ($productimages as $key=>$image)
 					<div class="details-image">
 						<div class="image-container">
-							<img src="/img/{{ $image->image_url }}" id="{{ $key }}" onclick="selectImage(this)">
+							<img src="/img/products/{{ $image->image_url }}" id="{{ $key }}" onclick="selectImage(this)">
 						</div>
-						<span>{{ $image->description }}</span>
+						<span>{{ $image->{"description_" . LaravelLocalization::getCurrentLocale()} }}</span>
 					</div>
 				@endforeach
 			</div>
@@ -26,16 +26,16 @@
 			<div class="tags-container">
 				<img src="/img/k_logo.png" class="small_logo">
 				<div class="tag">
-					<div class="tag-category-color {{ str_singular(strtolower($product->category->name)) }}"></div>
+					<div class="tag-category-color {{ $product->category->classname }}"></div>
 					{{ $product->category->{"name_" . LaravelLocalization::getCurrentLocale()} }}
 				</div>
 				@foreach($product->tags as $tag)
 				<div class="tag">
-					{{ $tag->name }}
+					{{ $tag->{"name_" . LaravelLocalization::getCurrentLocale()} }}
 				</div>
 				@endforeach
 			</div>
-			<h1 class="title">{{ $product->name }}</h1>
+			<h1 class="title">{{ $product->{"name_" . LaravelLocalization::getCurrentLocale()} }}</h1>
 			<h2>€ {{ $product->price}}</h2>
 			@if($product->colors->count())
 				<h2>{{ trans('messages.colors') }}</h2>
@@ -45,7 +45,7 @@
 				@endforeach
 			@endif
 			<h2>{{ trans('messages.description') }}</h2>
-			<p>{{ $product->description}}</p>
+			<p>{{ $product->{"description_" . LaravelLocalization::getCurrentLocale()} }}</p>
 		</div>
 		<hr>
 		<div class="product-specifications">
@@ -57,12 +57,12 @@
 					<span>{{$dimension->body}}</span>
 				@endforeach
 			@else
-				<span>No dimensions given for this product</span>
+				<span>{{ trans('messages.no_dimensions') }}</span>
 			@endif
 			</div>
 			<h4>{{ trans('messages.technical_description')}}</h4>
 			<div class="specification">
-				<span>{{$product->technical_description}}</span>
+				<span>{{ $product->{"description_" . LaravelLocalization::getCurrentLocale()} }}</span>
 			</div>
 		</div>
 		@if ($relatedProducts->count())
@@ -72,7 +72,7 @@
 			<div class="product-item">
 			<a href="/category/{{ $product->category_id}}/product/{{ $product->id }}">
 				<div class="product-image-container overlay {{ $product->category->classname}}">
-					<img src="/img/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
+					<img src="/img/products/{{ $product->productimages->first()->image_url }}" alt="{{ $product->productimages->first()->description }}">
 				</div>
 			</a>
 			</div>

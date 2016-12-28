@@ -18,6 +18,7 @@
 .text-right {
 	float:right;
 	color:white;
+	margin: 10px 0;
 
 	a {
 		color:white;
@@ -37,10 +38,16 @@ hr {
 .title {
 	text-transform: uppercase;
 	font-family: choplin !important;
-	color: #ffffff;
+	color: #fff;
 }
 
 h1 {
 	font-family: choplin !important;
-	color: #ffffff;
+	color: #fff;
+}
+
+.not-found-msg {
+	font-family: Arial;
+	color: #fff;
+	font-size: 24px;
 }

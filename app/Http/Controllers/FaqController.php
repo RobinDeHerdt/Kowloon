@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Question;
+use LaravelLocalization;
 
 
 class FaqController extends Controller
@@ -28,7 +29,8 @@ class FaqController extends Controller
                 {
                     foreach ($keywords as $key => $keyword) 
                     {
-                        $q->orWhere('answer', 'like', '%'.$keyword.'%')->orWhere('question', 'like', '%'.$keyword.'%');
+                        $q->orWhere('question_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%')
+                          ->orWhere('answer_'.LaravelLocalization::getCurrentLocale(), 'like', '%'.$keyword.'%');
                     }
                 })->paginate(3);
 
@@ -54,8 +56,8 @@ class FaqController extends Controller
     	}
 
     	return view('public.faq', [
-			'questions' => $questions,
-			'response' => $response
+			'questions'  => $questions,
+			'response'   => $response
 		]);
     }
 }

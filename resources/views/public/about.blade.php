@@ -7,7 +7,7 @@
 <div class="carousel">
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="/img/carousel-4.png" alt="">
+			<img src="/img/carousel/carousel-4.png" alt="">
 		</div>
 	</div>
 </div>
@@ -37,12 +37,12 @@
 		</div>
 		<div class="contact-form">
 			@if(Session::has('contact_status'))
-		    	<div class="alert alert-success"><span>{{ session('contact_status') }}</span></div>
+		    	<div class="alert alert-success"><span>{{ trans('messages.'.session('contact_status')) }}</span></div>
 			@endif
 			@if ($errors->all())
-			<div class="alert alert-warning"><span>Oops! Something went terribly wrong! Better check the form again.</span></div>
+			<div class="alert alert-warning"><span>{{ trans('messages.form_error') }}</span></div>
 			@endif
-			<h3 class="title">Leave us a message</h3>
+			<h3 class="title">{{ trans('messages.leave_message') }}</h3>
 			{!! Form::open(['url' => '/contact']) !!}
 				{{ Form::token() }}
 				<div class="form-group">
@@ -53,15 +53,15 @@
 					@endif
 				</div>
 				<div class="form-group">
-					{{ Form::label('message', 'Your message') }}
-					{{ Form::textarea('message', '', ['placeholder' => 'Write your message here','class' => 'form-control']) }}
+					{{ Form::label('message', trans('messages.your_message')) }}
+					{{ Form::textarea('message', '', ['placeholder' => trans('messages.write_message'),'class' => 'form-control']) }}
 					@if ($errors->first('message'))
 						{{ $errors->first('message') }}
 					@endif
 				</div>
 				
 				<div class="form-group">
-					{{ Form::submit('Send', ['class' => 'button']) }}
+					{{ Form::submit(trans('messages.send'), ['class' => 'button']) }}
 				</div>
 			{!! Form::close() !!}
 		</div>

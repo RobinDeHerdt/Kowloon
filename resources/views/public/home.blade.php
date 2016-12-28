@@ -29,11 +29,11 @@
 					@endif
 					<a href="/category/{{$hotitem->product->category->id}}/product/{{$hotitem->product->id}}">
 					<div class="image-container overlay {{ $hotitem->product->category->classname }}">
-						<img src="/img/{{ $hotitem->product->productimages->first()->image_url}}" alt="hot-item-1">
+						<img src="/img/products/{{ $hotitem->product->productimages->first()->image_url}}" alt="hot-item-1">
 					</div>
 					</a>
 					<div class="description">
-					<span>{{ $hotitem->product->name }}</span>
+					<span>{{ $hotitem->product->{"name_" . LaravelLocalization::getCurrentLocale()} }}</span>
 					<span>€ {{ $hotitem->product->price }}</span>
 					</div>
 				</div>

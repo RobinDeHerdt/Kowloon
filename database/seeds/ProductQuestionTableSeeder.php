@@ -12,28 +12,43 @@ class ProductQuestionTableSeeder extends Seeder
     public function run()
     {
         DB::table('product_question')->insert([
-            'product_id' => 1,
-            'question_id' => 1,
+            'product_id'    => 1,
+            'question_id'   => 1,
         ]);
 
         DB::table('product_question')->insert([
-            'product_id' => 1,
-            'question_id' => 2,
+            'product_id'    => 1,
+            'question_id'   => 2,
         ]);
 
         DB::table('product_question')->insert([
-            'product_id' => 1,
-            'question_id' => 3,
+            'product_id'    => 2,
+            'question_id'   => 1,
         ]);
 
         DB::table('product_question')->insert([
-            'product_id' => 1,
-            'question_id' => 4,
+            'product_id'    => 4,
+            'question_id'   => 1,
         ]);
 
         DB::table('product_question')->insert([
-            'product_id' => 2,
-            'question_id' => 4,
+            'product_id'    => 5,
+            'question_id'   => 1,
+        ]);
+
+        DB::table('product_question')->insert([
+            'product_id'    => 5,
+            'question_id'   => 2,
+        ]);
+
+        DB::table('product_question')->insert([
+            'product_id'    => 6,
+            'question_id'   => 2,
+        ]);
+
+        DB::table('product_question')->insert([
+            'product_id'    => 7,
+            'question_id'   => 2,
         ]);
     }
 }

@@ -10,7 +10,7 @@
   	<div class="carousel-inner" role="listbox">
 	  	@foreach ($carouselimages as $key => $image)
 	    	<div class="item {{ $key == 0 ? 'active' : '' }}">
-	      		<img src="/img/{{ $image->image_url }}">
+	      		<img src="/img/carousel/{{ $image->image_url }}">
 	    	</div>
 		@endforeach
   	</div>

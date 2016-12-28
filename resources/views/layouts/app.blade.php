@@ -31,8 +31,8 @@
                     <span id="close-cookie-window">X</span>
                 </div>
                 <span class="title">Cookies</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <button type="submit" onclick="closeCookieWindow()">Ok, verder surfen</button>
+                <p>{{ trans('messages.cookies') }}</p>
+                <button type="submit" onclick="closeCookieWindow()">{{ trans('messages.cookies_continue') }}</button>
             </div>
         </div>
     </div>

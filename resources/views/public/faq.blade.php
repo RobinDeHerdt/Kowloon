@@ -6,9 +6,9 @@
 
 <div class="content search-page secondary-bg">
 	<div class="main-content">
-		<h1 class="title">Frequently Asked Questions</h1>
+		<h1 class="title">{{ trans('messages.faq') }}</h1>
 		{!! Form::open(['url' => '/faq', 'method' => 'get']) !!}
-				{{ Form::text('query', '', ['placeholder' => 'Search on keyword','class' => 'search-field dark']) }}
+				{{ Form::text('query', '', ['placeholder' =>  trans('messages.search_keyword'),'class' => 'search-field dark']) }}
 		{!! Form::close() !!}
 		@if ($questions)
 			@if ($questions->count())
@@ -25,8 +25,8 @@
 			@if($questions)
 				@foreach ($questions as $question)
 					<div class="searchresult">
-						<h3>{{ $question->question}}</h3>
-						<p class="answer">{{ $question->answer}}</p>
+						<h3>{{ $question->{"question_" . LaravelLocalization::getCurrentLocale()} }}</h3>
+						<p class="answer">{{ $question->{"answer_" . LaravelLocalization::getCurrentLocale()} }}</p>
 					</div>
 				@endforeach
 				{{ $questions->links() }}

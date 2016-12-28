@@ -35,8 +35,8 @@
 		    <tbody>
 		    	@foreach ($questions as $question)
 		      	<tr>
-			        <td>{{$question->question}}</td>
-			        <td>{{$question->answer}}</td>
+			        <td>{{$question->question_nl}}</td>
+			        <td>{{$question->answer_nl}}</td>
 			        <th><a href="/admin/questions/{{$question->id}}">View</a></th>
 			        <td><a href="/admin/questions/{{$question->id}}/edit">Update</a></td>
 			        <td>

@@ -16,7 +16,7 @@ function createForm(){
 	id++;
 	var clone = document.getElementById('image-upload').cloneNode(false);
 	document.getElementById('imageupload-container').appendChild(clone);
-	clone.innerHTML = '<input name="image[]" type="file"><label for="imagedescription[]">Image description</label><input class="form-control" name="imagedescription[]" type="text" value="">';
+	clone.innerHTML = '<hr><input name="image[]" type="file"><label for="imagedescription_nl[]">Image description NL</label><input class="form-control" name="imagedescription_nl[]" type="text" value=""><label for="imagedescription_fr[]">Image description FR</label><input type="text" name="imagedescription_fr[]" class="form-control">';
 }
 
 function createColor() {

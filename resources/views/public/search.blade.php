@@ -40,9 +40,19 @@
 			@endif
 		@endif
 
-		@if ($response)
-		<h3 id="search-response">{{ $response }}</h3>
+		@if($response)
+			<h3 id="search-response">{{ $response }}</h3>
 		@endif
+		
+		@if($results && $inputstring)
+			@if($results->count() == 1)
+	        	<h3 id="search-response">Er werd 1 resultaat gevonden voor {{ $inputstring }}:</h3>
+	        @elseif($results->count())
+	        	<h3 id="search-response">Er werden {{ $results->total() }} resultaten gevonden voor {{ $inputstring }}:</h3>
+	        @else
+	        	<h3 id="search-response">Er werden geen resultaten gevonden voor "{{ $inputstring }}".</h3>
+	        @endif
+        @endif
 
 		@if($results)
 		<div class="searchresults-container">

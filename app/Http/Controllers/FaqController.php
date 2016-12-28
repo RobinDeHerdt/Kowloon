@@ -12,8 +12,9 @@ class FaqController extends Controller
 {
     public function index(Request $request)
     {	
-    	$questions 	= null;
-    	$response	= null;
+    	$questions     = null;
+    	$response	   = null;
+        $inputstring   = null;
 
     	if($request->query('query'))
     	{
@@ -39,15 +40,6 @@ class FaqController extends Controller
                 {
                     $questions->appends($input, $value);
                 }
-
-        		if($questions->total())
-        		{
-        			$response = 'Er werden ' . $questions->total() . ' resultaten gevonden voor "' . $inputstring . '":'; 
-        		}
-        		else
-        		{
-        			$response = 'Er werden geen resultaten gevonden voor "' . $inputstring . '"'; 
-        		}
             }
             else
             {
@@ -56,8 +48,9 @@ class FaqController extends Controller
     	}
 
     	return view('public.faq', [
-			'questions'  => $questions,
-			'response'   => $response
+			'questions'      => $questions,
+			'response'       => $response, 
+            'inputstring'    => $inputstring
 		]);
     }
 }

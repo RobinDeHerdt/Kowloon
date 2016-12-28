@@ -49,31 +49,39 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'                      => 'required',
-            'price'                     => 'required|numeric',
-            'description'               => 'required',
-            'technical_description'     => 'required',
-            'category'                  => 'required',
-            'image'                     => 'required',
-            'imagedescription'          => 'required'
+            'name_nl'                       => 'required',
+            'name_fr'                       => 'required',
+            'price'                         => 'required|numeric',
+            'description_nl'                => 'required',
+            'technical_description_nl'      => 'required',
+            'description_fr'                => 'required',
+            'technical_description_fr'      => 'required',
+            'category'                      => 'required',
+            'image'                         => 'required',
+            'imagedescription_nl'           => 'required',
+            'imagedescription_fr'           => 'required',
         ]);
 
         $count = count($request->image);
 
         $product = new Product();
-        $product->name                  = $request->name;
-        $product->price                 = $request->price;
-        $product->description           = $request->description;
-        $product->technical_description = $request->technical_description;
-        $product->category_id           = $request->category;
+        $product->name_nl                   = $request->name_nl;
+        $product->name_fr                   = $request->name_fr;
+        $product->description_nl            = $request->description_nl;
+        $product->description_fr            = $request->description_fr;
+        $product->technical_description_nl  = $request->technical_description_nl;
+        $product->technical_description_fr  = $request->technical_description_fr;
+        $product->price                     = $request->price;
+        $product->category_id               = $request->category;
 
         $product->save();
 
         for ($i = 0; $i < $count; $i++) { 
-            $productimage               = new Productimage(); 
-            $path                       = $request->image[$i]->store('img', 'upload'); 
-            $productimage->image_url    = basename($path);
-            $productimage->description  = $request->imagedescription[$i];
+            $productimage                   = new Productimage(); 
+            $path                           = $request->image[$i]->store('img/products', 'upload'); 
+            $productimage->image_url        = basename($path);
+            $productimage->description_nl   = $request->imagedescription_nl[$i];
+            $productimage->description_fr   = $request->imagedescription_fr[$i];
             $productimage->product()->associate($product);
             $productimage->save();
         }
@@ -124,25 +132,60 @@ class ProductController extends Controller
 
     public function update(Request $request, $id) 
     {
+        $this->validate($request, [
+            'name_nl'                       => 'required',
+            'name_fr'                       => 'required',
+            'price'                         => 'required|numeric',
+            'description_nl'                => 'required',
+            'technical_description_nl'      => 'required',
+            'description_fr'                => 'required',
+            'technical_description_fr'      => 'required',
+            'category'                      => 'required',
+        ]);
+
         $count = count($request->image);
 
         $product = Product::find($id);
-        $product->name                  = $request->name;
-        $product->price                 = $request->price;
-        $product->description           = $request->description;
-        $product->technical_description = $request->technical_description;
-        $product->category_id           = $request->category;
+        $product->name_nl                   = $request->name_nl;
+        $product->name_fr                   = $request->name_fr;
+        $product->description_nl            = $request->description_nl;
+        $product->description_fr            = $request->description_fr;
+        $product->technical_description_nl  = $request->technical_description_nl;
+        $product->technical_description_fr  = $request->technical_description_fr;
+        $product->price                     = $request->price;
+        $product->category_id               = $request->category;
 
         $product->save();
 
         $productimages = Productimage::where('product_id', $id);
-        $productimages->whereNotIn('id', $request->uploadedimages)->delete();
+        if($request->uploadedimages)
+        {
+            $productimages->whereNotIn('id', $request->uploadedimages)->delete();
+        }
+        else
+        {
+            // Als request->uploadedimages niet meegegeven wordt, verwijder alle images
+            // Check of er images geupload worden 
+            if($request->image)
+            {
+                foreach ($productimages->get() as $key => $img) {
+                    $img->delete();
+                }  
+            }
+            else
+            {
+                Session::flash('product_update_error', 'Can\'t do that! There has to be at least one image per product!');
+
+                return back();
+            }
+        }
         
         for ($i = 0; $i < $count; $i++) { 
             $productimage = new Productimage(); 
-            $path = $request->image[$i]->store('img', 'upload'); 
-            $productimage->image_url    = basename($path);
-            $productimage->description  = $request->imagedescription[$i];
+            $path = $request->image[$i]->store('img/products', 'upload'); 
+            $productimage->image_url        = basename($path);
+            $productimage->description_nl   = $request->imagedescription_nl[$i];
+            $productimage->description_fr   = $request->imagedescription_fr[$i];
             $productimage->product()->associate($product);
             $productimage->save();
         }

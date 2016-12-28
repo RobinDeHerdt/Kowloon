@@ -39,15 +39,18 @@ class QuestionController extends Controller
     public function store(Request $request) 
     {
         $this->validate($request, [
-            'question'  => 'required',
-            'answer'    => 'required',
+            'question_nl'  => 'required',
+            'answer_nl'    => 'required',
+            'question_fr'  => 'required',
+            'answer_fr'    => 'required',
         ]);
 
         $question = new Question();
 
-        $question->question     = $request->question;
-        $question->answer       = $request->answer;
-
+        $question->question_nl     = $request->question_nl;
+        $question->answer_nl       = $request->answer_nl;
+        $question->question_fr     = $request->question_fr;
+        $question->answer_fr       = $request->answer_fr;
         $question->save();
 
         if($request->products)
@@ -74,14 +77,18 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'question'  => 'required',
-            'answer'    => 'required',
+            'question_nl'  => 'required',
+            'answer_nl'    => 'required',
+            'question_fr'  => 'required',
+            'answer_fr'    => 'required',
         ]);
 
         $question = Question::find($id);
 
-        $question->question = $request->question;
-        $question->answer   = $request->answer;
+        $question->question_nl     = $request->question_nl;
+        $question->answer_nl       = $request->answer_nl;
+        $question->question_fr     = $request->question_fr;
+        $question->answer_fr       = $request->answer_fr;
 
         if($request->products)
         {

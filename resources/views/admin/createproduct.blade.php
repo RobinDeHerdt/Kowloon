@@ -8,11 +8,18 @@
 		{!! Form::open(['url' => '/admin/products/create', 'files' => true]) !!}
 			{{ Form::token() }}
 			<div class="form-group">
-				@if ($errors->first('name'))
-					<div class="alert alert-danger">{{ $errors->first('name') }}</div>
+				@if ($errors->first('name_nl'))
+					<div class="alert alert-danger">{{ $errors->first('name_nl') }}</div>
 				@endif
-				{{ Form::label('name', 'Product name') }}
-				{{ Form::text('name', '', ['class' => 'form-control']) }}
+				{{ Form::label('name_nl', 'Product name NL') }}
+				{{ Form::text('name_nl', '', ['class' => 'form-control']) }}
+			</div>
+			<div class="form-group">
+				@if ($errors->first('name_fr'))
+					<div class="alert alert-danger">{{ $errors->first('name_fr') }}</div>
+				@endif
+				{{ Form::label('name_fr', 'Product name FR') }}
+				{{ Form::text('name_fr', '', ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
 				@if ($errors->first('price'))
@@ -22,25 +29,38 @@
 				{{ Form::text('price', '', ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
-				@if ($errors->first('description'))
-					<div class="alert alert-danger">{{ $errors->first('description') }}</div>
+				@if ($errors->first('description_nl'))
+					<div class="alert alert-danger">{{ $errors->first('description_nl') }}</div>
 				@endif
-				{{ Form::label('description', 'Description') }}
-				{{ Form::text('description', '', ['class' => 'form-control']) }}				
+				{{ Form::label('description_nl', 'Description NL') }}
+				{{ Form::text('description_nl', '', ['class' => 'form-control']) }}	
 			</div>
 			<div class="form-group">
-				@if ($errors->first('technical_description'))
-					<div class="alert alert-danger">{{ $errors->first('technical_description') }}</div>
+				@if ($errors->first('description_fr'))
+					<div class="alert alert-danger">{{ $errors->first('description_fr') }}</div>
 				@endif
-				{{ Form::label('technical_description', 'Technical description') }}
-				{{ Form::text('technical_description', '', ['class' => 'form-control']) }}
+				{{ Form::label('description_fr', 'Description FR') }}
+				{{ Form::text('description_fr', '', ['class' => 'form-control']) }}	
 			</div>
-
+			<div class="form-group">
+				@if ($errors->first('technical_description_nl'))
+					<div class="alert alert-danger">{{ $errors->first('technical_description_nl') }}</div>
+				@endif
+				{{ Form::label('technical_description_nl', 'Technical description NL') }}
+				{{ Form::text('technical_description_nl', '', ['class' => 'form-control']) }}
+			</div>
+			<div class="form-group">
+				@if ($errors->first('technical_description_fr'))
+					<div class="alert alert-danger">{{ $errors->first('technical_description_fr') }}</div>
+				@endif
+				{{ Form::label('technical_description_fr', 'Technical description FR') }}
+				{{ Form::text('technical_description_fr', '', ['class' => 'form-control']) }}
+			</div>
 			<label>Tags this product belongs to: </label>
 			@foreach ($tags as $tag)
 				<div class="form-group">
 					{{ Form::checkbox('tags[]', $tag->id) }}
-					{{ Form::label($tag->name) }}
+					{{ Form::label($tag->name_nl) }}
 				</div>
 			@endforeach
 
@@ -51,7 +71,7 @@
 			@foreach ($categories as $category)
 				<div class="form-group">
 					{{ Form::radio('category', $category->id) }}
-					{{ Form::label($category->name) }}
+					{{ Form::label($category->name_nl) }}
 				</div>
 			@endforeach
 			
@@ -64,9 +84,7 @@
 			<label for="dimensions[]">Describe available dimensions for this product:</label>
 			<div id="dimensions"></div>
 			<button type="button" onclick="createDimensions();" id="addDimensions">Add dimensions</button>
-			
 			<div class="space"></div>
-
 			<div id="imageupload-container">
 				<div class="form-group" id="image-upload">
 					@if ($errors->first('image'))
@@ -74,13 +92,14 @@
 					@endif
 					{{ Form::label('Upload images for this product: ') }}
 					{{ Form::file('image[]')}}
-
 					@if ($errors->first('imagedescription'))
 						<div class="alert alert-danger">{{ $errors->first('imagedescription') }}</div>
 					@endif
 					<!-- https://github.com/laravel/framework/issues/2243 -->
-					<label for="imagedescription[]">Image description</label>
-					<input type="text" name="imagedescription[]" class="form-control">
+					<label for="imagedescription_nl[]">Image description NL</label>
+					<input type="text" name="imagedescription_nl[]" class="form-control">
+					<label for="imagedescription_fr[]">Image description FR</label>
+					<input type="text" name="imagedescription_fr[]" class="form-control">
 				</div>
 			</div>
 			<button type="button" onclick="createForm();" id="addImage">Add another image</button>

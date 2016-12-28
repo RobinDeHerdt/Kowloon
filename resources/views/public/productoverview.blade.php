@@ -88,6 +88,7 @@
 @endsection
 
 @section('scripts')
+<script src="/js/scroll.js"></script>
 <script src="/js/showselecteddropdownvalue.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

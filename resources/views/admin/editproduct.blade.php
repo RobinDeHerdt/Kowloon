@@ -5,14 +5,25 @@
 	<div class="main-content">
 		<a href="/admin/products">Back to overview</a>
 		<h1>Update product</h1>
+		@if (session('product_update_error'))
+	    <div class="alert alert-danger">
+	        {{ session('product_update_error') }}
+	    </div>
+		@endif
 		{!! Form::open(['url' => '/admin/products/'.$product->id.'/edit', 'files' => true]) !!}
 			{{ Form::token() }}
-			
 			<div class="form-group">
-				{{ Form::label('name', 'Product name') }}
-				{{ Form::text('name', $product->name, ['class' => 'form-control']) }}
-				@if ($errors->first('name'))
-					{{ $errors->first('name') }}
+				{{ Form::label('name_nl', 'Product name NL') }}
+				{{ Form::text('name_nl', $product->name_nl, ['class' => 'form-control']) }}
+				@if ($errors->first('name_nl'))
+					{{ $errors->first('name_nl') }}
+				@endif
+			</div>
+			<div class="form-group">
+				{{ Form::label('name_fr', 'Product name FR') }}
+				{{ Form::text('name_fr', $product->name_fr, ['class' => 'form-control']) }}
+				@if ($errors->first('name_fr'))
+					{{ $errors->first('name_fr') }}
 				@endif
 			</div>
 			<div class="form-group">
@@ -23,26 +34,38 @@
 				@endif
 			</div>
 			<div class="form-group">
-				{{ Form::label('description', 'Description') }}
-				{{ Form::text('description', $product->description, ['class' => 'form-control']) }}
-				@if ($errors->first('description'))
-					{{ $errors->first('description') }}
+				{{ Form::label('description_nl', 'Description NL') }}
+				{{ Form::text('description_nl', $product->description_nl, ['class' => 'form-control']) }}
+				@if ($errors->first('description_nl'))
+					{{ $errors->first('description_nl') }}
 				@endif
 			</div>
 			<div class="form-group">
-				{{ Form::label('technical_description', 'Technical description') }}
-				{{ Form::text('technical_description', $product->technical_description, ['class' => 'form-control']) }}
-				@if ($errors->first('technical_description'))
-					{{ $errors->first('technical_description') }}
+				{{ Form::label('description_fr', 'Description FR') }}
+				{{ Form::text('description_fr', $product->description_fr, ['class' => 'form-control']) }}
+				@if ($errors->first('description_fr'))
+					{{ $errors->first('description_fr') }}
 				@endif
 			</div>
-
+			<div class="form-group">
+				{{ Form::label('technical_description_nl', 'Technical description NL') }}
+				{{ Form::text('technical_description_nl', $product->technical_description_nl, ['class' => 'form-control']) }}
+				@if ($errors->first('technical_description_nl'))
+					{{ $errors->first('technical_description_nl') }}
+				@endif
+			</div>
+			<div class="form-group">
+				{{ Form::label('technical_description_fr', 'Technical description FR') }}
+				{{ Form::text('technical_description_fr', $product->technical_description_fr, ['class' => 'form-control']) }}
+				@if ($errors->first('technical_description_fr'))
+					{{ $errors->first('technical_description_fr') }}
+				@endif
+			</div>
 			<label>Tags this product belongs to: </label>
-
 			@foreach ($tags as $tag)
 				<div class="form-group">
 					{{ Form::checkbox('tags[]', $tag->id, ($product->tags->contains($tag->id) ? 'true' : '')) }}
-					{{ Form::label($tag->name) }}
+					{{ Form::label($tag->name_nl) }}
 				</div>
 			@endforeach
 
@@ -51,7 +74,7 @@
 			@foreach ($categories as $category)
 				<div class="form-group">
 					{{ Form::radio('category', $category->id, ($product->category->id == $category->id ? true : '')) }}
-					{{ Form::label($category->name) }}
+					{{ Form::label($category->name_nl) }}
 				</div>
 			@endforeach
 			
@@ -87,8 +110,8 @@
 			@foreach ($product->productimages as $image)
 				<div class="form-group">
 					{{ Form::checkbox('uploadedimages[]', $image->id, true)}}
-					<img src="/img/{{$image->image_url}}" class="mini-thumbnail">
-					{{ Form::label($image->description) }}
+					<img src="/img/products/{{$image->image_url}}" class="mini-thumbnail">
+					{{ Form::label($image->description_nl) }}
 				</div>
 			@endforeach
 	
@@ -96,11 +119,14 @@
 				<div class="form-group" id="image-upload">
 					{{ Form::label('Upload new images: ') }}
 					{{ Form::file('image[]')}}
-					{{ Form::label('imagedescription[]', 'Image description') }}
-					{{ Form::text('imagedescription[]', '', ['class' => 'form-control']) }}
+					{{ Form::label('imagedescription_nl[]', 'Image description NL') }}
+					{{ Form::text('imagedescription_nl[]', '', ['class' => 'form-control']) }}
+					{{ Form::label('imagedescription_fr[]', 'Image description FR') }}
+					{{ Form::text('imagedescription_fr[]', '', ['class' => 'form-control']) }}
 				</div>
 			</div>
 			<button type="button" onclick="createForm();">Add another image</button>
+			<div class="space"></div>
 			<div class="form-group">
 				{{ Form::submit('Save', ['class' => 'button orange']) }}
 			</div>

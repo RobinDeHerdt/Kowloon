@@ -42,13 +42,13 @@
 		    <tbody>
 		    	@foreach ($products as $product)
 		      	<tr>
-			        <td>{{$product->name}}</td>
-			        <td>{{$product->description}}</td>
-			        <td>{{$product->technical_description}}</td>
-			        <td>{{$product->category->name}}</td>
+			        <td>{{$product->name_nl}}</td>
+			        <td>{{$product->description_nl}}</td>
+			        <td>{{$product->technical_description_nl}}</td>
+			        <td>{{$product->category->name_nl}}</td>
 			        <td>
 			        	@foreach ($product->tags as $key => $tag)
-							{{$tag->name }}
+							{{$tag->name_nl }}
 						@endforeach
 			        </td>
 			        <td><a href="/admin/products/{{$product->id}}">View</a></td>

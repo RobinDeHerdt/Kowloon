@@ -12,12 +12,12 @@ class ColorsTableSeeder extends Seeder
     public function run()
     {
         DB::table('colors')->insert([
-            'hex' => '#fff',
+            'hex' => '#ffffff',
             'product_id' => 1,
         ]);
 
         DB::table('colors')->insert([
-            'hex' => '#fff',
+            'hex' => '#ffffff',
             'product_id' => 1,
         ]);
 

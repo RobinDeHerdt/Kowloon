@@ -12,8 +12,9 @@ class SearchController extends Controller
 {
     public function index(Request $request)
     {	
-    	$results 	= null;
-    	$response	= null;
+    	$results 	 = null;
+    	$response	 = null;
+        $inputstring = null;
 
         if($request->query('minprice') && $request->query('maxprice'))
         {
@@ -69,15 +70,6 @@ class SearchController extends Controller
                 {
                     $results->appends($input, $value);
                 }
-
-        		if($results->total())
-        		{
-        			$response = 'Er werden ' . $results->total() . ' resultaten gevonden voor "' . $inputstring . '":'; 
-        		}
-        		else
-        		{
-        			$response = 'Er werden geen resultaten gevonden voor "' . $inputstring . '"'; 
-        		}
             }
             else
             {
@@ -101,11 +93,12 @@ class SearchController extends Controller
 
     	return view('public.search', [
 			'results'               => $results,
-			'response' 		        => $response,
 			'categories' 	        => $categories,
             'selectedCategories'    => $selectedCategories,
             'minprice'              => $minprice,
             'maxprice'              => $maxprice,
+            'inputstring'           => $inputstring,
+            'response'              => $response
 		]);
     }
 }

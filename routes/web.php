@@ -1,6 +1,9 @@
 <?php
 
-Auth::routes();
+// Auth::routes();
+Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout');
 
 // Unlocalized routes
 Route::get('/', 'LanguageController@index');
@@ -34,6 +37,7 @@ function()
 	Route::get('category/{category_id}/product/{product_id}', 'ProductdetailController@index');
 });
 
+// Admin routes
 Route::group(['middleware' => 'auth'], function () {
 	Route::post('admin/hotitems', 'HomeController@update');
 

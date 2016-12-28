@@ -38,8 +38,8 @@
 					</div>
 				</div>
 			@endforeach
+			<span class="text-right"><a href="#">{{ trans('messages.visit_store') }}</a></span>
 		</div>
-		<span class="text-right"><a href="#">{{ trans('messages.visit_store') }}</a></span>
 		@include('includes.subscribe')
 	</div>
 </div>

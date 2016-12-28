@@ -81,8 +81,10 @@
 		@else
 			<span class="not-found-msg">{{ trans('messages.no_products') }}</span>
 		@endif
+			<div class="pagination-container">
+				{{ $products->links() }}
+			</div>
 		</div>
-		{{ $products->links() }}
 	</div>
 </div>
 @endsection

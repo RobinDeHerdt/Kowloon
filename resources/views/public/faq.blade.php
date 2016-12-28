@@ -26,9 +26,9 @@
 		
 		@if($questions && $inputstring)
 			@if($questions->count() == 1)
-	        	<h3 id="search-response">Er werd 1 resultaat gevonden voor {{ $inputstring }}:</h3>
+	        	<h3 id="search-response">Er werd 1 resultaat gevonden voor "{{ $inputstring }}":</h3>
 	        @elseif($questions->count())
-	        	<h3 id="search-response">Er werden {{ $questions->total() }} resultaten gevonden voor {{ $inputstring }}:</h3>
+	        	<h3 id="search-response">Er werden {{ $questions->total() }} resultaten gevonden voor "{{ $inputstring }}":</h3>
 	        @else
 	        	<h3 id="search-respponse">Er werden geen resultaten gevonden voor "{{ $inputstring }}".</h3>
 	        @endif

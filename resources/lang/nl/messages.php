@@ -36,4 +36,6 @@ return [
     'send'                      => 'Versturen',
     'leave_message'             => 'Laat een bericht achter',
     'contact_status'            => 'Bedankt voor je bericht!',
+    'page_not_found'            => 'Pagina niet gevonden',
+    'unauthorized'              => 'Geen toegang!',
 ];

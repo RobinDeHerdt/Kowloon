@@ -60,6 +60,18 @@ h1 {
   color: #fff;
   font-size: 24px; }
 
+.page-not-found-msg {
+  font-family: choplin !important;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+  font-size: 48px;
+  position: relative;
+  top: 250px; }
+
+.pagination-container {
+  height: 100px; }
+
 .sprite {
   background-image: url(/img/spritesheet.png);
   background-repeat: no-repeat;
@@ -152,7 +164,7 @@ h1 {
 .subscribe-container {
   float: left;
   width: 100%;
-  margin: 75px 0 75px 0;
+  margin: 25px 0 75px 0;
   height: 225px;
   background-color: #5f5f5f; }
   .subscribe-container .discover-box {
@@ -526,6 +538,7 @@ h1 {
       .searchresults-container .searchresult .result-image img {
         width: 100%; }
     .searchresults-container .searchresult .result-text {
+      vertical-align: middle;
       display: inline-block;
       width: 60%;
       margin-left: 2.5%;

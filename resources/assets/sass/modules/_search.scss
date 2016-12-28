@@ -82,11 +82,12 @@
 		margin-top: 10px;
 		background-color: #fff;
 
+
 		.result-image {
 			width: 25%;
 			display: inline-block;
 			height: 100%;
-			
+
 			img {
 				width: 100%;
 			}
@@ -96,7 +97,8 @@
 			h3 {
 				margin: 0 0 10px 0;
 			}
-
+			
+			vertical-align: middle;
 			display: inline-block;
 			width: 60%;
 			margin-left: 2.5%;

@@ -23,6 +23,6 @@ class RegisterController extends Controller
 
     public function __construct()
     {
-        abort(403, 'Unauthorized');
+        abort(403);    
     }
 }

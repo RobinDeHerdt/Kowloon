@@ -141,7 +141,7 @@ h1 {
   width: 65px;
   height: 65px;
   background-position: -265px -10px;
-  zoom: .5; }
+  zoom: .6; }
 
 .nav-sprite-search-icon {
   width: 65px;
@@ -367,14 +367,21 @@ h1 {
   .side-container .menu-items {
     margin-bottom: 40%; }
     .side-container .menu-items .upper-menu-item {
-      padding: 2px 0;
+      padding: 2px 0 5px 0;
       width: 100%; }
     .side-container .menu-items .active-menu {
       background-color: #f6f6f6; }
     .side-container .menu-items .hamburger {
       background-color: #252525;
-      padding: 2px 0;
-      margin-bottom: 25%; }
+      padding: 2px 0 5px 0;
+      margin-bottom: 25%;
+      padding-left: 2.5%; }
+      .side-container .menu-items .hamburger i {
+        margin-bottom: 10px; }
+    .side-container .menu-items i {
+      margin-top: 12.5%;
+      margin-bottom: 5%;
+      margin-left: 27.5%; }
   .side-container .divider {
     margin-left: 15%;
     width: 70%;
@@ -388,10 +395,10 @@ h1 {
       filter: brightness(0) invert(1); }
     .side-container .category-items a:hover i {
       filter: none; }
-  .side-container .category-items i, .side-container .menu-items i {
-    margin-top: 12.5%;
-    margin-bottom: 25%;
-    margin-left: 25%; }
+    .side-container .category-items i {
+      margin-top: 12.5%;
+      margin-bottom: 25%;
+      margin-left: 30%; }
   .side-container .footer-logo {
     position: absolute;
     bottom: 10px;

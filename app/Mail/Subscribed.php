@@ -31,17 +31,17 @@ class Subscribed extends Mailable
         switch($this->language)
         {
             case 'nl':
-                return $this->from('robindh95@gmail.com')
+                return $this->from('robindevacc@gmail.com')
                             ->subject('Nieuwsbrief')
                             ->view('emails.nl.subscribed');
                 break;
             case 'fr':
-                return $this->from('robindh95@gmail.com')
+                return $this->from('robindevacc@gmail.com')
                             ->subject('Bulletin')
                             ->view('emails.fr.subscribed');
                 break;
             default:
-                return $this->from('robindh95@gmail.com')
+                return $this->from('robindevacc@gmail.com')
                             ->subject('Nieuwsbrief')
                             ->view('emails.nl.subscribed');
         }

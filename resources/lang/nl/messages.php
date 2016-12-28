@@ -38,4 +38,9 @@ return [
     'contact_status'            => 'Bedankt voor je bericht!',
     'page_not_found'            => 'Pagina niet gevonden',
     'unauthorized'              => 'Geen toegang!',
+    'relevance'                 => 'Relevantie',
+    'price_asc'                 => 'Prijs: laag naar hoog',
+    'price_desc'                => 'Prijs: hoog naar laag',
+    'latest'                    => 'Nieuwste eerst',
+    'oldest'                    => 'Oudste eerst',
 ];

@@ -38,4 +38,9 @@ return [
     'contact_status'            => 'Merci pour votre message!',
     'page_not_found'            => 'Page pas trouvee',
     'unauthorized'              => 'Non autorise!',
+    'relevance'                 => 'Pertinence',
+    'price_asc'                 => 'Prix: bas à haut',
+    'price_desc'                => 'Prix: haut à bas',
+    'latest'                    => 'Nouveau',
+    'oldest'                    => 'Vieux',
 ];

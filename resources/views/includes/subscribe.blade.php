@@ -4,6 +4,9 @@
 @if(Session::has('subscribe_failed'))
 	<div class="alert alert-warning"><span>{{ session('subscribe_failed') }}</span></div>
 @endif
+@if ($errors->first('email'))
+	<div class="alert alert-warning"><span>{{ $errors->first('email') }}</span></div>
+@endif
 <div class="subscribe-container">
 	<div class="discover-box">
 		<h1>{{ trans('messages.discover') }}</h1>
@@ -17,8 +20,5 @@
 			{{ Form::text('email', '', ['placeholder' => 'name@domain.com']) }}
 			{{ Form::submit('OK') }}
 		{!! Form::close() !!}
-		@if ($errors->first('email'))
-			{{ $errors->first('email') }}
-		@endif
 	</div>
 </div>

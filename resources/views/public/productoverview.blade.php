@@ -49,11 +49,11 @@
 		  	</button>
 
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'relevance',url()->full())  : '?sort=relevance')}}">Relevance</a></li>
-				<li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'price_asc',url()->full())  : '?sort=price_asc')}}">Price: low to high</a></li>
-				<li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'price_desc',url()->full())  : '?sort=price_desc')}}">Price: high to low</a></li>
-			    <li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'latest',url()->full())  : '?sort=latest')}}">Latest</a></li>
-			    <li><a href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'oldest',url()->full())  : '?sort=oldest')}}">Oldest</a></li>
+				<li><a class="filter-dropdown-value" href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'relevance',url()->full())  : '?sort=relevance')}}">{{ trans('messages.relevance') }}</a></li>
+				<li><a class="filter-dropdown-value" href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'price_asc',url()->full())  : '?sort=price_asc')}}">{{ trans('messages.price_asc') }}</a></li>
+				<li><a class="filter-dropdown-value" href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'price_desc',url()->full())  : '?sort=price_desc')}}">{{ trans('messages.price_desc') }}</a></li>
+			    <li><a class="filter-dropdown-value" href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'latest',url()->full())  : '?sort=latest')}}">{{ trans('messages.latest') }}</a></li>
+			    <li><a class="filter-dropdown-value" href="{{ (isset($_GET['sort']) ? str_replace($_GET['sort'],'oldest',url()->full())  : '?sort=oldest')}}">{{ trans('messages.oldest') }}</a></li>
 		  	</ul>
 		</div>
 
@@ -77,7 +77,6 @@
 					</div>
 				</div>
 			@endforeach
-
 		@else
 			<span class="not-found-msg">{{ trans('messages.no_products') }}</span>
 		@endif

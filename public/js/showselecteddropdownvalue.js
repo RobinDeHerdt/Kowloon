@@ -2,23 +2,29 @@
 	var displaySelectedValueField 	= document.getElementById('dropdownMenu1');
 	var sortBy 						= getParameterByName('sort');
 	var selectedSortFunction		= document.getElementById('selectedSortFunction');
+	var values						= document.getElementsByClassName('filter-dropdown-value');
+	var valuesArray					= [];
+
+	for (var i = 0; i < values.length; i++) {
+		valuesArray.push(values[i].text);
+	}
 
 	switch(sortBy)
 	{
-		case 'price_asc': 	sortByOutput = 'Price: low to high';
+		case 'price_asc': 	sortByOutput = valuesArray[1];
 			break;
-		case 'price_desc': 	sortByOutput = 'Price: high to low';
+		case 'price_desc': 	sortByOutput = valuesArray[2];
 			break;
-		case 'oldest': 		sortByOutput = 'Oldest';
+		case 'latest': 		sortByOutput = valuesArray[3];
 			break;
-		case 'latest': 		sortByOutput = 'Latest';
+		case 'oldest': 		sortByOutput = valuesArray[4];
 			break;
-		default: 			sortByOutput = 'Relevance';
+		default: 			sortByOutput = valuesArray[0];
 							sortBy 		 = 'relevance';
 	}
 
 	selectedSortFunction.value 			= sortBy;
-	displaySelectedValueField.innerHTML = 'Sort by ' + sortByOutput + ' <span class="caret"></span>';
+	displaySelectedValueField.innerHTML = sortByOutput + ' <span class="caret"></span>';
 })();
 
 // http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript

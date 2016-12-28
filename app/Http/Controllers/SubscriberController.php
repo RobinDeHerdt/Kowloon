@@ -14,7 +14,7 @@ class SubscriberController extends Controller
     public function store($lang, Request $request)
     {
     	$this->validate($request, [
-        	'email' 	=> 'required|max:255|email',
+        	'email' 	=> 'required|max:255|email|unique:subscribers',
     	]);
 
     	try
@@ -34,9 +34,6 @@ class SubscriberController extends Controller
     	{
     		switch($e->getCode())
     		{
-    			case 23000: 
-    				Session::flash('subscribe_failed', 'Je bent al ingeschreven voor onze nieuwsbrief!');
-    				break;
     			case 0:
     				Session::flash('subscribe_failed', 'You are subscribed! But something went wrong sending the confirmation email.');
     				break;

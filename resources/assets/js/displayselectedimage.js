@@ -1,10 +1,13 @@
 (function() {
-	var imageContainers = getImageContainers();
-	changeStyles(0, imageContainers);
+	if(document.getElementsByClassName('details-img-container'))
+	{
+		var imageContainers = getImageContainers();
+		changeStyles(0, imageContainers);
+	}
 })();
 
 function getImageContainers() {
-	return document.getElementsByClassName('image-container');
+	return document.getElementsByClassName('details-img-container');
 }
 
 function selectImage(selectedElement) {

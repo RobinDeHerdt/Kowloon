@@ -14,7 +14,7 @@
 			<div class="details-images-container">
 				@foreach ($productimages as $key=>$image)
 					<div class="details-image">
-						<div class="image-container">
+						<div class="image-container details-img-container">
 							<img src="/img/products/{{ $image->image_url }}" id="{{ $key }}" onclick="selectImage(this)">
 						</div>
 						<span>{{ $image->{"description_" . LaravelLocalization::getCurrentLocale()} }}</span>
@@ -88,8 +88,6 @@
 
 @section('scripts')
 <script src="/js/scroll.js"></script>
-<script src="/js/displayselectedimage.js"></script>
-<script src="/js/showcolors.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -89,3 +89,15 @@
 	overflow:hidden;
 	z-index: 11;
 }
+
+#menu-open {
+	form {
+		float: left;
+		margin: 25px 0 0 25px;
+
+		select {
+			width: 50px;
+			color: black;
+		}
+	}
+}

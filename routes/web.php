@@ -8,9 +8,8 @@ Route::post('/logout', 'Auth\LoginController@logout');
 // Unlocalized routes
 Route::get('/', 'LanguageController@index');
 Route::get('setcookie', 'CookieController@store');
-Route::get('language/{lang}', 'LanguageController@store');
-
 Route::post('/contact', 'ContactController@store');
+Route::post('/switchlang', 'LanguageController@update');
 Route::post('/{lang}/subscribe', 'SubscriberController@store');
 
 // Localized routes

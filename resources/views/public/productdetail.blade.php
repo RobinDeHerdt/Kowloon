@@ -62,7 +62,7 @@
 			</div>
 			<h4>{{ trans('messages.technical_description')}}</h4>
 			<div class="specification">
-				<span>{{ $product->{"description_" . LaravelLocalization::getCurrentLocale()} }}</span>
+				<span>{{ $product->{"technical_description_" . LaravelLocalization::getCurrentLocale()} }}</span>
 			</div>
 		</div>
 		@if ($relatedProducts->count())

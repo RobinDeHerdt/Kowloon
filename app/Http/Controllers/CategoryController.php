@@ -62,7 +62,7 @@ class CategoryController extends Controller
                         $sortOrder  = 'desc';
             }
 
-            if ($request->query('minimumprice') && $request->query('maximumprice'))
+            if (is_numeric($request->query('minimumprice')) && is_numeric($request->query('maximumprice')))
             {
                 $minimumprice       = $request->query('minimumprice');
                 $maximumprice       = $request->query('maximumprice');

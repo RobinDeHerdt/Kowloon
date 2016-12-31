@@ -16,7 +16,7 @@ class SearchController extends Controller
     	$response	 = null;
         $inputstring = null;
 
-        if($request->query('minprice') && $request->query('maxprice'))
+        if(is_numeric($request->query('minprice')) && is_numeric($request->query('maxprice')))
         {
             $minprice   = $request->query('minprice');
             $maxprice   = $request->query('maxprice');

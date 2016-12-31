@@ -67,7 +67,10 @@
         </div>
     </div>
     <div id="menu-open">
-        
+        {!! Form::open(['url' => 'switchlang', 'method' => 'post']) !!}
+            {{Form::select('lang',['nl'=>'nl','fr'=>'fr'], LaravelLocalization::getCurrentLocale() ,['onchange'=>'submit()'])}}
+            <input type="hidden" name="uri" value="{{ Request::path() }}">
+        {!! Form::close() !!}
     </div>
     @yield('content')
     <script src="/js/app.js"></script>

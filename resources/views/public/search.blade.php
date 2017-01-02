@@ -59,10 +59,10 @@
 			@foreach ($results as $result)
 				<div class="searchresult">
 					<div class="result-image">
-						<img src="/img/products/{{$result->productimages->first()->image_url}}" alt="">
+						<a href="category/{{$result->category_id}}/product/{{$result->id}}"><img src="/img/products/{{$result->productimages->first()->image_url}}" alt=""></a>
 					</div>
 					<div class="result-text">
-						<h3>{{$result->{"name_" . LaravelLocalization::getCurrentLocale()} }}</h3>
+						<a href="category/{{$result->category_id}}/product/{{$result->id}}"><h3>{{$result->{"name_" . LaravelLocalization::getCurrentLocale()} }}</h3></a>
 						<span>€{{$result->price}}</span>
 						<p>{{$result->{"description_" . LaravelLocalization::getCurrentLocale()} }}</p>
 						<p>{{$result->{"technical_description_" . LaravelLocalization::getCurrentLocale()} }}</p>

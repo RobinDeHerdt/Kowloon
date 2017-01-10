@@ -15,8 +15,10 @@ class CreateProductQuestionTable extends Migration
     {
         Schema::create('product_question', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
-            $table->integer('question_id');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('question_id')->unsigned();
+            $table->foreign('question_id')->references('id')->on('questions');
             $table->timestamps();
         });
     }

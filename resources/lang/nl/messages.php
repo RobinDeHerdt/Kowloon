@@ -11,7 +11,7 @@ return [
     'colors' 					=> 'Kleuren',
     'description'				=> 'Beschrijving',
     'specifications'			=> 'Specificaties',
-    'technical_description'		=> 'Technische bescrijving',
+    'technical_description'		=> 'Technische beschrijving',
     'dimensions'				=> 'Afmetingen',
     'no_dimensions'             => 'Er zijn geen afmetingen voor dit product',
     'related_products'			=> 'Gerelateerde producten',
